@@ -1,5 +1,6 @@
 import datetime
 import telebot
+from telebot import types
 
 time = datetime.datetime.now()
 print("Bot started: " + str(time))
