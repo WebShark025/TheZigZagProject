@@ -12,6 +12,7 @@ print("Bot started: " + str(time))
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
 DEEP_LOGGING = False # FOR DEBUGGING PURPOSES ONLY
 SAFE_ECHO = False # DOONT REPLY TO MESSAGES SENT IN SUPER GROUPS TO PREVENT SPAM
+ADMIN_ID = 98120772 # ID OF BOT'S ADMIN
 REPLIER = True # Lol.. a simple reply-to-message system xD (using dictionaries)
 
 #REPLY MESSAGES
@@ -38,6 +39,11 @@ def send_welcome(message):
 def send_test(message):
   bot.send_message(message.chat.id, "LoL Test Msg")
 
+@bot.message_handler(commands=['sendcontact'])
+def send_test(message):
+  bot.send_message(message.chat.id, "Please share your contact to the bot.")
+  
+
 @bot.message_handler(commands=['echo'])
 def echo_message(message):
   if SAFE_ECHO:
@@ -58,6 +64,11 @@ def message_replier(messages):
     if message.text in reply_message_list:
       bot.reply_to(message, reply_message_list.get(message.text))
 
+def contact_forwarder(contact):
+  for message in contact:
+    if message.content_type = "contact":
+      bot.reply_to(ADMIN_ID, message.chat.id, message.message.id)
+
 
 logger = telebot.logger
 if DEEP_LOGGING:
@@ -71,5 +82,6 @@ else:
 if REPLIER:
   bot.set_update_listener(message_replier)
 
+bot.set_update_listener(contact_forwarder)
 logfile.close()
 bot.polling(none_stop=True, interval=0, timeout=3)
