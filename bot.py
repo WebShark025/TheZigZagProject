@@ -12,6 +12,6 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['test', 'toast'])
 def send_test(message):
-  bot.send_message(message.chat_id, "LoL Test Msg")
+  bot.send_message(message.chat, "LoL Test Msg")
 
 bot.polling()
