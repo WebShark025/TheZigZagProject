@@ -10,6 +10,7 @@ print("Bot started: " + str(time))
 # CONFIG
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
 LOGGING = False # FOR DEBUGGING PURPOSES ONLY
+SAFE_ECHO = False # DOONT REPLY TO MESSAGES SENT IN SUPER GROUPS TO PREVENT SPAM
 REPLIER = True # Lol.. a simple reply-to-message system xD (using dictionaries)
 
 #REPLY MESSAGES
@@ -35,10 +36,10 @@ def send_test(message):
 
 @bot.message_handler(commands=['echo'])
 def echo_message(message):
-  # To disable this function, just comment theese three below lines
-  if message.chat.type == "supergroup":
-    bot.reply_to(message, "Unfortunately I wont reply to messages sent in a supergroup to prevent spamming.")
-    return
+  if SAFE_ECHO:
+    if message.chat.type == "supergroup":
+      bot.reply_to(message, "Unfortunately I wont reply to messages sent in a supergroup to prevent spamming.")
+      return
   if len(message.text.split()) < 2:
     bot.reply_to(message, "Please enter a text so I reply to it!")
     return
