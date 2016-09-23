@@ -19,4 +19,14 @@ def send_welcome(message):
 def send_test(message):
   bot.send_message(message.chat.id, "LoL Test Msg")
 
+@bot.message_handler(commands=['echo'])
+def echo_message(message):
+  if len(message.text.split()) != 2:
+    bot.reply_to(message, "Please enter a text so I reply to it!)
+  try:
+    bot.reply_to(message, message.text)
+  except:
+    bot.send_message(messsage.chat.id, "Error occured.")
+  
+  
 bot.polling(none_stop=True, interval=0, timeout=3)
