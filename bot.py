@@ -13,7 +13,7 @@ LOGGING = False # FOR DEBUGGING PURPOSES ONLY
 REPLIER = True # Lol.. a simple reply-to-message system xD (using dictionaries)
 
 #REPLY MESSAGES
-reply_message_list {"salam": "slm",
+reply_message_list = {"salam": "slm",
   "hi": "aleyke hi",
   "hello": "dorood",
 }
