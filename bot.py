@@ -67,7 +67,7 @@ def message_replier(messages):
 def contact_forwarder(contacts):
   for contact in contacts:
     if contact.content_type == "contact":
-      bot.reply_to(ADMIN_ID, contact.chat.id, contact.message.id)
+      bot.reply_to(ADMIN_ID, contact.chat.id, contact.message_id)
 
 
 logger = telebot.logger
