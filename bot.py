@@ -21,10 +21,10 @@ def send_test(message):
 
 @bot.message_handler(commands=['echo'])
 def echo_message(message):
-  if len(message.text.split()) != 2:
+  if len(message.text.split()) !>= 2:
     bot.reply_to(message, "Please enter a text so I reply to it!")
   try:
-    echo_msg = message.text.replace("/echo ","",1)
+    echo_msg = message.text.replace("/echo","",1)
     bot.reply_to(message, echo_msg)
   except:
     bot.send_message(messsage.chat.id, "Error occured.")
