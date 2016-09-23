@@ -10,7 +10,7 @@ print("Bot started: " + str(time))
 
 # CONFIG
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
-LOGGING = False # FOR DEBUGGING PURPOSES ONLY
+DEEP_LOGGING = False # FOR DEBUGGING PURPOSES ONLY
 SAFE_ECHO = False # DOONT REPLY TO MESSAGES SENT IN SUPER GROUPS TO PREVENT SPAM
 REPLIER = True # Lol.. a simple reply-to-message system xD (using dictionaries)
 
@@ -29,7 +29,10 @@ def send_welcome(message):
   itembtna = types.KeyboardButton('/start')
   itembtnv = types.KeyboardButton('/help')
   markup.row(itembtna, itembtnv)
-  bot.reply_to(message, "Hey, Hi!", reply_markup=markup)
+  if message.chat.type == "private":
+    bot.reply_to(message, "Hey, Hi!", reply_markup=markup)
+  else:
+    bot.reply_to(message, "Hey, Hi!")
 
 @bot.message_handler(commands=['test', 'toast'])
 def send_test(message):
@@ -57,7 +60,7 @@ def message_replier(messages):
 
 
 logger = telebot.logger
-if LOGGING:
+if DEEP_LOGGING:
   print("Logging enabled.")
   logfile.write("logging enabled. \n")
   telebot.logger.setLevel(logging.DEBUG)
