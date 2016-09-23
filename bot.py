@@ -10,4 +10,8 @@ bot = telebot.TeleBot(TOKEN)
 def send_welcome(message):
   bot.reply_to(message, "Hey, Hi!")
 
+@bot.message_handler(commands=['test', 'toast'])
+def send_test(message):
+  bot.send_message(message, "LoL Test Msg")
+
 bot.polling()
