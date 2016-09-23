@@ -1,8 +1,8 @@
 import datetime
 import telebot
 import logging
-import locale
 from telebot import types
+execfile("locale.py")
 
 # CONFIG
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
