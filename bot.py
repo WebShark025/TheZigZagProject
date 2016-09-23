@@ -1,7 +1,8 @@
 import datetime
 import telebot
 
-print("Bot started: " str(time = datetime.datetime.now()))
+time = datetime.datetime.now()
+print("Bot started: " str(time)
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc'
 bot = telebot.TeleBot(TOKEN)
 
