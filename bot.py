@@ -10,6 +10,14 @@ print("Bot started: " + str(time))
 # CONFIG
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
 LOGGING = False # FOR DEBUGGING PURPOSES ONLY
+REPLIER = True # Lol.. a simple reply-to-message system xD (using dictionaries)
+
+#REPLY MESSAGES
+reply_message_list {
+  "salam": "slm",
+  "hi": "aleyke hi",
+  "hello": "dorood",
+}
 # END OF CONFIG
 
 bot = telebot.TeleBot(TOKEN)
@@ -41,6 +49,10 @@ def echo_message(message):
   except:
     bot.send_message(messsage.chat.id, "Error occured.")
   
+def message_replier(messages):
+  for message in messages:
+    if message.text in reply_message_list:
+      bot.reply_to(message, reply_message_list.get(message.text))
 
 
 logger = telebot.logger
@@ -49,5 +61,8 @@ if LOGGING:
   telebot.logger.setLevel(logging.DEBUG)
 else:
   print("Logging disabled.")
+
+if REPLIER:
+  bot.set_update_listener(message_replier)
 
 bot.polling(none_stop=True, interval=0, timeout=3)
