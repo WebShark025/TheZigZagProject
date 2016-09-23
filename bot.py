@@ -3,8 +3,9 @@ import telebot
 import logging
 from telebot import types
 
-
+logfile = open("bot.log", "a")
 time = datetime.datetime.now()
+logfile.write("Bot Started: " + str(time) + " with ")
 print("Bot started: " + str(time))
 
 # CONFIG
@@ -58,11 +59,14 @@ def message_replier(messages):
 logger = telebot.logger
 if LOGGING:
   print("Logging enabled.")
+  logfile.write("logging enabled. \n")
   telebot.logger.setLevel(logging.DEBUG)
 else:
+  logfile.write("logging enabled. \n")
   print("Logging disabled.")
 
 if REPLIER:
   bot.set_update_listener(message_replier)
 
+logfile.close()
 bot.polling(none_stop=True, interval=0, timeout=3)
