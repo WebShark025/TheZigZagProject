@@ -14,7 +14,7 @@ def send_welcome(message):
 def send_test(message):
   bot.send_message(message.chat.id, "LoL Test Msg")
 
-@bot.message_handler(func=lambda msg: msg.text.encode("utf-8") == 😐)
+@bot.message_handler(func=lambda msg: msg.text.encode("utf-8") == "😐")
 def poker_Detected(message):
   bot.reply_to(message, "Poker nade koskesh")
 
