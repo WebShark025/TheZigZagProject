@@ -13,7 +13,7 @@ def send_welcome(message):
   itembtna = types.KeyboardButton('/start')
   itembtnv = types.KeyboardButton('/help')
   markup.row(itembtna, itembtnv)
-  bot.reply_to(message, "Hey, Hi!")
+  bot.reply_to(message, "Hey, Hi!", reply_markup=markup)
 
 @bot.message_handler(commands=['test', 'toast'])
 def send_test(message):
