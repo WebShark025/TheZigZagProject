@@ -1,10 +1,17 @@
 import datetime
 import telebot
+import logging
 from telebot import types
+
 
 time = datetime.datetime.now()
 print("Bot started: " + str(time))
+
+# CONFIG
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc'
+LOGGING = True
+# END OF CONFIG
+
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
@@ -34,5 +41,13 @@ def echo_message(message):
   except:
     bot.send_message(messsage.chat.id, "Error occured.")
   
-  
+
+
+logger = telebot.logger
+if LOGGING:
+  print("Logging enabled.")
+  telebot.logger.setLevel(logging.DEBUG)
+else:
+  print("Logging disabled.")
+
 bot.polling(none_stop=True, interval=0, timeout=3)
