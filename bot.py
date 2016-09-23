@@ -22,7 +22,7 @@ def send_test(message):
 @bot.message_handler(commands=['echo'])
 def echo_message(message):
   # To disable this function, just comment theese three below lines
-  if message.chat.type == “group” | message.chat.type == "supergroup":
+  if message.chat.type == "supergroup":
     bot.reply_to(message, "Unfortunately I wont reply to messages sent in a group to prevent spamming.")
     return
   if len(message.text.split()) < 2:
