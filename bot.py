@@ -8,8 +8,8 @@ time = datetime.datetime.now()
 print("Bot started: " + str(time))
 
 # CONFIG
-TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc'
-LOGGING = True
+TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
+LOGGING = False # FOR DEBUGGING PURPOSES ONLY
 # END OF CONFIG
 
 bot = telebot.TeleBot(TOKEN)
