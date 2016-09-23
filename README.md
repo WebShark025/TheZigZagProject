@@ -35,6 +35,17 @@ chmod +x launch.sh
 ./launch.sh
 ```
 
+# Commands 
+
+| Command | Description |
+|:--------|:------------|
+| /help & /start | Returns the start message |
+| /test & /toast | (BetaVersionsOnly) Just replies a message |
+| /echo <text> | Echoes the text |
+| /sendcontact | Sends user contact to bot admin |
+
+More commands comming soon!
+
 # Contact me
 
 [![https://telegram.me/WebShark25](https://img.shields.io/badge/💬_Telegram-WebShark25-blue.svg)](https://telegram.me/WebShark25)
