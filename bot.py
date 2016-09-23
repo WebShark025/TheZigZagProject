@@ -67,7 +67,7 @@ def message_replier(messages):
 
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
 def contact_forwarder(contact):
-  if message.chat.type == "private":
+  if contact.chat.type == "private":
     bot.send_message(ADMIN_ID, "New contact recieved:")
     bot.forward_message(ADMIN_ID, contact.chat.id, contact.message_id)
     bot.reply_to(contact, "Contact successfully forwarded!")
