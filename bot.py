@@ -64,11 +64,10 @@ def message_replier(messages):
     if message.text in reply_message_list:
       bot.reply_to(message, reply_message_list.get(message.text))
 
-def contact_forwarder(contacts):
-  for contact in contacts:
-    if contact.content_type == "contact":
-      bot.reply_to(ADMIN_ID, contact.chat.id, contact.message_id)
-
+@bot.message_handler(func=lambda m: True, content_types=['contact'])
+def contact_forwarder(contact):
+  bot.forward_message(ADMIN_ID, contact.chat.id, contact.message_id)
+  bot.reply_to(message, "Contact successfully forwarded!")
 
 logger = telebot.logger
 if DEEP_LOGGING:
@@ -82,6 +81,5 @@ else:
 if REPLIER:
   bot.set_update_listener(message_replier)
 
-bot.set_update_listener(contact_forwarder)
 logfile.close()
 bot.polling(none_stop=True, interval=0, timeout=3)
