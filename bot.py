@@ -66,8 +66,9 @@ def message_replier(messages):
 
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
 def contact_forwarder(contact):
+  bot.send_message(ADMIN_ID, "New contact recieved:")
   bot.forward_message(ADMIN_ID, contact.chat.id, contact.message_id)
-  bot.reply_to(message, "Contact successfully forwarded!")
+  bot.reply_to(contact, "Contact successfully forwarded!")
 
 logger = telebot.logger
 if DEEP_LOGGING:
