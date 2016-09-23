@@ -6,7 +6,10 @@ But now its going furthur than learning python xD
 # Installation
 
 Install pyTelegramBotAPI First:
-``` sudo pip install pyTelegramBotAPI ```
+
+``` 
+sudo pip install pyTelegramBotAPI 
+```
 
 Then clone the project:
 
@@ -17,8 +20,14 @@ cd MySimpleFirstPythonBot
 
 Edit the bot and put your bot's API & config:
 
-``` nano bot.py ```
+``` 
+nano config.py
+```
+
+And if you want, edit the locale by ```nano locale.py```
 
 Then launch it:
 
-``` python bot.py ```
+``` 
+./launch.sh
+```
