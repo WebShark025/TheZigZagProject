@@ -24,7 +24,8 @@ def echo_message(message):
   if len(message.text.split()) != 2:
     bot.reply_to(message, "Please enter a text so I reply to it!")
   try:
-    bot.reply_to(message, message.text)
+    echo_msg = message.text.replace("/echo ","",1)
+    bot.reply_to(message, echo_msg)
   except:
     bot.send_message(messsage.chat.id, "Error occured.")
   
