@@ -64,8 +64,8 @@ def message_replier(messages):
     if message.text in reply_message_list:
       bot.reply_to(message, reply_message_list.get(message.text))
 
-def contact_forwarder(contact):
-  for message in contact:
+def contact_forwarder(contacts):
+  for contact in contacts:
     if message.content_type == "contact":
       bot.reply_to(ADMIN_ID, message.chat.id, message.message.id)
 
