@@ -9,8 +9,10 @@ Install pyTelegramBotAPI First:
 
 Then clone the project:
 
-`git clone https://github.com/WebShark025/MySimpleFirstPythonBot
-cd MySimpleFirstPythonBot`
+```
+git clone https://github.com/WebShark025/MySimpleFirstPythonBot
+cd MySimpleFirstPythonBot
+```
 
 Edit the bot and put your bot's API & config:
 
