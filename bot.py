@@ -8,6 +8,10 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
+  markup = types.ReplyKeyboardMarkup()
+  itembtna = types.KeyboardButton('/start')
+  itembtnv = types.KeyboardButton('/help')
+  markup.row(itembtna, itembtnv)
   bot.reply_to(message, "Hey, Hi!")
 
 @bot.message_handler(commands=['test', 'toast'])
@@ -18,4 +22,4 @@ def send_test(message):
 def poker_Detected(message):
   bot.reply_to(message, "Poker nade koskesh")
 
-bot.polling()
+bot.polling(none_stop=True, interval=0, timeout=3)
