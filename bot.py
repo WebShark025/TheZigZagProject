@@ -3,11 +3,6 @@ import telebot
 import logging
 from telebot import types
 
-logfile = open("bot.log", "a")
-time = datetime.datetime.now()
-logfile.write("Bot Started: " + str(time) + " with ")
-print("Bot started: " + str(time))
-
 # CONFIG
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
 DEEP_LOGGING = False # FOR DEBUGGING PURPOSES ONLY
@@ -21,6 +16,12 @@ reply_message_list = {"salam": "slm",
   "hello": "dorood",
 }
 # END OF CONFIG
+
+
+logfile = open("bot.log", "a")
+time = datetime.datetime.now()
+logfile.write("Bot Started: " + str(time) + " with ")
+print("Bot started: " + str(time))
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -41,7 +42,7 @@ def send_test(message):
 
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
-  bot.send_message(message.chat.id, "Please share your contact to the bot.")
+  bot.send_message(message.chat.id, "Please share your contact to the bot (in a private message).")
   
 
 @bot.message_handler(commands=['echo'])
@@ -66,9 +67,10 @@ def message_replier(messages):
 
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
 def contact_forwarder(contact):
-  bot.send_message(ADMIN_ID, "New contact recieved:")
-  bot.forward_message(ADMIN_ID, contact.chat.id, contact.message_id)
-  bot.reply_to(contact, "Contact successfully forwarded!")
+  if message.chat.type == "private":
+    bot.send_message(ADMIN_ID, "New contact recieved:")
+    bot.forward_message(ADMIN_ID, contact.chat.id, contact.message_id)
+    bot.reply_to(contact, "Contact successfully forwarded!")
 
 logger = telebot.logger
 if DEEP_LOGGING:
