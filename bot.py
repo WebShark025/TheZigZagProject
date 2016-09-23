@@ -62,7 +62,7 @@ if LOGGING:
   logfile.write("logging enabled. \n")
   telebot.logger.setLevel(logging.DEBUG)
 else:
-  logfile.write("logging enabled. \n")
+  logfile.write("logging disabled. \n")
   print("Logging disabled.")
 
 if REPLIER:
