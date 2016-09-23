@@ -1,2 +1,2 @@
 # MySimpleFirstPythonBot
-Just to learn python &amp; Telegram bot APi
+Just to learn python &amp; Telegram bot API
