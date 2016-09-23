@@ -1,6 +1,7 @@
 import datetime
 import telebot
 import logging
+import locale
 from telebot import types
 
 # CONFIG
@@ -32,33 +33,33 @@ def send_welcome(message):
   itembtnv = types.KeyboardButton('/help')
   markup.row(itembtna, itembtnv)
   if message.chat.type == "private":
-    bot.reply_to(message, "Hey, Hi!", reply_markup=markup)
+    bot.reply_to(message, START_MSG, reply_markup=markup)
   else:
-    bot.reply_to(message, "Hey, Hi!")
+    bot.reply_to(message, START_MSG)
 
 @bot.message_handler(commands=['test', 'toast'])
 def send_test(message):
-  bot.send_message(message.chat.id, "LoL Test Msg")
+  bot.send_message(message.chat.id, TEST_MSG)
 
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
-  bot.send_message(message.chat.id, "Please share your contact to the bot (in a private message).")
+  bot.send_message(message.chat.id, SHARE_CONTACT_MSG)
   
 
 @bot.message_handler(commands=['echo'])
 def echo_message(message):
   if SAFE_ECHO:
     if message.chat.type == "supergroup":
-      bot.reply_to(message, "Unfortunately I wont reply to messages sent in a supergroup to prevent spamming.")
+      bot.reply_to(message, NO_ECHO_IN_SUPERGP_MSG)
       return
   if len(message.text.split()) < 2:
-    bot.reply_to(message, "Please enter a text so I reply to it!")
+    bot.reply_to(message, ECHO_REPLY_MSG)
     return
   try:
     echo_msg = message.text.replace("/echo","",1)
     bot.reply_to(message, echo_msg)
   except:
-    bot.send_message(messsage.chat.id, "Error occured.")
+    bot.send_message(messsage.chat.id, ERROR_MSG)
   
 def message_replier(messages):
   for message in messages:
@@ -68,9 +69,9 @@ def message_replier(messages):
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
 def contact_forwarder(contact):
   if contact.chat.type == "private":
-    bot.send_message(ADMIN_ID, "New contact recieved:")
+    bot.send_message(ADMIN_ID, CONTACT_RECIEVED_MSG)
     bot.forward_message(ADMIN_ID, contact.chat.id, contact.message_id)
-    bot.reply_to(contact, "Contact successfully forwarded!")
+    bot.reply_to(contact, CONTACT_FORWARDED_MSG)
 
 logger = telebot.logger
 if DEEP_LOGGING:
