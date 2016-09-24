@@ -42,3 +42,17 @@ More commands comming soon!
 # Contact me
 
 [![https://telegram.me/WebShark25](https://img.shields.io/badge/💬_Telegram-WebShark25-blue.svg)](https://telegram.me/WebShark25)
+
+The ZigZag official channel in Telegram: [@TheZigZagProject](https://telegram.me/TheZigZagProject)
+
+The ZigZag official bot in Telegram: [@TheZigZagBot](https://telegram.me/TheZigZagBot)
+
+# Credits
+
+Special thanks to [Iman Daneshi](https://github.com/imandaneshi) for the idea.
+
+Thanks to [ThisIsAmirH](https://github.com/ThisIsAmir) for some part of his codes.
+
+And thanks to [eternnoir](https://github.com/eternnoir/) for his awesome API!
+
+
