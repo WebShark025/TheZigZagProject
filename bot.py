@@ -86,9 +86,11 @@ def message_replier(messages):
     if message.text == "Send feedback":
       bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
       messanger_list.append(userid)
+      return
     if userid in messanger_list:
       bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
       messanger_list.remove(userid)
+      bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
 
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
