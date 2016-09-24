@@ -16,11 +16,13 @@ chmod +x install.sh
 sudo ./install.sh
 ```
 
+Launch the bot once: `./launch.sh` then stop it (`Ctrl + C`)
+
 A Copy of `locale.py.new` & `config.py.new` will be maken => `locale.py` & `config.py`. 
 
 Edit those as you need.
 
-To launch the bot, simply execute `./launch.sh` 
+Then launch the bot normaly. To do it, simply execute `./launch.sh` 
 
 If you have problems, visit [Manual installation](https://github.com/WebShark025/MySimpleFirstPythonBot/wiki/Manual-installation)
 
