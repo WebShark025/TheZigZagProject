@@ -25,6 +25,7 @@ def send_welcome(message):
   markup = types.ReplyKeyboardMarkup()
   
   get_buttons_fc()
+  lengthof = len(START_BUTTONS)
   markup.row([itembtn+`i` for i in range(lengthof)])
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG, reply_markup=markup)
