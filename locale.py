@@ -1,7 +1,7 @@
 # LANGUAGE FILE
 
-START_MSG = "Hey, Hi! Choose an option!"
-START_BUTTONS = ("button1", "button2", "button3", "button4", "button5", "button6") # ONLY 6 BUTTONS. 2x3 LINES
+START_MSG = "Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/echo <msg>_ - Echoes the message \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! 😌"
+START_BUTTONS = ("/id", "/echo", "/test", "/start", "/help", "/toast") # ONLY 6 BUTTONS. 2x3 LINES
 TEST_MSG = "LoL Test Msg"
 SHARE_CONTACT_MSG = "Please share your contact to the bot (in a private message)."
 NO_ECHO_IN_SUPERGP_MSG = "Unfortunately I wont reply to messages sent in a supergroup to prevent spamming."
