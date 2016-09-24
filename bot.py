@@ -124,8 +124,8 @@ def user_greet(message):
 def contact_forwarder(contact):
   userid = contact.from_user.id
   if userid in contacter_list:
-    bot.send_message(SUPPORT_GP, CONTACT_RECIEVED_MSG.encode("utf-8"))
-    bot.forward_message(SUPPORT_GP, contact.chat.id, contact.message_id)
+    bot.send_message("-" + str(SUPPORT_GP), CONTACT_RECIEVED_MSG.encode("utf-8"))
+    bot.forward_message("-" + str(SUPPORT_GP), contact.chat.id, contact.message_id)
     bot.reply_to(contact, CONTACT_FORWARDED_MSG.encode("utf-8"))
 
 logger = telebot.logger
