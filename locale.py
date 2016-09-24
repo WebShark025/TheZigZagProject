@@ -12,5 +12,5 @@ CONTACT_FORWARDED_MSG = "Contact successfully forwarded!"
 GP_GREETING_MSG = "Welcome {0} to group {1} !"
 GP_FAREWELL_MSG = "Bye {0} !"
 # {0} = name | {1} = id | {2} = gp id
-ID_MSG = "Your name: {0} \n Your ID: {1}"
-INGP_ID_MSG = ". \n \n Group ID: {2}"
+ID_MSG = "Your name: {0} \n Your ID: {1} \n "
+INGP_ID_MSG = "Group ID: {2}"
