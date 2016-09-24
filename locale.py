@@ -8,4 +8,5 @@ ECHO_REPLY_MSG = "Please enter a text so I reply to it!"
 ERROR_MSG = "Error occured."
 CONTACT_RECIEVED_MSG = "New contact recieved:"
 CONTACT_FORWARDED_MSG = "Contact successfully forwarded!"
-
+GP_GREETING_MSG = "Welcome to group {fullname} !"
+GP_FAREWELL_MSG = "Bye {fullname} !"
