@@ -30,7 +30,7 @@ def send_test(message):
   
 @bot.message_handler(commands=['id'])
 def send_id(message):
-  username = message.from_user.first_name
+  username = message.from_user.first_name.encode("utf-8")
   userid = message.from_user.id
   reply_msg = ID_MSG
   gpid = message.chat.id
