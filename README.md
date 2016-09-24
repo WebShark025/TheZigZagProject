@@ -16,7 +16,9 @@ chmod +x install.sh
 sudo ./install.sh
 ```
 
-Then edit the config.
+A Copy of `locale.py.new` & `config.py.new` will be maken => `locale.py` & `config.py`. 
+
+Edit those as you need.
 
 To launch the bot, simply execute `./launch.sh` 
 
@@ -29,6 +31,7 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /help & /start | Returns the start message |
 | /test & /toast | (BetaVersionsOnly) Just replies a message |
 | /echo text | Echoes the text |
+| /feedback | Sends users feedback |
 | /sendcontact | Sends user contact to bot admin |
 | /id | Sends user ID & name (if in group, groups ID too) |
 
