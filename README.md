@@ -1,9 +1,14 @@
-# MySimpleFirstPythonBot
-Just to learn python &amp; Telegram bot API
+# The ZigZag project!
+
+The official ZigZag project!
+
+Actually I made this to learn python &amp; Telegram bot API
 
 But now its going furthur than learning python xD
 
 Special thanks to Iman Daneshi that gave me the idea to learn python.. lol..
+
+This page will get updated after the first stable release.
 
 # Installation
 
