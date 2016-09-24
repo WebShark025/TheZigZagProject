@@ -8,5 +8,6 @@ ECHO_REPLY_MSG = "Please enter a text so I reply to it!"
 ERROR_MSG = "Error occured."
 CONTACT_RECIEVED_MSG = "New contact recieved:"
 CONTACT_FORWARDED_MSG = "Contact successfully forwarded!"
-GP_GREETING_MSG = "Welcome {fullname} to group {chatname} !"
-GP_FAREWELL_MSG = "Bye {fullname} !"
+# {0} = name | {1} = gp title
+GP_GREETING_MSG = "Welcome {0} to group {1} !"
+GP_FAREWELL_MSG = "Bye {0} !"
