@@ -28,8 +28,9 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 |:--------|:------------|
 | /help & /start | Returns the start message |
 | /test & /toast | (BetaVersionsOnly) Just replies a message |
-| /echo <text> | Echoes the text |
+| /echo text | Echoes the text |
 | /sendcontact | Sends user contact to bot admin |
+| /id | Sends user ID & name (if in group, groups ID too) |
 
 More commands comming soon!
 
