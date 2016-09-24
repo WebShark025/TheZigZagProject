@@ -1,7 +1,12 @@
 import datetime
 import telebot
 import logging
+import sys
 from telebot import types
+
+reload(sys)  
+sys.setdefaultencoding("utf-8")
+
 execfile("locale.py")
 execfile("config.py")
 
