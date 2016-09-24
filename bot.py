@@ -13,20 +13,18 @@ print("Bot started: " + str(time))
 
 bot = telebot.TeleBot(TOKEN)
 
-def get_buttons_fc():
+
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+  markup = types.ReplyKeyboardMarkup()
+  
   lengthof = len(START_BUTTONS)
   countn = 0
   while (countn < lengthof):
     exec("itembtn" + str(countn) + " = types.KeyboardButton(START_BUTTONS[" + str(countn) + "])")
     countn = countn + 1
   
-@bot.message_handler(commands=['start', 'help'])
-def send_welcome(message):
-  markup = types.ReplyKeyboardMarkup()
-  
-  get_buttons_fc()
-  lengthof = len(START_BUTTONS)
-  markup.row([itembtn+`i` for i in range(lengthof)])
+  markup.row([itembtn+`countn` for countn in range(lengthof)])
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG, reply_markup=markup)
   else:
