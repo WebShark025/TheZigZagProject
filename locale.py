@@ -14,3 +14,5 @@ GP_FAREWELL_MSG = "Bye {0} !"
 # {0} = name | {1} = id | {2} = gp id
 ID_MSG = "Your name: {0} \n Your ID: {1} \n "
 INGP_ID_MSG = "Group ID: {2}"
+NON_ADMIN_ADDED_BOT_MSG = "Im sorry but Im not authorized to join groups by normal members. Only admins can add me to groups"
+BOT_JOINED_MSG = "Hey, Im here! At your service."
