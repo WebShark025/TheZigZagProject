@@ -48,7 +48,8 @@ def send_welcome(message):
       while (cfrom < cto):
         itembtn.append(START_BUTTONS[cfrom])
         cfrom = cfrom + 1
-        markup.row(*itembtn)
+        if len(itembtn) == 3:
+          markup.row(*itembtn)
   except:
     lolalola = 0
   
