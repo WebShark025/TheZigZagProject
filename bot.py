@@ -49,8 +49,8 @@ def send_welcome(message):
         itembtn.append(START_BUTTONS[cfrom])
         cfrom = cfrom + 1
         markup.row(*itembtn)
-except:
-  
+  except:
+    
 
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
