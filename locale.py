@@ -1,3 +1,7 @@
+import sys
+
+reload(sys)  
+sys.setdefaultencoding("utf-8")
 # LANGUAGE FILE
 
 START_MSG = "Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/echo <msg>_ - Echoes the message \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! 😌"
