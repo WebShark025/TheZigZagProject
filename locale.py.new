@@ -8,7 +8,7 @@ sys.setdefaultencoding("UTF8")
 
 START_MSG = str("Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/webshot_ - Screenshot from a webpage \n💢 _/calc_ - Lets do some maths \n💢 _/sendcontact_ - Forward contact to admin \n💢 _Send feedback_ - Send feedback! \n💢 _/echo <msg>_ - Echoes the message \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! ").encode("utf-8")
 # MAX 4 LINES. TO ADD, EDIT BOT FILE
-START_BUTTONS = ("/id", "/echo", "/test", "/feedback", "/sendcontact", "/start") # SPLITS 3 PER LINE
+START_BUTTONS = ("/id", "/echo", "/webshot", "/feedback", "/sendcontact", "/calc") # SPLITS 3 PER LINE
 TEST_MSG = "This is a test message."
 SHARE_CONTACT_MSG = "Please share your contact to the bot (in a private message)."
 NO_ECHO_IN_SUPERGP_MSG = "Unfortunately I wont reply to messages sent in a supergroup to prevent spamming."
@@ -27,4 +27,3 @@ BOT_JOINED_MSG = "Hey😧! I am here, At your service."
 MESSANGER_JOIN_MSG = "Now sending feedback. \nPlease enter your message!"
 MESSANGER_LEAVE_MSG = "Thanks for your feedback! Exiting."
 WEBSHOT_CAPTION_MSG = "By the ZigZag bot"
-
