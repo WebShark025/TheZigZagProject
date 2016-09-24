@@ -77,6 +77,11 @@ def webshot_send(message):
   urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text), 'webshot.jpg')
   bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG)
 
+@bot.message_handler(commands=['calc'])
+def clac(m):
+  text = m.text.replace("/calc ","")
+  res = urllib.urlopen("http://api.mathjs.org/v1/?expr={}".format(text)).read()
+  bot.send_message(m.chat.id, "_{}_ = `{}`".format(text,res), parse_mode="Markdown", disable_web_page_preview=True)
 
 @bot.message_handler(commands=['id'])
 def send_id(message):
