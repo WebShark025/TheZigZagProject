@@ -1,7 +1,7 @@
 # LANGUAGE FILE
 
 START_MSG = "Hey, Hi! Choose an option!"
-START_BUTTONS = ("button1", "button2", "button3", "button4") # MAXIMUM 6 BUTTONS. 2x3 LINES
+START_BUTTONS = ("button1", "button2", "button3", "button4", "button5", "button6") # ONLY 6 BUTTONS. 2x3 LINES
 TEST_MSG = "LoL Test Msg"
 SHARE_CONTACT_MSG = "Please share your contact to the bot (in a private message)."
 NO_ECHO_IN_SUPERGP_MSG = "Unfortunately I wont reply to messages sent in a supergroup to prevent spamming."
