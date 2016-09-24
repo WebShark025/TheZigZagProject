@@ -74,8 +74,8 @@ def send_feedbackz(message):
 @bot.message_handler(commands=['webshot'])
 def webshot_send(message):
   text = message.text.replace("/webshot ","")
-    urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text), 'webshot.jpg')
-    bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG)
+  urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text), 'webshot.jpg')
+  bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG, parse_mode="Markdown")
 
 
 @bot.message_handler(commands=['id'])
