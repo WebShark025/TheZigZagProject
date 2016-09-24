@@ -50,8 +50,8 @@ def send_welcome(message):
         cfrom = cfrom + 1
         markup.row(*itembtn)
   except:
-    
-
+    lolalola = 0
+  
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
   else:
