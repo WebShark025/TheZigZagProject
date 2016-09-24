@@ -63,7 +63,7 @@ def user_greet(message):
 @bot.message_handler(func=lambda message: True, content_types=['left_chat_member'])
 def user_greet(message):
   if GP_FAREWELL:
-    name = message.new_chat_member.first_name
+    name = message.left_chat_member.first_name
     title = message.chat.title
     bot.send_message(message.chat.id, GP_FAREWELL_MSG.format(name,title), parse_mode='Markdown')
   
