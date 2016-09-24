@@ -37,9 +37,9 @@ def send_welcome(message):
   markup.row(itembtn0, itembtn1, itembtn2)
   markup.row(itembtn3, itembtn4, itembtn5)
   if message.chat.type == "private":
-    bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup)
+    bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
   else:
-    bot.reply_to(message, START_MSG.encode("utf-8"))
+    bot.reply_to(message, START_MSG.encode("utf-8"), parse_mode="Markdown")
 
 @bot.message_handler(commands=['test', 'toast'])
 def send_test(message):
