@@ -53,18 +53,18 @@ def message_replier(messages):
     if message.text in reply_message_list:
       bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
 
-@bot.message_handler(func=lambda m: True, content_types=['new_chat_member'])
+@bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
   if GP_GREETING:
-    name = m.new_chat_member.first_name
-    title = m.chat.title
+    name = message.new_chat_member.first_name
+    title = message.chat.title
     bot.send_message(message.chat.id, GP_GREETING_MSG.format(name,title), parse_mode='Markdown')
   
-@bot.message_handler(func=lambda m: True, content_types=['left_chat_member'])
+@bot.message_handler(func=lambda message: True, content_types=['left_chat_member'])
 def user_greet(message):
   if GP_FAREWELL:
-    name = m.new_chat_member.first_name
-    title = m.chat.title
+    name = message.new_chat_member.first_name
+    title = message.chat.title
     bot.send_message(message.chat.id, GP_FAREWELL_MSG.format(name,title), parse_mode='Markdown')
   
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
