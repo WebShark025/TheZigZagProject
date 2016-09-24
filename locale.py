@@ -7,7 +7,7 @@ sys.setdefaultencoding("UTF8")
 # LANGUAGE FILE
 
 START_MSG = str("Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/echo <msg>_ - Echoes the message \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! ").encode("utf-8")
-START_BUTTONS = ("/id", "/echo", "/test", "/start", "/help", "/toast") # ONLY 6 BUTTONS. 2x3 LINES
+START_BUTTONS = ("/id", "/echo", "/test", "/start", "/help", "Send feedback") # ONLY 6 BUTTONS. 2x3 LINES
 TEST_MSG = "This is a test message."
 SHARE_CONTACT_MSG = "Please share your contact to the bot (in a private message)."
 NO_ECHO_IN_SUPERGP_MSG = "Unfortunately I wont reply to messages sent in a supergroup to prevent spamming."
