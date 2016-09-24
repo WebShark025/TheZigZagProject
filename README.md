@@ -7,33 +7,18 @@ Special thanks to Iman Daneshi that gave me the idea to learn python.. lol..
 
 # Installation
 
-Install pyTelegramBotAPI First:
-
-``` 
-sudo pip install pyTelegramBotAPI 
-```
-
-Then clone the project:
+Use this simple command:
 
 ```
-git clone https://github.com/WebShark025/MySimpleFirstPythonBot
-cd MySimpleFirstPythonBot
+chmod +x install.sh
+sudo ./install.sh
 ```
 
-Edit the bot and put your bot's API & config:
+Then edit the config.
 
-``` 
-nano config.py
-```
+To launch the bot, simply execute `./launch.sh` 
 
-And if you want, edit the locale by ```nano locale.py```
-
-Then launch it:
-
-``` 
-chmod +x launch.sh
-./launch.sh
-```
+If you have problems, visit [Manual installation](https://github.com/WebShark025/MySimpleFirstPythonBot/wiki/Manual-installation)
 
 # Commands 
 
