@@ -122,7 +122,7 @@ def user_greet(message):
   
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
 def contact_forwarder(contact):
-  userid = message.from_user.id
+  userid = contact.from_user.id
   if userid in contacter_list:
     bot.send_message(SUPPORT_GP, CONTACT_RECIEVED_MSG.encode("utf-8"))
     bot.forward_message(SUPPORT_GP, contact.chat.id, contact.message_id)
