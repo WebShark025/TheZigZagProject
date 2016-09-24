@@ -1,8 +1,18 @@
 import datetime
+import os
 import telebot
 import logging
 import sys
+from shutil import copyfile
 from telebot import types
+
+
+### CONFIG AND LOCALE CHECK
+if not os.path.exists("config.py"):
+  copyfile("config.py.new", "config.py")
+if not os.path.exists("locale.py"):
+  copyfile("locale.py.new", "locale.py")
+
 
 reload(sys)  
 sys.setdefaultencoding("utf-8")
