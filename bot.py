@@ -17,7 +17,7 @@ def get_buttons_fc():
   lengthof = len(START_BUTTONS)
   countn = 0
   while (countn < lengthof):
-    exec("itembtn" + str(countn) + " = types.KeyboardButton(START_BUTTONS[" + str(countn) + "]))
+    exec("itembtn" + str(countn) + " = types.KeyboardButton(START_BUTTONS[" + str(countn) + "])")
     countn = countn + 1
   
 @bot.message_handler(commands=['start', 'help'])
