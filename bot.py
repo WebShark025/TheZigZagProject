@@ -37,18 +37,12 @@ def send_welcome(message):
   markup = types.ReplyKeyboardMarkup()
   lengthof = len(START_BUTTONS)
   countn = 0
-  itembtn0 = None
-  itembtn1 = None
-  itembtn2 = None
-  itembtn3 = None
-  itembtn4 = None
-  itembtn5 = None
-  while (countn < lengthof):
-    exec("itembtn" + str(countn) + " = types.KeyboardButton(START_BUTTONS[" + str(countn) + "])")
+  itembtn = []
+  for btn in START_BUTTONS:
+    itembtn.append(types.KeyboardButton(START_BUTTONS[btn]))
     countn = countn + 1
   
-  markup.row(itembtn0, itembtn1, itembtn2)
-  markup.row(itembtn3, itembtn4, itembtn5)
+  markup.row(*itembtn)
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
   else:
