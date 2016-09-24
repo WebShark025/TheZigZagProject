@@ -36,7 +36,7 @@ bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
   markup = types.ReplyKeyboardMarkup()
-  numbers = list(range(3, 30, 3))
+  numbers = list(range(3, 3000, 3))
   numbers = [0] + numbers
   cline = 0
   linelength = len(START_BUTTONS)
