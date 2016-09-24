@@ -72,6 +72,14 @@ def user_greet(message):
     title = message.chat.title
     bot.send_message(message.chat.id, GP_GREETING_MSG.format(name,title), parse_mode='Markdown')
   
+  if message.new_chat_member.id == bot.get_me().id:
+    inviter = message.from_user.id
+    if inviter not in ADMINS_IDS:
+      bot.send_message(message.chat.id, NON_ADMIN_ADDED_BOT_MSG)
+      bot.leave_chat(message.chat.id)
+    else:
+      bot.send_message(message.chat.id, BOT_JOINED_MSG)
+  
 @bot.message_handler(func=lambda message: True, content_types=['left_chat_member'])
 def user_greet(message):
   if GP_FAREWELL:
