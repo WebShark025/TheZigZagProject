@@ -16,6 +16,8 @@ time = datetime.datetime.now()
 logfile.write("Bot Started: " + str(time) + " with ")
 print("Bot started: " + str(time))
 messanger_list = []
+contacter_list = []
+
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -60,7 +62,9 @@ def send_id(message):
 
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
+  userid = message.from_user.id
   bot.send_message(message.chat.id, SHARE_CONTACT_MSG.encode("utf-8"))
+  contacter_list.append(userid)
   
 
 @bot.message_handler(commands=['echo'])
@@ -118,9 +122,10 @@ def user_greet(message):
   
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
 def contact_forwarder(contact):
-  if contact.chat.type == "private":
-    bot.send_message(SUDO_ID, CONTACT_RECIEVED_MSG.encode("utf-8"))
-    bot.forward_message(SUDO_ID, contact.chat.id, contact.message_id)
+  userid = message.from_user.id
+  if userid in contacter_list:
+    bot.send_message(SUPPORT_GP, CONTACT_RECIEVED_MSG.encode("utf-8"))
+    bot.forward_message(SUPPORT_GP, contact.chat.id, contact.message_id)
     bot.reply_to(contact, CONTACT_FORWARDED_MSG.encode("utf-8"))
 
 logger = telebot.logger
