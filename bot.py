@@ -32,13 +32,13 @@ def send_test(message):
 def send_id(message):
   username = message.from_user.first_name
   userid = message.from_user.id
-  reply_msg = ID_MSG.encode('utf8')
+  reply_msg = ID_MSG
   gpid = message.chat.id
   if message.chat.type == "supergroup":
-    reply_msg = reply_msg + INGP_ID_MSG.encode('utf8')
+    reply_msg = reply_msg + INGP_ID_MSG
   elif message.chat.type == "group":
-    reply_msg = reply_msg + INGP_ID_MSG.encode('utf8')
-  bot.reply_to(message, str(reply_msg.format(username, userid, gpid).encode("utf-8")), parse_mode="Markdown")
+    reply_msg = reply_msg + INGP_ID_MSG
+  bot.reply_to(message, reply_msg.format(username, userid, gpid), parse_mode="Markdown")
 
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
