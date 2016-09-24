@@ -40,7 +40,7 @@ def echo_message(message):
       bot.reply_to(message, NO_ECHO_IN_SUPERGP_MSG)
       return
   if len(message.text.split()) < 2:
-    bot.reply_to(message, ECHO_REPLY_MSG)
+    bot.reply_to(message, ECHO_REPLY_MSG, parse_mode="Markdown")
     return
   try:
     echo_msg = message.text.replace("/echo","",1)
@@ -51,23 +51,37 @@ def echo_message(message):
 def message_replier(messages):
   for message in messages:
     if message.text in reply_message_list:
-      bot.reply_to(message, reply_message_list.get(message.text))
+      bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
 
+@bot.message_handler(func=lambda m: True, content_types=['new_chat_member'])
+def user_greet(message):
+  IF GP_GREETING:
+    name = m.new_chat_member.first_name
+    title = m.chat.title
+    bot.send_message(message.chat.id, GP_GREETING_MSG.format(name,title), parse_mode='Markdown')
+  
+@bot.message_handler(func=lambda m: True, content_types=['left_chat_member'])
+def user_greet(message):
+  IF GP_FAREWELL:
+    name = m.new_chat_member.first_name
+    title = m.chat.title
+    bot.send_message(message.chat.id, GP_FAREWELL_MSG.format(name,title), parse_mode='Markdown')
+  
 @bot.message_handler(func=lambda m: True, content_types=['contact'])
 def contact_forwarder(contact):
   if contact.chat.type == "private":
-    bot.send_message(ADMIN_ID, CONTACT_RECIEVED_MSG)
-    bot.forward_message(ADMIN_ID, contact.chat.id, contact.message_id)
+    bot.send_message(SUDO_ID, CONTACT_RECIEVED_MSG)
+    bot.forward_message(SUDO_ID, contact.chat.id, contact.message_id)
     bot.reply_to(contact, CONTACT_FORWARDED_MSG)
 
 logger = telebot.logger
 if DEEP_LOGGING:
-  print("Logging enabled.")
-  logfile.write("logging enabled. \n")
+  print("Debugging enabled.")
+  logfile.write("debugging enabled. \n")
   telebot.logger.setLevel(logging.DEBUG)
 else:
-  logfile.write("logging disabled. \n")
-  print("Logging disabled.")
+  logfile.write("debugging disabled. \n")
+  print("Debugging disabled.")
 
 if REPLIER:
   bot.set_update_listener(message_replier)
