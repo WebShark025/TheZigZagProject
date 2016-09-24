@@ -38,7 +38,7 @@ def send_id(message):
     reply_msg = reply_msg + INGP_ID_MSG
   elif message.chat.type == "group":
     reply_msg = reply_msg + INGP_ID_MSG
-  bot.reply_to(message, reply_msg.format(username, userid, gpid))
+  bot.reply_to(message, reply_msg.format(username, userid, gpid), parse_mode="Markdown")
 
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
