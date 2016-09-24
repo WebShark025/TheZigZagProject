@@ -20,7 +20,7 @@ def send_welcome(message):
   itembtns = ()
   countn = 0
   while (countn < lengthof):
-    itembtns = itembtns + (types.KeyboardButton(START_BUTTONS[countn])
+    itembtns = itembtns + (types.KeyboardButton(START_BUTTONS[countn]))
     countn = countn + 1
   
   
