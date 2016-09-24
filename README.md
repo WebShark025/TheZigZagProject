@@ -41,6 +41,8 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /feedback | Sends users feedback |
 | /sendcontact | Sends user contact to bot admin |
 | /id | Sends user ID & name (if in group, groups ID too) |
+| /calc | Maths! :D |
+| /webshot | Screenshot from a webpage |
 
 More commands comming soon!
 
