@@ -17,14 +17,19 @@ bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
   markup = types.ReplyKeyboardMarkup()
-  
   lengthof = len(START_BUTTONS)
   countn = 0
+  itembtn0 = None
+  itembtn1 = None
+  itembtn2 = None
+  itembtn3 = None
+  itembtn4 = None
+  itembtn5 = None
   while (countn < lengthof):
     exec("itembtn" + str(countn) + " = types.KeyboardButton(START_BUTTONS[" + str(countn) + "])")
     countn = countn + 1
   
-  markup.row([exec("itembtn"+str(countn)) for countn in range(lengthof)])
+  markup.row(itembtn0, itembtn1, itembtn2, itembtn3, itembtn4, itembtn5)
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG, reply_markup=markup)
   else:
