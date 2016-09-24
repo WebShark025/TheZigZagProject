@@ -48,6 +48,14 @@ def send_welcome(message):
 def send_test(message):
   bot.send_message(message.chat.id, TEST_MSG.encode("utf-8"))
   
+@bot.message_handler(commands=['feedback', 'sendfeedback'])
+def send_feedbackz(message):
+  userid = message.from_user.id
+  if userid not in messanger_list:
+    bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
+    messanger_list.append(userid)
+    return
+
 @bot.message_handler(commands=['id'])
 def send_id(message):
   username = message.from_user.first_name.encode("utf-8")
