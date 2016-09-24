@@ -38,7 +38,7 @@ def send_id(message):
     reply_msg = reply_msg + INGP_ID_MSG.encode('utf8')
   elif message.chat.type == "group":
     reply_msg = reply_msg + INGP_ID_MSG.encode('utf8')
-  bot.reply_to(message, str(reply_msg.format(username, userid, gpid)), parse_mode="Markdown")
+  bot.reply_to(message, str(reply_msg.format(username, userid, gpid).encode("utf-8")), parse_mode="Markdown")
 
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
