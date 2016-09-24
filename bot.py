@@ -39,7 +39,7 @@ def send_welcome(message):
   countn = 0
   itembtn = []
   for btn in START_BUTTONS:
-    itembtn.append(types.KeyboardButton(START_BUTTONS[btn]))
+    itembtn.append(types.KeyboardButton(START_BUTTONS[countn]))
     countn = countn + 1
   
   markup.row(*itembtn)
