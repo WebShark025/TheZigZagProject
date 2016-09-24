@@ -55,14 +55,14 @@ def message_replier(messages):
 
 @bot.message_handler(func=lambda m: True, content_types=['new_chat_member'])
 def user_greet(message):
-  IF GP_GREETING:
+  if GP_GREETING:
     name = m.new_chat_member.first_name
     title = m.chat.title
     bot.send_message(message.chat.id, GP_GREETING_MSG.format(name,title), parse_mode='Markdown')
   
 @bot.message_handler(func=lambda m: True, content_types=['left_chat_member'])
 def user_greet(message):
-  IF GP_FAREWELL:
+  if GP_FAREWELL:
     name = m.new_chat_member.first_name
     title = m.chat.title
     bot.send_message(message.chat.id, GP_FAREWELL_MSG.format(name,title), parse_mode='Markdown')
