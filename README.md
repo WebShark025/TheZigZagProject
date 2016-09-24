@@ -7,9 +7,11 @@ Special thanks to Iman Daneshi that gave me the idea to learn python.. lol..
 
 # Installation
 
-Use this simple command:
+To install the bot, executes theese commands one by one:
 
 ```
+git clone https://github.com/WebShark025/MySimpleFirstPythonBot
+cd MySimpleFirstPythonBot
 chmod +x install.sh
 sudo ./install.sh
 ```
