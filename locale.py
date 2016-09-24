@@ -23,3 +23,7 @@ ID_MSG = "💢 Your name: *{0}* \n💢 Your ID: *{1}* \n "
 INGP_ID_MSG = "💢 Group ID: *{2}*"
 NON_ADMIN_ADDED_BOT_MSG = "Im sorry ☹️ \nIm not authorized to join groups by normal members. \nOnly *admins* can add me to groups."
 BOT_JOINED_MSG = "Hey😧! I am here, At your service."
+MESSANGER_JOIN_MSG = "Now sending feedback. \nPlease enter your message!"
+MESSANGER_LEAVE_MSG = "Thanks for your feedback! Exiting."
+
+
