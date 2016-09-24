@@ -15,6 +15,7 @@ logfile = open("bot.log", "a")
 time = datetime.datetime.now()
 logfile.write("Bot Started: " + str(time) + " with ")
 print("Bot started: " + str(time))
+messanger_list = []
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -79,8 +80,15 @@ def echo_message(message):
   
 def message_replier(messages):
   for message in messages:
+    userid = message.from_user.id
     if message.text in reply_message_list:
       bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
+    if message.text == "Send feedback":
+      bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
+      messanger_list.append(userid)
+    if userid in messanger_list:
+      bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
+      messanger_list.remove(userid)
 
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
