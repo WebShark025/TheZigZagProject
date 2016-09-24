@@ -68,7 +68,7 @@ def message_replier(messages):
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
   if GP_GREETING:
-    if message.new_chat_member.id !== bot.get_me().id:
+    if message.new_chat_member.id != bot.get_me().id:
       name = message.new_chat_member.first_name
       title = message.chat.title
       bot.send_message(message.chat.id, GP_GREETING_MSG.format(name,title), parse_mode='Markdown')
