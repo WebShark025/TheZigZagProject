@@ -3,6 +3,7 @@ import os
 import telebot
 import logging
 import sys
+import urllib
 from shutil import copyfile
 from telebot import types
 
@@ -69,6 +70,13 @@ def send_feedbackz(message):
     bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
     messanger_list.append(userid)
     return
+
+@bot.message_handler(commands=['webshot'])
+def webshot_send(message):
+  text = message.text.replace("/webshot ","")
+    urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text), 'webshot.jpg')
+    bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG)
+
 
 @bot.message_handler(commands=['id'])
 def send_id(message):
