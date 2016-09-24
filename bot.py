@@ -16,10 +16,12 @@ bot = telebot.TeleBot(TOKEN)
 def get_buttons_fc():
   lengthof = len(START_BUTTONS)
   itembtns = []
-  itembtnsz = None
   countn = 0
   while (countn < lengthof):
-    itembtnsz += types.KeyboardButton(START_BUTTONS[countn])
+    if countn == 0:
+      itembtnsz = types.KeyboardButton(START_BUTTONS[countn])
+    else:
+      itembtnsz += types.KeyboardButton(START_BUTTONS[countn])
     countn = countn + 1
   
 @bot.message_handler(commands=['start', 'help'])
