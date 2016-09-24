@@ -35,14 +35,23 @@ bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
   markup = types.ReplyKeyboardMarkup()
-  lengthof = len(START_BUTTONS)
-  countn = 0
-  itembtn = []
-  for btn in START_BUTTONS:
-    itembtn.append(types.KeyboardButton(START_BUTTONS[countn]))
-    countn = countn + 1
+  numbers = list(range(3, 30, 3))
+  numbers = [0] + numbers
+  cline = 0
+  linelength = len(START_BUTTONS)
+  try:
+    while (cline < linelength):
+      itembtn = []
+      cfrom = numbers[cline]
+      cto = numbers[cline + 1]
+      cline = cline + 1
+      while (cfrom < cto):
+        itembtn.append(START_BUTTONS[cfrom])
+        cfrom = cfrom + 1
+        markup.row(*itembtn)
+except:
   
-  markup.row(*itembtn)
+
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
   else:
