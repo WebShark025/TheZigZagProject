@@ -134,8 +134,9 @@ def message_replier(messages):
       messanger_list.append(userid)
       return
     if message.text not in ENABLED_CMDS:
-      if re.match('^\/', message.text):
-        bot.reply_to(message, COMMAND_NOT_FOUND, parse_mode="Markdown")
+      if message.text.startswith("/"):
+        if len(message.text.split()) < 2:
+          bot.reply_to(message, COMMAND_NOT_FOUND, parse_mode="Markdown")
 
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
