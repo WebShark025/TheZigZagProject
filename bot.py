@@ -141,15 +141,15 @@ def send_feedbackz(message):
     messanger_list.append(userid)
     return
 
-@bot.message_handler(commands=['webshot'])
-def webshot_send(message):
-  userid = message.from_user.id
-  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
-  if banlist:
-    return
-  text = message.text.replace("/webshot ","")
-  urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text), 'webshot.jpg')
-  bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG)
+#@bot.message_handler(commands=['webshot'])
+#def webshot_send(message):
+#  userid = message.from_user.id
+#  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+#  if banlist:
+#    return
+#  text = message.text.replace("/webshot ","")
+#  urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text), 'webshot.jpg')
+#  bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG)
 
 @bot.message_handler(commands=['calc'])
 def clac(m):
