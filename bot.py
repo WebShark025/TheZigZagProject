@@ -132,6 +132,9 @@ def message_replier(messages):
       bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
       messanger_list.append(userid)
       return
+    if message.text not in ENABLED_CMDS:
+      if message.text.startswith("/"):
+        bot.reply_to(message, COMMAND_NOT_FOUND, parse_mode="Markdown")
 
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
