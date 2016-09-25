@@ -153,7 +153,7 @@ def webshot_send(message):
 
 @bot.message_handler(commands=['calc'])
 def clac(m):
-  userid = message.from_user.id
+  userid = m.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
