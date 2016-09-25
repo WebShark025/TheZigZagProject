@@ -182,8 +182,8 @@ def echo_message(message):
 def message_replier(messages):
   for message in messages:
     userid = message.from_user.id
-    banlist = redisserver.sismember('banlist', '{}'.format(m.from_user.id))
-    if userid in banlist:
+    banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+    if banlist:
       return
     if userid in messanger_list:
       bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
