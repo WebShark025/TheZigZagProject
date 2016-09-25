@@ -79,8 +79,21 @@ def send_test(message):
 def send_members(message):
   if message.from_user.id in ADMINS_IDS:
     bot.send_message(message.chat.id, "All members: " + str(redisserver.scard('zigzag_members')), parse_mode="Markdown")
+#    allmembers = list(redisserver.smembers('zigzag_members'))
+#    bot.send_message(message.chat.id, "First member: " + str(allmembers[0]), parse_mode="Markdown")
+  else:
+    bot.send_message(message.chat.id, "You dont have permission.")
+    
+@bot.message_handler(commands=['bc'])
+def bc_msg(message):
+  if message.from_user.id in ADMIN_IDS:
+    bcmsg = message.text.replace("/bc ","")
     allmembers = list(redisserver.smembers('zigzag_members'))
-    bot.send_message(message.chat.id, "First member: " + str(allmembers[0]), parse_mode="Markdown")
+    for userid in allmembers:
+      bot.send_message(userid, bcmsg, parse_mode="HTML")
+    bot.reply_to(message, "Successfully broadcasted!")
+  else:
+    bot.send_message(message.chat.id, "You dont have permission.")
   
 @bot.message_handler(commands=['feedback', 'sendfeedback'])
 def send_feedbackz(message):
