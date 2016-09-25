@@ -182,7 +182,7 @@ def echo_message(message):
 def message_replier(messages):
   for message in messages:
     userid = message.from_user.id
-    banlist = redis.sismember('banlist', '{}'.format(m.from_user.id))
+    banlist = redisserver.sismember('banlist', '{}'.format(m.from_user.id))
     if userid in banlist:
       return
     if userid in messanger_list:
