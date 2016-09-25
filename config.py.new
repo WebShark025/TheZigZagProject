@@ -2,7 +2,7 @@
 TOKEN = '116144035:AAHVDjt5VX-5bKGGrbtw6QJPEZF4reJcIjc' # BOT TOKEN
 DEEP_LOGGING = False # FOR DEBUGGING PURPOSES ONLY
 # ENABLED CMDS (ONLY CMDS.)
-ENABLED_CMDS = ("/echo", "/id", "/help", "/start", "/test", "/toast", "/webshot", "/feedback", "/sendfeedback", "/sendcontact", "/calc", "/members", "/adminhelp", "/bc")
+ENABLED_CMDS = ("/echo", "/id", "/help", "/start", "/test", "/toast", "/webshot", "/feedback", "/sendfeedback", "/sendcontact", "/calc", "/members", "/adminhelp", "/bc", "/ban", "/unban")
 SAFE_ECHO = False # DOONT REPLY TO MESSAGES SENT IN SUPER GROUPS TO PREVENT SPAM
 SUDO_ID = 98120772 # ID OF MAIN BOT's SUDO
 ADMINS_IDS = (98120772, 0) # BOT's ADMINS
