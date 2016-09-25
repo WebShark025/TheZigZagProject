@@ -78,7 +78,7 @@ def send_test(message):
 @bot.message_handler(commands=['members'])
 def send_members(message):
   if message.from_user.id in ADMINS_IDS:
-    bot.send_message(message.chat.id, "All members: " + str(redisserver.scard('zigzag_members')), parse_mode="Markdown")
+    bot.send_message(message.chat.id, "All members: " + str(redisserver.scard('zigzag_members')) + " \nBanned members: " + str(redisserver.scard('zigzag_banlist')), parse_mode="Markdown")
 #    allmembers = list(redisserver.smembers('zigzag_members'))
 #    bot.send_message(message.chat.id, "First member: " + str(allmembers[0]), parse_mode="Markdown")
   else:
@@ -98,6 +98,33 @@ def bc_msg(message):
   else:
     bot.send_message(message.chat.id, "You dont have permission.")
   
+@bot.message_handler(commands=['ban'])
+def ban_user(message):
+  if message.from_user.id in ADMINS_IDS:
+    if len(message.text.split()) < 2:
+      bot.reply_to(message, "Who should I ban?")
+      return
+    userid = message.text.split()[1]
+    redisserver.sadd('zigzag_banlist', int(userid))
+    bot.send_message(int(userid), BANNED_MSG, parse_mode="Markdown")
+    bot.send_message(message.chat.id, "Banned user: " + str(userid), parse_mode="Markdown")
+  else:
+    bot.send_message(message.chat.id, "You dont have permission.")
+
+@bot.message_handler(commands=['unban'])
+def ban_user(message):
+  if message.from_user.id in ADMINS_IDS:
+    if len(message.text.split()) < 2:
+      bot.reply_to(message, "Who should I unban?")
+      return
+    userid = message.text.split()[1]
+    redisserver.srem('zigzag_banlist', int(userid))
+    bot.send_message(int(userid), UNBANNED_MSG, parse_mode="Markdown")
+    bot.send_message(message.chat.id, "Unbanned user: " + str(userid), parse_mode="Markdown")
+  else:
+    bot.send_message(message.chat.id, "You dont have permission.")
+    
+    
 @bot.message_handler(commands=['feedback', 'sendfeedback'])
 def send_feedbackz(message):
   userid = message.from_user.id
@@ -155,6 +182,9 @@ def echo_message(message):
 def message_replier(messages):
   for message in messages:
     userid = message.from_user.id
+    banlist = redis.sismember('banlist', '{}'.format(m.from_user.id))
+    if userid in banlist:
+      return
     if userid in messanger_list:
       bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
       messanger_list.remove(userid)
