@@ -79,9 +79,8 @@ def send_test(message):
 def send_members(message):
   if message.from_user.id in ADMINS_IDS:
     bot.send_message(message.chat.id, "All members: " + str(redisserver.scard('zigzag_members')), parse_mode="Markdown")
-    allmembers = redisserver.smembers('zigzag_members')
-    allmmblist = allmembers[0]
-    bot.send_message(message.chat.id, "First member: " + str(allmmblist[0]), parse_mode="Markdown")
+    allmembers = list(redisserver.smembers('zigzag_members'))
+    bot.send_message(message.chat.id, "First member: " + str(allmembers[0]), parse_mode="Markdown")
   
 @bot.message_handler(commands=['feedback', 'sendfeedback'])
 def send_feedbackz(message):
