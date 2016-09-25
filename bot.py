@@ -161,7 +161,7 @@ def clac(m):
     bot.reply_to(m, "How can i calculate null?")
     return
   text = m.text.replace("/calc ","")
-  res = urllib.urlopen(str(urllib.urlencode("https://www.calcatraz.com/calculator/api?c={}".format(text)))).read()
+  res = urllib.urlopen(str(urllib.quote_plus("https://www.calcatraz.com/calculator/api?c={}".format(text)))).read()
   bot.send_message(m.chat.id, "_{}_ = `{}`".format(text,res), parse_mode="Markdown", disable_web_page_preview=True)
 
 @bot.message_handler(commands=['id'])
