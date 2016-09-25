@@ -45,6 +45,11 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    bot.reply_to(message, "You are banned!")
+    return
   markup = types.ReplyKeyboardMarkup()
   numbers = list(range(3, 3000, 3))
   numbers = [0] + numbers
@@ -128,6 +133,9 @@ def ban_user(message):
 @bot.message_handler(commands=['feedback', 'sendfeedback'])
 def send_feedbackz(message):
   userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
   if userid not in messanger_list:
     bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
     messanger_list.append(userid)
@@ -135,18 +143,30 @@ def send_feedbackz(message):
 
 @bot.message_handler(commands=['webshot'])
 def webshot_send(message):
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
   text = message.text.replace("/webshot ","")
   urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text).replace("+","%2B"), 'webshot.jpg')
   bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG)
 
 @bot.message_handler(commands=['calc'])
 def clac(m):
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
   text = m.text.replace("/calc ","")
   res = urllib.urlopen("http://api.mathjs.org/v1/?expr={}".format(text)).read()
   bot.send_message(m.chat.id, "_{}_ = `{}`".format(text,res), parse_mode="Markdown", disable_web_page_preview=True)
 
 @bot.message_handler(commands=['id'])
 def send_id(message):
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
   username = message.from_user.first_name.encode("utf-8")
   userid = message.from_user.id
   reply_msg = ID_MSG.encode("utf-8")
@@ -160,12 +180,20 @@ def send_id(message):
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
   userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
+  userid = message.from_user.id
   bot.send_message(message.chat.id, SHARE_CONTACT_MSG.encode("utf-8"))
   contacter_list.append(userid)
   
 
 @bot.message_handler(commands=['echo'])
 def echo_message(message):
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
   if SAFE_ECHO:
     if message.chat.type == "supergroup":
       bot.reply_to(message, NO_ECHO_IN_SUPERGP_MSG.encode("utf-8"))
