@@ -4,6 +4,7 @@ import telebot
 import logging
 import sys
 import urllib
+import re
 from shutil import copyfile
 from telebot import types
 
@@ -133,7 +134,7 @@ def message_replier(messages):
       messanger_list.append(userid)
       return
     if message.text not in ENABLED_CMDS:
-      if message.text.startswith("/"):
+      if re.match('^\/', message.text):
         bot.reply_to(message, COMMAND_NOT_FOUND, parse_mode="Markdown")
 
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
