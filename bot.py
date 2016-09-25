@@ -11,6 +11,7 @@ from telebot import types
 
 
 
+
 ### CONFIG AND LOCALE CHECK
 if not os.path.exists("config.py"):
   copyfile("config.py.new", "config.py")
