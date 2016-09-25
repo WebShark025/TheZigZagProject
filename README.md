@@ -42,7 +42,6 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /sendcontact | Sends user contact to bot admin | Members |
 | /id | Sends user ID & name (if in group, groups ID too) | Members |
 | /calc | Maths! :D | Members |
-| /webshot | Screenshot from a webpage | Members |
 | /adminhelp | Admin commands help | Admins |
 | /members | List of members & banned users | Admins |
 | /bc | Broadcast message to all members | Admins |
