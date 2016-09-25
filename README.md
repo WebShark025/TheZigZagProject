@@ -33,16 +33,19 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 
 # Commands 
 
-| Command | Description |
-|:--------|:------------|
-| /help & /start | Returns the start message |
-| /test & /toast | (BetaVersionsOnly) Just replies a message |
-| /echo text | Echoes the text |
-| /feedback | Sends users feedback |
-| /sendcontact | Sends user contact to bot admin |
-| /id | Sends user ID & name (if in group, groups ID too) |
-| /calc | Maths! :D |
-| /webshot | Screenshot from a webpage |
+| Command | Description | Permission |
+|:--------|:------------|:-----------|
+| /help & /start | Returns the start message | Members |
+| /test & /toast | (BetaVersionsOnly) Just replies a message | Members |
+| /echo text | Echoes the text | Members |
+| /feedback | Sends users feedback | Members |
+| /sendcontact | Sends user contact to bot admin | Members |
+| /id | Sends user ID & name (if in group, groups ID too) | Members |
+| /calc | Maths! :D | Members |
+| /webshot | Screenshot from a webpage | Members |
+| /adminhelp | Admin commands help | Admins |
+| /members | List of members & Banned users | Admins |
+| /bc | Broadcast message to all members | Admins |
 
 More commands comming soon!
 
