@@ -64,12 +64,19 @@ def send_welcome(message):
   
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
+    redisserver.sadd('zigzag_members',message.from_user.id)
   else:
     bot.reply_to(message, START_MSG.encode("utf-8"), parse_mode="Markdown")
+
 
 @bot.message_handler(commands=['test', 'toast'])
 def send_test(message):
   bot.send_message(message.chat.id, TEST_MSG.encode("utf-8"))
+  
+@bot.message_handler(commands=['members'])
+def send_members(message):
+  if message.from_user.id in ADMINS_IDS:
+    bot.send_message(message.chat.id, "All members: " + str(redisserver.scard('zigzag_members')), parse_mode="Markdown")
   
 @bot.message_handler(commands=['feedback', 'sendfeedback'])
 def send_feedbackz(message):
