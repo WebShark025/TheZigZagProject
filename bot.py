@@ -158,7 +158,7 @@ def clac(m):
   if banlist:
     return
   if len(m.text.split()) < 2:
-    bot.reply(m, "How can i calculate null?")
+    bot.reply_to(m, "How can i calculate null?")
     return
   text = m.text.replace("/calc ","")
   res = urllib.urlopen(urllib.urlencode("https://www.calcatraz.com/calculator/api?c={}".format(text))).read()
