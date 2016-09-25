@@ -5,6 +5,7 @@ import logging
 import sys
 import urllib
 import re
+import redis
 from shutil import copyfile
 from telebot import types
 
@@ -14,6 +15,9 @@ if not os.path.exists("config.py"):
   copyfile("config.py.new", "config.py")
 if not os.path.exists("locale.py"):
   copyfile("locale.py.new", "locale.py")
+  
+# REDIS SERVER. IF ITS DIFFRENT, CONFIG IT!
+redisserver = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 
 reload(sys)  
@@ -22,7 +26,7 @@ sys.setdefaultencoding("utf-8")
 execfile("locale.py")
 execfile("config.py")
 
-
+# LOGFILE
 logfile = open("bot.log", "a")
 time = datetime.datetime.now()
 logfile.write("Bot Started: " + str(time) + " with ")
@@ -31,6 +35,9 @@ messanger_list = []
 contacter_list = []
 
 
+############################################################################
+# START OF CODES. DO NOT EDIT ANYTHING IF YOU DONT KNOW WHAT ARE YOU DOING!#
+############################################################################
 bot = telebot.TeleBot(TOKEN)
 
 
