@@ -229,9 +229,13 @@ def message_replier(messages):
       messanger_list.append(userid)
       return
     if message.text not in ENABLED_CMDS:
-      if message.text.startswith("/"):
-        if len(message.text.split()) < 2:
-          bot.reply_to(message, COMMAND_NOT_FOUND, parse_mode="Markdown")
+      try:
+        if message.text.startswith("/"):
+          if len(message.text.split()) < 2:
+            bot.reply_to(message, COMMAND_NOT_FOUND, parse_mode="Markdown")
+      except:
+        lolalelellele = 0
+# IDK WHY, BUT IN SOME CASES THEESE WOULD CAUSE CRASH :|
 
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
