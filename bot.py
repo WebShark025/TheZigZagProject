@@ -157,8 +157,11 @@ def clac(m):
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
+  if len(m.text.split()) < 2:
+    bot.reply(m, "How can i calculate null?")
+    return
   text = m.text.replace("/calc ","")
-  res = urllib.urlopen("http://api.mathjs.org/v1/?expr={}".format(text)).read()
+  res = urllib.urlopen(urllib.urlencode("https://www.calcatraz.com/calculator/api?c={}".format(text))).read()
   bot.send_message(m.chat.id, "_{}_ = `{}`".format(text,res), parse_mode="Markdown", disable_web_page_preview=True)
 
 @bot.message_handler(commands=['id'])
