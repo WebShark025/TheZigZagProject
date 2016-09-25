@@ -148,7 +148,7 @@ def webshot_send(message):
   if banlist:
     return
   text = message.text.replace("/webshot ","")
-  urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text).replace("+","%2B"), 'webshot.jpg')
+  urllib.urlretrieve("http://api.screenshotmachine.com/?key=b645b8&size=X&url={}".format(text), 'webshot.jpg')
   bot.send_photo(message.chat.id, open('webshot.jpg'), caption=" " + WEBSHOT_CAPTION_MSG)
 
 @bot.message_handler(commands=['calc'])
@@ -161,7 +161,7 @@ def clac(m):
     bot.reply_to(m, "How can i calculate null?")
     return
   text = m.text.replace("/calc ","")
-  res = urllib.urlopen("http://api.mathjs.org/v1/?expr={}".format(text)).read()
+  res = urllib.urlopen("http://api.mathjs.org/v1/?expr={}".format(text).replace("+","%2B")).read()
   bot.send_message(m.chat.id, "_{}_ = `{}`".format(text,res), parse_mode="Markdown", disable_web_page_preview=True)
 
 @bot.message_handler(commands=['id'])
