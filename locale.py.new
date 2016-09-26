@@ -20,7 +20,7 @@ GP_GREETING_MSG = "Hey *{0}*! \n \nWelcome to the group *{1}* 😊 \n \n_Have fu
 GP_FAREWELL_MSG = "Oh no 😕 \n*{0} left the group ☹️"
 # {0} = name | {1} = id | {2} = gp id
 ID_MSG = "💢 Your name: *{0}* \n💢 Your ID: *{1}* \n"
-INGP_ID_MSG = "💢 Group ID: *{2}*"
+INGP_ID_MSG = "💢 Group ID: *{2}* \n"
 REPLIED_ID_MSG = "💢 Users ID: *{3}*"
 NON_ADMIN_ADDED_BOT_MSG = "Im sorry ☹️ \nIm not authorized to join groups by normal members. \nOnly *admins* can add me to groups."
 BOT_JOINED_MSG = "Hey😧! I am here, At your service."
