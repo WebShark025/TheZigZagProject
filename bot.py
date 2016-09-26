@@ -178,7 +178,14 @@ def send_id(message):
     reply_msg = reply_msg + INGP_ID_MSG.encode("utf-8")
   elif message.chat.type == "group":
     reply_msg = reply_msg + INGP_ID_MSG.encode("utf-8")
-  bot.reply_to(message, reply_msg.format(username, userid, gpid), parse_mode="Markdown")
+  try:
+    repliedid = message.reply_to_message.from_user.id
+    reply_msg = reply_msg + REPLIED_ID_MSG.encode("utf-8")
+    bot.reply_to(message, reply_msg.format(username, userid, gpid, repliedid), parse_mode="Markdown")
+    return
+  except:
+    adaadaadadadadadadada = "00"
+    bot.reply_to(message, reply_msg.format(username, userid, gpid), parse_mode="Markdown")
 
 @bot.message_handler(commands=['sendcontact'])
 def send_test(message):
