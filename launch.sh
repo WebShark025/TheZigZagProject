@@ -9,4 +9,5 @@ then
   done
 else
   python bot.py
+  echo "Bot stopped. exiting"
 fi
