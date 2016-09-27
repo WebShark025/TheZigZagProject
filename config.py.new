@@ -29,7 +29,6 @@ enabled_plugins = [
 "feedback",
 "start",
 "groups",
-"messagehandler",
 ]
 
 # END OF CONFIG
