@@ -40,7 +40,7 @@ for plugin in enabled_plugins:
   execfile("plugins/" + plugin + ".py")
   print("Enabled plugin " + plugin)
 
-logfile.write("Bot Started: " + str(time) + ". Enabled plugins:" + enabled_plugins + ". ")
+logfile.write("Bot Started: " + str(time) + ". Enabled plugins:" + str(enabled_plugins) + ". ")
 print("Bot started: " + str(time))
 messanger_list = []
 contacter_list = []
