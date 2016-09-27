@@ -16,4 +16,9 @@ reply_message_list = {"salam": "slm",
   "hi": "aleyke hi",
   "hello": "dorood",
 }
+
+enabled_plugins = [
+"test"
+]
+
 # END OF CONFIG
