@@ -31,7 +31,11 @@ execfile("config.py")
 # LOGFILE
 logfile = open("bot.log", "a")
 time = datetime.datetime.now()
-logfile.write("Bot Started: " + str(time) + " with ")
+for plugin in enabled_plugins:
+  execfile("plugins/" + plugin + ".py")
+  print("Enabled plugin " + plugin)
+
+logfile.write("Bot Started: " + str(time) + ". Enabled plugins:" + *enabled_plugins + ". ")
 print("Bot started: " + str(time))
 messanger_list = []
 contacter_list = []
@@ -75,8 +79,6 @@ def send_welcome(message):
   else:
     bot.reply_to(message, START_MSG.encode("utf-8"), parse_mode="Markdown")
 
-for plugin in enabled_plugins:
-  execfile("plugins/" + plugin + ".py")
 
 #@bot.message_handler(commands=['webshot'])
 #def webshot_send(message):
@@ -170,10 +172,10 @@ def contact_forwarder(contact):
 logger = telebot.logger
 if DEEP_LOGGING:
   print("Debugging enabled.")
-  logfile.write("debugging enabled. \n")
+  logfile.write("Debugging enabled. \n")
   telebot.logger.setLevel(logging.DEBUG)
 else:
-  logfile.write("debugging disabled. \n")
+  logfile.write("Debugging disabled. \n")
   print("Debugging disabled.")
 
 bot.set_update_listener(message_replier)
