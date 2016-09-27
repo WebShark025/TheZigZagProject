@@ -31,4 +31,4 @@ WEBSHOT_CAPTION_MSG = "By the ZigZag bot"
 COMMAND_NOT_FOUND = "Im sorry 😢 But the command you entered does not exists."
 BANNED_MSG = ":O You got banned from the bot!"
 UNBANNED_MSG = "Welcome back! You are unbanned now ;)"
-
+GP_STATUS_MSG = "⚡️ All group messages: {0}"
