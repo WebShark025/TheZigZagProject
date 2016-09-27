@@ -18,7 +18,15 @@ reply_message_list = {"salam": "slm",
 }
 
 enabled_plugins = [
-"test"
+"test",
+"banhammer",
+"broadcast",
+"calc",
+"echo",
+"feedback",
+"id",
+"members",
+"feedback",
 ]
 
 # END OF CONFIG
