@@ -28,6 +28,11 @@ sys.setdefaultencoding("utf-8")
 execfile("locale.py")
 execfile("config.py")
 
+############################################################################
+# START OF CODES. DO NOT EDIT ANYTHING IF YOU DONT KNOW WHAT ARE YOU DOING!#
+############################################################################
+
+bot = telebot.TeleBot(TOKEN)
 # LOGFILE
 logfile = open("bot.log", "a")
 time = datetime.datetime.now()
@@ -35,16 +40,10 @@ for plugin in enabled_plugins:
   execfile("plugins/" + plugin + ".py")
   print("Enabled plugin " + plugin)
 
-logfile.write("Bot Started: " + str(time) + ". Enabled plugins:" + *enabled_plugins + ". ")
+logfile.write("Bot Started: " + str(time) + ". Enabled plugins:" + enabled_plugins + ". ")
 print("Bot started: " + str(time))
 messanger_list = []
 contacter_list = []
-
-
-############################################################################
-# START OF CODES. DO NOT EDIT ANYTHING IF YOU DONT KNOW WHAT ARE YOU DOING!#
-############################################################################
-bot = telebot.TeleBot(TOKEN)
 
 
 @bot.message_handler(commands=['start', 'help'])
