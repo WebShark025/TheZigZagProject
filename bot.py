@@ -235,6 +235,11 @@ def message_replier(messages):
       bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
       messanger_list.append(userid)
       return
+    if message.chat.type == "supergroup":
+      if redisserver.sismember("zigzag_groups", message.chat.id):
+        allargs = list(redisserver.smembers(message.chat.id))
+        allargs[0]["totalmessages"] = allargs[0]["totalmessages"] + 1
+      
 #    if message.text not in ENABLED_CMDS:
 #      try:
 #        if message.text.startswith("/"):
@@ -260,6 +265,9 @@ def user_greet(message):
       bot.leave_chat(message.chat.id)
     else:
       bot.send_message(message.chat.id, BOT_JOINED_MSG)
+      groupargs = [{"totalmessages": 0,}, {"totalusermessages": [],}]
+      redisserver.sadd(message.chat.id, groupargs)
+      redisserver.sadd("zigzag_groups", message.chat.id)
   
 @bot.message_handler(func=lambda message: True, content_types=['left_chat_member'])
 def user_greet(message):
