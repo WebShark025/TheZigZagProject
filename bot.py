@@ -33,8 +33,11 @@ bot = telebot.TeleBot(TOKEN)
 logfile = open("bot.log", "a")
 time = datetime.datetime.now()
 for plugin in enabled_plugins:
-  execfile("plugins/" + plugin + ".py")
-  print("Enabled plugin " + plugin)
+  try:
+    execfile("plugins/" + plugin + ".py")
+    print("Enabled plugin " + plugin)
+  except:
+    print("Error enabling " + plugin)
 logfile.write("Bot Started: " + str(time) + ". Enabled plugins:" + str(enabled_plugins) + ". ")
 print("Bot started: " + str(time))
 messanger_list = []
