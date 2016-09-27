@@ -29,6 +29,7 @@ enabled_plugins = [
 "feedback",
 "start",
 "groups",
+"time",
 ]
 
 # END OF CONFIG
