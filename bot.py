@@ -218,17 +218,17 @@ def echo_message(message):
     bot.send_message(messsage.chat.id, ERROR_MSG.encode("utf-8"))
 
 
-@bot.message_handler(commands=['gpstats'])
-def echo_message(message):
-  userid = message.from_user.id
-  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
-  if banlist:
-    return
-  if message.chat.type == "supergroup":
-    if redisserver.sismember("zigzag_groups", message.chat.id):
-      gpmsgcount = list(redisserver.smembers(message.chat.id))
-      for messagess in allmembers:
-        bot.reply_to(message, GP_STATUS_MSG.format(messagess), parse_mode="HTML")
+#@bot.message_handler(commands=['gpstats'])
+#def echo_message(message):
+#  userid = message.from_user.id
+#  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+#  if banlist:
+#    return
+#  if message.chat.type == "supergroup":
+#    if redisserver.sismember("zigzag_groups", message.chat.id):
+#      gpmsgcount = list(redisserver.smembers(message.chat.id))
+#      for messagess in allmembers:
+#        bot.reply_to(message, GP_STATUS_MSG.format(messagess), parse_mode="HTML")
   
 def message_replier(messages):
   for message in messages:
@@ -248,10 +248,10 @@ def message_replier(messages):
       bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
       messanger_list.append(userid)
       return
-    if message.chat.type == "supergroup":
-      if redisserver.sismember("zigzag_groups", message.chat.id):
-        allargs = list(redisserver.smembers(message.chat.id))
-        allargs[0] = allargs[0] + 1
+#    if message.chat.type == "supergroup":
+#      if redisserver.sismember("zigzag_groups", message.chat.id):
+#        allargs = list(redisserver.smembers(message.chat.id))
+#        allargs[0] = allargs[0] + 1
       
 #    if message.text not in ENABLED_CMDS:
 #      try:
@@ -278,9 +278,9 @@ def user_greet(message):
       bot.leave_chat(message.chat.id)
     else:
       bot.send_message(message.chat.id, BOT_JOINED_MSG)
-      groupargs = 0
-      redisserver.sadd(message.chat.id, groupargs)
-      redisserver.sadd("zigzag_groups", message.chat.id)
+#      groupargs = 0
+#      redisserver.sadd(message.chat.id, groupargs)
+#      redisserver.sadd("zigzag_groups", message.chat.id)
   
 @bot.message_handler(func=lambda message: True, content_types=['left_chat_member'])
 def user_greet(message):
