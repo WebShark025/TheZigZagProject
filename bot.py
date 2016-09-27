@@ -75,11 +75,9 @@ def send_welcome(message):
   else:
     bot.reply_to(message, START_MSG.encode("utf-8"), parse_mode="Markdown")
 
+for plugin in enabled_plugins:
+  execfile("plugins/" + plugin + ".py")
 
-@bot.message_handler(commands=['test', 'toast'])
-def send_test(message):
-  bot.send_message(message.chat.id, TEST_MSG.encode("utf-8"))
-  
 @bot.message_handler(commands=['members'])
 def send_members(message):
   if message.from_user.id in ADMINS_IDS:
