@@ -30,6 +30,7 @@ enabled_plugins = [
 "start",
 "groups",
 "time",
+"message_handler",
 ]
 
 # END OF CONFIG
