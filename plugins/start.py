@@ -7,6 +7,10 @@ def send_welcome(message):
     bot.reply_to(message, "You are banned!")
     return
   markup = types.ReplyKeyboardMarkup()
+  markupi = types.InlineKeyboardMarkup()
+  markupib = types.InlineKeyboardButton("Help",callback_data='help')
+  markupic = types.InlineKeyboardButton("Channel", url=CHANNEL_LINK)
+  markupi.add(markupib,markupic)
   numbers = list(range(3, 3000, 3))
   numbers = [0] + numbers
   cline = 0
@@ -27,6 +31,7 @@ def send_welcome(message):
   
   if message.chat.type == "private":
     bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
+    bot.send_message(message.chat.id, "", reply_markup=markup, parse_mode="Markdown")
     redisserver.sadd('zigzag_members',message.from_user.id)
   else:
     bot.reply_to(message, START_MSG.encode("utf-8"), parse_mode="Markdown")
