@@ -43,11 +43,14 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /id | Sends user ID & name (if in group, groups ID too) | Members |
 | /calc | Maths! :D | Members |
 | /time | Returns time (in IRST) | Members |
+| /support | Joines the support chat. | Members |
+| /leave | Leaves the support chat. | Members |
 | /adminhelp | Admin commands help | Admins |
 | /members | List of members & banned users | Admins |
 | /bc | Broadcast message to all members | Admins |
 | /ban userid | Bans a user | Admins |
 | /unban userid | Unbans a user | Admins |
+| /force_user_leave userid | Forces a user to leave support chat | Admins |
 
 More commands comming soon!
 
