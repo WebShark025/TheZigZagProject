@@ -30,6 +30,7 @@ enabled_plugins = [
 "start",
 "groups",
 "time",
+"messenger",
 "message_handler",
 ]
 
