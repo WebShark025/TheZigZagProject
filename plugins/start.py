@@ -6,32 +6,15 @@ def send_welcome(message):
   if banlist:
     bot.reply_to(message, "You are banned!")
     return
-  markup = types.ReplyKeyboardMarkup()
-  markupi = types.InlineKeyboardMarkup()
+  markup = types.InlineKeyboardMarkup()
   markupib = types.InlineKeyboardButton("Help",callback_data='help')
   markupic = types.InlineKeyboardButton("Channel", url=CHANNEL_LINK)
-  markupi.add(markupib,markupic)
-  numbers = list(range(3, 3000, 3))
-  numbers = [0] + numbers
-  cline = 0
-  linelength = len(START_BUTTONS)
-  try:
-    while (cline < linelength):
-      itembtn = []
-      cfrom = numbers[cline]
-      cto = numbers[cline + 1]
-      cline = cline + 1
-      while (cfrom < cto):
-        itembtn.append(START_BUTTONS[cfrom])
-        cfrom = cfrom + 1
-        if len(itembtn) == 3:
-          markup.row(*itembtn)
-  except:
-    lolalola = 0
+  markup.add(markupib,markupic)
+  markupid = types.InlineKeyboardButton("Show all cmds", callback_data='showit')
+  markup.add(markupid)
   
   if message.chat.type == "private":
-    bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markupi, parse_mode="Markdown")
-    bot.send_message(message.chat.id, " ", reply_markup=markup, parse_mode="Markdown")
+    bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
     redisserver.sadd('zigzag_members',message.from_user.id)
   else:
     bot.reply_to(message, START_MSG.encode("utf-8"), parse_mode="Markdown")
