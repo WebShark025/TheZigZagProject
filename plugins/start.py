@@ -30,8 +30,8 @@ def send_welcome(message):
     lolalola = 0
   
   if message.chat.type == "private":
-    bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markup, parse_mode="Markdown")
-    bot.send_message(message.chat.id, "", reply_markup=markup, parse_mode="Markdown")
+    bot.reply_to(message, START_MSG.encode("utf-8"), reply_markup=markupi, parse_mode="Markdown")
+    bot.send_message(message.chat.id, " ", reply_markup=markup, parse_mode="Markdown")
     redisserver.sadd('zigzag_members',message.from_user.id)
   else:
     bot.reply_to(message, START_MSG.encode("utf-8"), parse_mode="Markdown")
