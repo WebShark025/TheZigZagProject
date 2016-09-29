@@ -38,3 +38,4 @@ JOINED_MESSENGER_MSG = "⚡️ Now chatting with support! Please wait for respon
 ALREADY_IN_MESSENGER_MSG = "You are already chatting with support! to exit, type '/leave'"
 NOT_IN_MESSENGER_MSG = "You are not chatting with support! to start, type '/support'"
 LEFT_MESSENGER_MSG = "⚡️ We hope you enjoyed ;) Leaving the messenger."
+MEME_NEA_MSG = "To use this command, you need to follow this format: \n/meme <type> || <top> || <bottom> \nFor example: /meme Gangnam Style || Oppa || Gangnam style!"
