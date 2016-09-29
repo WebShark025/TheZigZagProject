@@ -29,6 +29,7 @@ def message_replier(messages):
           in_chat_with_support.remove(userid)
           bot.send_message("-" + str(SUPPORT_GP), "User " + str(userid) + " Auto-kicked for spam.")
           bot.reply_to(message, KICKED_MESSENGER_MSG)
+          return
       redisserver.setex(_hash, max_time, int(msgs)+1)
       bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
       bot.reply_to(message, MESSAGE_SENT_MESSENGER_MSG)
