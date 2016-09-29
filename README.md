@@ -46,7 +46,7 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /support | Joines the support chat. | Members |
 | /leave | Leaves the support chat. | Members |
 | /meme | Meme! :O... | Members |
-| /shortner | URL Shortner | Members |
+| /short | URL Shortner | Members |
 | /adminhelp | Admin commands help | Admins |
 | /members | List of members & banned users | Admins |
 | /bc | Broadcast message to all members | Admins |
