@@ -28,9 +28,10 @@ def message_replier(messages):
         if msgs > max_msgs:
           in_chat_with_support.remove(userid)
           bot.send_message("-" + str(SUPPORT_GP), "User " + str(userid) + " Auto-kicked for spam.")
-          bot.reply_to(message, "Please dont spam! You got kicked from the messenger.")
+          bot.reply_to(message, KICKED_MESSENGER_MSG)
       redisserver.setex(_hash, max_time, int(msgs)+1)
       bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
+      bot.reply_to(message, MESSAGE_SENT_MESSENGER_MSG)
       return
     if message.from_user.id in ADMINS_IDS:
       if message.chat.id == -SUPPORT_GP:
