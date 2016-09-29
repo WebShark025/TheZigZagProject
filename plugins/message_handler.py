@@ -31,6 +31,8 @@ def message_replier(messages):
           bot.reply_to(message, KICKED_MESSENGER_MSG)
           return
       redisserver.setex(_hash, max_time, int(msgs)+1)
+      if message.text == "/leave":
+        return
       bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
       bot.reply_to(message, MESSAGE_SENT_MESSENGER_MSG)
       return
