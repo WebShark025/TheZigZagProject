@@ -18,6 +18,18 @@ def message_replier(messages):
       messanger_list.append(userid)
       return
     if userid in in_chat_with_support:
+      _hash = "anti_flood:user:" + str(userid)
+      msgs = 0
+      if redis.get(_hash):
+        # THANKS TO @Eileven FOR HIS AWESOME CODE :|
+        msgs = int(redis.get(_hash))
+        max_msgs = 5 # msgs in
+        max_time = 10 # seconds
+        if msgs > max_msgs:
+          in_chat_with_support.remove(userid)
+          bot.send_message("-" + str(SUPPORT_GP), "User " + str(userid) + " Auto-kicked for spam.")
+          bot.reply_to(msg, "Please dont spam! You got kicked from the messenger.")
+        redis.setex(_hash, max_time, int(msgs)+1)
       bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
       return
     if message.from_user.id in ADMINS_IDS:
