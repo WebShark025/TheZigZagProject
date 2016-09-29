@@ -29,7 +29,7 @@ def forceleave(message):
     if len(message.text.split()) < 2:
       bot.reply_to(message, "Dude, enter an ID.", parse_mode="Markdown")
       return
-    userid = message.text.split()[1]
+    userid = int(message.text.split()[1])
     if userid in in_chat_with_support:
       bot.reply_to(message, "Kicked user from chat.", parse_mode="HTML")
       bot.send_message(userid, "You have forced to leave chat by admin.")
