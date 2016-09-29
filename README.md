@@ -67,7 +67,7 @@ The ZigZag official bot in Telegram: [@TheZigZagBot](https://telegram.me/TheZigZ
 
 Special thanks to [Iman Daneshi](https://github.com/imandaneshi) for the idea.
 
-Thanks to [ThisIsAmirH](https://github.com/ThisIsAmir) for some part of his codes.
+Thanks to [ThisIsAmir](https://github.com/ThisIsAmir) for some part of his codes.
 
 And thanks to [eternnoir](https://github.com/eternnoir/) for his awesome API!
 
