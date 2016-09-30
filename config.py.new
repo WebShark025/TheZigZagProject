@@ -33,6 +33,7 @@ enabled_plugins = [
 "time",
 "shortner",
 "callback_data",
+"tocontact",
 "messenger",
 "message_handler",
 ]

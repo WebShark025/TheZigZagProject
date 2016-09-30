@@ -1,5 +1,9 @@
 @bot.message_handler(commands=['meme'])
 def meme_image(message):
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
   if len(message.text.split("||")) < 3:
     bot.reply_to(message, MEME_NEA_MSG, parse_mode="Markdown")
     return
