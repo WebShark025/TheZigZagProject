@@ -15,8 +15,8 @@ This page will get updated after the first stable release.
 To install the bot, executes theese commands one by one:
 
 ```
-git clone https://github.com/WebShark025/MySimpleFirstPythonBot
-cd MySimpleFirstPythonBot
+git clone https://github.com/WebShark025/TheZigZagProject
+cd TheZigZagProject
 chmod +x install.sh
 sudo ./install.sh
 ```
@@ -47,6 +47,8 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /leave | Leaves the support chat. | Members |
 | /meme | Meme! :O... | Members |
 | /short | URL Shortner | Members |
+| /tocontact | String to contact converter! | Members |
+| /mp3tag | Changes MP3 file tags | Members |
 | /adminhelp | Admin commands help | Admins |
 | /members | List of members & banned users | Admins |
 | /bc | Broadcast message to all members | Admins |
