@@ -6,7 +6,7 @@ reload(sys)
 sys.setdefaultencoding("UTF8")
 # LANGUAGE FILE
 
-START_MSG = str("Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/time_ - Gets current time in IRST \n💢 _/calc_ - Lets do some maths \n💢 _/support_ - Chat with us! \n💢 _/sendcontact_ - Forward contact to admin \n💢 _Send feedback_ - Send feedback! \n💢 _/echo <msg>_ - Echoes the message \n💢 _/short <link>_ - Shorts the link! \n💢 _/tocontact <phone>||<name>_ - Turns string to Telegram contact! \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! ").encode("utf-8")
+START_MSG = str("Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/time_ - Gets current time in IRST \n💢 _/calc_ - Lets do some maths \n💢 _/support_ - Chat with us! \n💢 _/sendcontact_ - Forward contact to admin \n💢 _Send feedback_ - Send feedback! \n💢 _/echo <msg>_ - Echoes the message \n💢 _/short <link>_ - Shorts the link! \n💢 _/mp3tag <artist>||<title>_ - Edits audios tags! \n💢 _/tocontact <phone>||<name>_ - Turns string to Telegram contact! \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! ").encode("utf-8")
 START_BUTTONS = ("Id", "Time", "Memes", "Send feedback", "Send contact", "Support", "Link shortner", "Calculate", "Mp3Tag") # SPLITS 3 PER LINE
 SHOWED_BUTTONS_MSG = "Here you are ;)"
 TEST_MSG = "This is a test message."
