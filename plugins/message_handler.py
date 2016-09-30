@@ -20,14 +20,17 @@ def message_replier(messages):
         time_message(message)
       if message.text == "Link shortner":
         shortit(message)
-      if message.text == "Send contact":
-        send_contactt(message)
+#      if message.text == "Send contact":
+#        send_contactt(message)
       if message.text == "Memes":
         meme_image(message)
       if message.text == "Id":
         send_id(message)
       if message.text == "Calculate":
-        clac(message):
+        clac(message)
+      if message.text == "Support":
+        support(message)
+        return
     if userid in in_chat_with_support:
       _hash = "anti_flood:user:" + str(userid)
       max_time = 10
