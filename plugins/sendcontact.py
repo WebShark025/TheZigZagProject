@@ -1,5 +1,5 @@
 @bot.message_handler(commands=['sendcontact'])
-def send_test(message):
+def send_contactt(message):
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
