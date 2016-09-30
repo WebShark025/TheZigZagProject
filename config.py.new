@@ -34,6 +34,7 @@ enabled_plugins = [
 "shortner",
 "callback_data",
 "tocontact",
+"mp3tag",
 "messenger",
 "message_handler",
 ]

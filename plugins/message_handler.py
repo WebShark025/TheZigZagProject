@@ -31,6 +31,8 @@ def message_replier(messages):
       if message.text == "Support":
         support(message)
         return
+      if message.text = "Mp3Tag":
+        mp3tag(message)
     if userid in in_chat_with_support:
       _hash = "anti_flood:user:" + str(userid)
       max_time = 10
