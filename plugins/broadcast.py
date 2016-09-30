@@ -7,7 +7,11 @@ def bc_msg(message):
     bcmsg = message.text.replace("/bc ","")
     allmembers = list(redisserver.smembers('zigzag_members'))
     for userid in allmembers:
-      bot.send_message(userid, bcmsg, parse_mode="HTML")
+      try:
+        bot.send_message(userid, bcmsg, parse_mode="HTML")
+      except:
+        pass
     bot.reply_to(message, "Successfully broadcasted!")
   else:
     bot.send_message(message.chat.id, "You dont have permission.")
+
