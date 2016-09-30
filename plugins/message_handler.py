@@ -13,10 +13,21 @@ def message_replier(messages):
     if REPLIER:
       if message.text in reply_message_list:
         bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
-    if message.text == "Send feedback":
-      bot.reply_to(message, MESSANGER_JOIN_MSG, parse_mode="Markdown")
-      messanger_list.append(userid)
-      return
+    if message.chat.type == "private":
+      if message.text == "Send feedback":
+        send_feedbackz(message)
+      if message.text == "Time":
+        time_message(message)
+      if message.text == "Link shortner":
+        shortit(message)
+      if message.text == "Send contact":
+        send_contactt(message)
+      if message.text == "Memes":
+        meme_image(message)
+      if message.text == "Id":
+        send_id(message)
+      if message.text == "Calculate":
+        clac(message):
     if userid in in_chat_with_support:
       _hash = "anti_flood:user:" + str(userid)
       max_time = 10
