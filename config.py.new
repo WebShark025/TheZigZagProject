@@ -35,6 +35,7 @@ enabled_plugins = [
 "callback_data",
 "tocontact",
 "serverstatus",
+"inline",
 "mp3tag",
 "messenger",
 "message_handler",

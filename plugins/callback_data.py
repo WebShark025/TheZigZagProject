@@ -25,4 +25,19 @@ def callback_inline(call):
         lolalola = 0
       bot.send_message(call.message.chat.id, SHOWED_BUTTONS_MSG, reply_markup=markup, parse_mode="Markdown")
       bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Here you are!")
-
+    if call.data.split("-")[0] == "sil":
+      print("OMG")
+      markup = types.ReplyKeyboardMarkup()
+      inlineid = call.data.split("-")[1][-5:]
+      if inlineid in querymessages:
+        inline_text = querymessages(inlineid)
+        bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text=inline_text)
+        print("OMG1")
+      else:
+        bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Timeout exceeded.")
+        print("OMG2")
+    else:
+      print(call.data)
+  else:
+    print(call.inline_message_id)
+    print("Empty callback")
