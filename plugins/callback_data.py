@@ -36,8 +36,5 @@ def callback_inline(call):
       else:
         bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Timeout exceeded.")
         print("OMG2")
-    else:
-      print(call.data)
   else:
     print(call.inline_message_id)
-    print("Empty callback")
