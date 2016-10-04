@@ -10,29 +10,36 @@ def message_replier(messages):
       bot.send_message("-" + str(SUPPORT_GP), "New feedback!:")
       bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
       return
-    if REPLIER:
-      if message.text in reply_message_list:
-        bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
+#    if REPLIER:
+#      if message.text in reply_message_list:
+#        bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
     if message.chat.type == "private":
       if message.text == "Send feedback":
         send_feedbackz(message)
+        return
       if message.text == "Time":
         time_message(message)
+        return
       if message.text == "Link shortner":
         shortit(message)
+        return
 #      if message.text == "Send contact":
 #        send_contactt(message)
       if message.text == "Memes":
         meme_image(message)
+        return
       if message.text == "Id":
         send_id(message)
+        return
       if message.text == "Calculate":
         clac(message)
+        return
       if message.text == "Support":
         support(message)
         return
       if message.text == "Mp3Tag":
         mp3tag(message)
+        return
     if userid in in_chat_with_support:
       _hash = "anti_flood:user:" + str(userid)
       max_time = 10
@@ -59,3 +66,10 @@ def message_replier(messages):
           bot.reply_to(message, "REPLY SENT")
         except:
           bot.reply_to(message, "ERROR SENDING?")
+    if message.chat.type == "private":
+      for txt in triggers:
+        if(message.text == txt):
+          bot.reply_to(message, triggers[txt])
+        else:
+          bot.reply_to(message, "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄" parse_mode="Markdown")
+
