@@ -26,6 +26,25 @@ def query_text(inline_query):
   except Exception as e:
     print(e)
 
+
+@bot.inline_handler(lambda query: query.query.split()[0] == 'calc')
+def query_text(inline_query):
+  try:
+    if inline_query.query == "calc":
+      r = types.InlineQueryResultArticle('1', 'Please enter what you need I calculate.', types.InputTextMessageContent('0! :D'))
+      bot.answer_inline_query(inline_query.id, [r])
+    if len(inline_query.query.split()) > 1:
+      text = inline_query.query.replace("calc ", "",1)
+      res = urllib.urlopen("http://api.mathjs.org/v1/?expr={}".format(text).replace("+","%2B")).read()
+      try:
+        r3 = types.InlineQueryResultArticle('3', "_{}_ = `{}`".format(text,res), types.InputTextMessageContent("_{}_ = `{}`".format(text,res), parse_mode="Markdown"))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+      except:
+        r3 = types.InlineQueryResultArticle('3', 'Error occured.', types.InputTextMessageContent("I forgot to close a tag."))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+  except Exception as e:
+    print(e)
+
 @bot.inline_handler(lambda query: query.query.split()[0] == 'hideit')
 def hideit_text(inline_query):
   try:
