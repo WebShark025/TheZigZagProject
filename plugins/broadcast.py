@@ -10,7 +10,7 @@ def bc_msg(message):
       try:
         bot.send_message(userid, bcmsg, parse_mode="HTML")
       except:
-        pass
+        redisserver.sadd('zigzag_blocked',userid)
     bot.reply_to(message, "Successfully broadcasted!")
   else:
     bot.send_message(message.chat.id, "You dont have permission.")
