@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def message_replier(messages):
   for message in messages:
     userid = message.from_user.id
@@ -67,9 +69,10 @@ def message_replier(messages):
         except:
           bot.reply_to(message, "ERROR SENDING?")
     if message.chat.type == "private":
+      if message.text[:1] == "/":
+        return
       for txt in triggers:
-        if(message.text == txt):
+        if(message.text.lower() == txt):
           bot.reply_to(message, triggers[txt])
-        else:
-          bot.reply_to(message, "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄" parse_mode="Markdown")
-
+          return
+      bot.reply_to(message, "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄", parse_mode="Markdown")
