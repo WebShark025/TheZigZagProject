@@ -55,6 +55,7 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /short | URL Shortner | Members |
 | /tocontact | String to contact converter! | Members |
 | /mp3tag | Changes MP3 file tags | Members |
+| /addreply | Adds a reply to chatwith system! | Members |
 | /adminhelp | Admin commands help | Admins |
 | /members | List of members & banned users | Admins |
 | /bc | Broadcast message to all members | Admins |
@@ -77,6 +78,8 @@ The ZigZag official bot in Telegram: [@TheZigZagBot](https://telegram.me/TheZigZ
 Special thanks to [Iman Daneshi](https://github.com/imandaneshi) for the idea.
 
 Thanks to [ThisIsAmir](https://github.com/ThisIsAmir) for some part of his codes.
+
+Thanks to [flo](https://github.com/aRandomStranger) for its awesome chat-with code.
 
 And thanks to [eternnoir](https://github.com/eternnoir/) for his awesome API!
 
