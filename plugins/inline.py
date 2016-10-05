@@ -54,11 +54,9 @@ def hideit_text(inline_query):
     if len(inline_query.query.split()) > 1:
       try:
         markupz = types.InlineKeyboardMarkup()
-        markupid = types.InlineKeyboardButton("Show all cmds", callback_data='showit')
+        markupid = types.InlineKeyboardButton("Show hidden message!", callback_data='sil|' + inline_query.id)
         markupz.add(markupid)
-        print(str(markupz))
         query_text = {inline_query.id: inline_query.query.replace("hideit ", "", 1)}
-        print(query_text)
         querymessages.update(query_text)
         r3 = types.InlineQueryResultArticle('3', 'Send hidden text!', types.InputTextMessageContent("❓❓❓"), reply_markup=markupz)
         bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)

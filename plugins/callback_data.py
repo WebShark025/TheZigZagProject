@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
   if call.message:
@@ -36,5 +38,16 @@ def callback_inline(call):
       else:
         bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Timeout exceeded.")
         print("OMG2")
-  else:
-    print(call.inline_message_id)
+  try:
+    if call.data.split("|")[0] == "sil":
+      markup = types.ReplyKeyboardMarkup()
+      inlineid = call.data.split("|")[1]
+      if inlineid in querymessages:
+        inline_text = querymessages[inlineid]
+        bot.answer_callback_query(callback_query_id=call.id, show_alert=True, text=inline_text)
+      else:
+        bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Timeout exceeded.")
+        print("OMG2")
+  except:
+    print("EXC")
+    pass
