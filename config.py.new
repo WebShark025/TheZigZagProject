@@ -36,6 +36,7 @@ enabled_plugins = [
 "tocontact",
 "serverstatus",
 "inline",
+"weather",
 "mp3tag",
 "messenger",
 "message_handler",
