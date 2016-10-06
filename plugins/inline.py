@@ -67,14 +67,14 @@ def hideit_text(inline_query):
     print(e)
 
 
-@bot.inline_handler(lambda query: query.query.split()[0] == weather')
+@bot.inline_handler(lambda query: query.query.split()[0] == 'weather')
 def query_text(inline_query):
   try:
     if inline_query.query == "weather":
       r = types.InlineQueryResultArticle('1', 'Please enter a city!', types.InputTextMessageContent('Wait, what?'))
       bot.answer_inline_query(inline_query.id, [r])
     if len(inline_query.query.split()) > 1:
-      city = message.text.replace("weather ","").replace(" ", "%20")
+      city = inline_query.query.replace("weather ","").replace(" ", "%20")
       try:
         url = json.load(urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?q={}&APPID=d2def4a0a0455314526b0f455f98ec0f&units=metric".format(city)))
       except:
