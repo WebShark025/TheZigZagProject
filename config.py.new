@@ -37,6 +37,7 @@ enabled_plugins = [
 "serverstatus",
 "inline",
 "weather",
+"qrcode",
 "mp3tag",
 "messenger",
 "message_handler",
