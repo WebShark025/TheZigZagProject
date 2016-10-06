@@ -6,6 +6,9 @@ def callback_inline(call):
     if call.data == "help":
       bot.send_message(call.message.chat.id, START_MSG.encode("utf-8"), parse_mode="Markdown")
       bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Here you are!")
+    if call.data == "inlinehelp":
+      bot.send_message(call.message.chat.id, "*Inline mode help!:* \n \nTo use inline mode, first mention the bots ID (@TheZigZagBot) in your message, then use one of theese syntaxes: \n \n💢echo <message> (_Echoes the message using HTML markup_) \n💢cal <ex> (_Calculator.. Easy as a pie_) \n💢hideit <message> (_Hides the message you enter! :D So its un-forwardable._) \n \nMore options comming *soon*!", parse_mode="Markdown")
+      bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Here you are!")
     if call.data == "showit":
       markup = types.ReplyKeyboardMarkup()
       numbers = list(range(3, 3000, 3))

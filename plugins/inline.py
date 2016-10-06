@@ -7,7 +7,7 @@ querymessages = {}
 def default_query(inline_query):
   try:
     r = types.InlineQueryResultArticle('1', 'default', types.InputTextMessageContent('default'))
-    bot.answer_inline_query(inline_query.id, [None], switch_pm_text="Switch")
+    bot.answer_inline_query(inline_query.id, [None], switch_pm_text="Inline mode help", switch_pm_parameter="inlinem")
   except Exception as e:
     print(e)
 @bot.inline_handler(lambda query: query.query.split()[0] == 'echo')
