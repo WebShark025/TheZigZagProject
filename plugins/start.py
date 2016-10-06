@@ -9,7 +9,7 @@ def send_welcome(message):
     return
   if len(message.text.split()) > 1:
     if message.text.replace("/start ","",1) == "inlinem":
-      bot.send_message(message.chat.id, "*Inline mode help!:* \n \nTo use inline mode, first mention the bots ID (@TheZigZagBot) in your message, then use one of theese syntaxes: \n \n💢echo <message> (_Echoes the message using HTML markup_) \n💢cal <ex> (_Calculator.. Easy as a pie_) \n💢hideit <message> (_Hides the message you enter! :D So its un-forwardable._) \n \nMore options comming *soon*!", parse_mode="Markdown")
+      bot.send_message(message.chat.id, "*Inline mode help!:* \n \nTo use inline mode, first mention the bots ID (@TheZigZagBot) in your message, then use one of theese syntaxes: \n \n💢echo <message> (_Echoes the message using HTML markup_) \n💢cal <ex> (_Calculator.. Easy as a pie_) \n💢time <city> (_Get time for anywhere! even nowhere!_) \n💢weather <city> (_Current weather in <city>!_) \n💢hideit <message> (_Hides the message you enter! :D So its un-forwardable._) \n \nExample: `@TheZigZagBot time tehran` \n\nMore options comming *soon*!", parse_mode="Markdown")
       return
   markup = types.InlineKeyboardMarkup()
   markupib = types.InlineKeyboardButton("Help",callback_data='help')
