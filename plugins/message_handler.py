@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from difflib import SequenceMatcher
+
+def similar(a, b):
+  return SequenceMatcher(None, a, b).ratio()
+
+
 def message_replier(messages):
   for message in messages:
     userid = message.from_user.id
@@ -81,6 +87,13 @@ def message_replier(messages):
           if(message.text.lower() in txx):
             bot.reply_to(message, triggers[txx])
             return
+        for xxt in triggers:
+          if(similar(xxt, message.text.lower())) > 0.7:
+            bot.reply_to(message, triggers[xxt])
+#            print("Similar")
+            return
+#          else:
+#            print(similar(xxt, message.text.lower()))
         bot.reply_to(message, "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄", parse_mode="Markdown")
       except:
         pass
