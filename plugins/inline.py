@@ -66,3 +66,26 @@ def hideit_text(inline_query):
   except Exception as e:
     print(e)
 
+
+@bot.inline_handler(lambda query: query.query.split()[0] == weather')
+def query_text(inline_query):
+  try:
+    if inline_query.query == "weather":
+      r = types.InlineQueryResultArticle('1', 'Please enter a city!', types.InputTextMessageContent('Wait, what?'))
+      bot.answer_inline_query(inline_query.id, [r])
+    if len(inline_query.query.split()) > 1:
+      city = message.text.replace("weather ","").replace(" ", "%20")
+      try:
+        url = json.load(urllib.urlopen("http://api.openweathermap.org/data/2.5/weather?q={}&APPID=d2def4a0a0455314526b0f455f98ec0f&units=metric".format(city)))
+      except:
+        print("[WeatherInline] Exception occured")
+        return
+      try:
+        r3 = types.InlineQueryResultArticle('3', 'Send current weather of ' + str(url["name"]), types.InputTextMessageContent("💢 Current status of *" + str(url["name"]) + "*: \n\n🌍 Country: `" + str(url["sys"]["country"]) + "` \n☀️ Temperature: `" + str(url["main"]["temp"]) + "°C` \n" + "🌤 Weather: `" + str(url["weather"][0]["main"]) + "` \n💨 Wind: `" + str(url["wind"]["speed"]) + "m/s` \n💧 Humidity: `" + str(url["main"]["humidity"]) + "%`", parse_mode="Markdown"))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+      except:
+        r3 = types.InlineQueryResultArticle('3', 'Error occured.', types.InputTextMessageContent("Unexpected error occured."))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+  except Exception as e:
+    print(e)
+
