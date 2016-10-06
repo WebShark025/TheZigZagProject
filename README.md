@@ -57,6 +57,7 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /mp3tag | Changes MP3 file tags | Members |
 | /addreply | Adds a reply to chatwith system! | Members |
 | /weather <city> | Weather! | Members |
+| /qrcode <text> | QR Code creator | Members |
 | /adminhelp | Admin commands help | Admins |
 | /members | List of members & banned users | Admins |
 | /bc | Broadcast message to all members | Admins |
