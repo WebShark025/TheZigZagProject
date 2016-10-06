@@ -1,6 +1,11 @@
 echo "Installing..."
+sudo apt-get install python-qt4
 git pull
-sudo pip install pyTelegramBotAPI
+git clone https://github.com/eternnoir/pyTelegramBotAPI.git
+mv pyTelegramBotAPI .pyTelegramBotAPI
+cd .pyTelegramBotAPI
+python setup.py install
+cd ../
 sudo pip install redis
 chmod +x launch.sh
 
