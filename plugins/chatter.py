@@ -49,6 +49,12 @@ def add_reply_t(message):
         bot.send_message(cid, "String recieved in an incorrect format..")
         return
     tr = text.split(separator)[0]
+    if len(tr) < 3:
+        bot.reply_to(message, str(tr) + " Is too short!")
+        return
     re = text.split(separator)[1]
+    if triggers.has_key(tr):
+        bot.reply_to(message, "Im sorry, this message had already been defined!")
+        return
     newTrigger(tr,re)
     bot.send_message(cid, "Ooo yeah! Now I know if you say `"+tr+"`, I Should Answer `"+re+"` :) \nCan you teach me *more*? 😁😁", parse_mode="Markdown")

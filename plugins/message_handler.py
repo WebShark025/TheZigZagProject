@@ -69,10 +69,18 @@ def message_replier(messages):
         except:
           bot.reply_to(message, "ERROR SENDING?")
     if message.chat.type == "private":
-      if message.text[:1] == "/":
-        return
-      for txt in triggers:
-        if(message.text.lower() == txt):
-          bot.reply_to(message, triggers[txt])
+      try:
+        zz = message.text
+        if message.text[:1] == "/":
           return
-      bot.reply_to(message, "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄", parse_mode="Markdown")
+        for txt in triggers:
+          if(message.text.lower() == txt):
+            bot.reply_to(message, triggers[txt])
+            return
+        for txx in triggers:
+          if(message.text.lower() in txx):
+            bot.reply_to(message, triggers[txx])
+            return
+        bot.reply_to(message, "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄", parse_mode="Markdown")
+      except:
+        pass
