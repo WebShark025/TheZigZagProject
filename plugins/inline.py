@@ -89,3 +89,37 @@ def query_text(inline_query):
   except Exception as e:
     print(e)
 
+
+@bot.inline_handler(lambda query: query.query.split()[0] == 'time')
+def query_text(inline_query):
+  try:
+    if inline_query.query == "time":
+      r = types.InlineQueryResultArticle('1', 'Please enter timezone/city/region/etc!', types.InputTextMessageContent('Time in nowhere: 00:00:00'))
+      bot.answer_inline_query(inline_query.id, [r])
+    if len(inline_query.query.split()) > 1:
+      city = inline_query.query.split()[1]
+      try:
+        tzd = json.load(urllib.urlopen("https://maps.googleapis.com/maps/api/geocode/json?address={}".format(city)))
+        if str(tzd["status"]) == "OK":
+          latlng = tzd["results"][0]["geometry"]["location"]
+          lat = str(latlng["lat"])
+          lng = str(latlng["lng"])
+          tzl = json.load(urllib.urlopen("https://maps.googleapis.com/maps/api/timezone/json?location={}&timestamp=1331161200".format(lat + "," + lng)))
+          timezone = tzl["timeZoneId"]
+        else:
+          rz = types.InlineQueryResultArticle('3', 'Timezone not found', types.InputTextMessageContent("Time in nowhere: 00:00:00"))
+          bot.answer_inline_query(inline_query.id, [rz], cache_time=1, is_personal=True)
+          return
+      except:
+        print("[TimeInline] Exception occured")
+        return
+      time = json.load(urllib.urlopen("https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz={}".format(timezone)))
+      try:
+        r3 = types.InlineQueryResultArticle('3', 'Send current time in ' + str(timezone), types.InputTextMessageContent("Current time in *" + timezone + "*: \n" + time["fulldate"], parse_mode="Markdown"))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+      except:
+        r3 = types.InlineQueryResultArticle('3', 'Error occured.', types.InputTextMessageContent("Unexpected error occured."))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+  except Exception as e:
+    print(e)
+
