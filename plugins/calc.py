@@ -1,4 +1,4 @@
-@bot.message_handler(commands=['calc'])
+@bot.message_handler(commands=['calc', 'Calc'])
 def clac(m):
   userid = m.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))

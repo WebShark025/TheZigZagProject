@@ -1,4 +1,4 @@
-@bot.message_handler(commands=['short'])
+@bot.message_handler(commands=['short', 'Short'])
 def shortit(m):
   userid = m.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))

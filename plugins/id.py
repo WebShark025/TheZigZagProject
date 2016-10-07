@@ -1,4 +1,4 @@
-@bot.message_handler(commands=['id'])
+@bot.message_handler(commands=['id', 'Id'])
 def send_id(message):
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-@bot.message_handler(commands=['weather'])
+@bot.message_handler(commands=['weather', 'Weather'])
 def weather_image(message):
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))

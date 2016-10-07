@@ -2,7 +2,7 @@ import requests
 
 awaiting_audio = {"981": "hi"}
 
-@bot.message_handler(commands=['mp3tag'])
+@bot.message_handler(commands=['mp3tag', 'Mp3tag'])
 def mp3tag(message):
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))

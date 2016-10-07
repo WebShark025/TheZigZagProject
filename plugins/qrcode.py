@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-@bot.message_handler(commands=['qrcode'])
+@bot.message_handler(commands=['qrcode', 'Qrcode'])
 def qr_image(message):
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
