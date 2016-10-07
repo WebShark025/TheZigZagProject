@@ -24,5 +24,7 @@ def time_message(message):
   except:
     print("[Time] Exception occured")
     return
+#  bot.send_chat_action(message.chat.id, "typing")
+#  tm.sleep(1)
   time = json.load(urllib.urlopen("https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz={}".format(timezone)))
   bot.send_message(message.chat.id, "Current time in *" + timezone + "*: \n" + time["fulldate"], parse_mode="Markdown")

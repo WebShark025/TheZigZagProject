@@ -21,6 +21,8 @@ def mp3tag(message):
 @bot.message_handler(content_types=['audio'])
 def handle_docs_audio(message):
   if awaiting_audio.has_key(str(message.from_user.id)):
+    bot.send_chat_action(message.chat.id, "upload_document")
+    tm.sleep(2)
     fileid = message.audio.file_id
     fileargs = awaiting_audio[str(message.from_user.id)].split("||")
     file_info = bot.get_file(fileid)
