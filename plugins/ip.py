@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 @bot.message_handler(commands=['ip', 'Ip'])
 def ip_message(message):
   userid = message.from_user.id
@@ -26,7 +28,7 @@ def ip_message(message):
     long = ipresult['lon']
     lati = ipresult['lat']
     bot.send_location(message.chat.id, lati, long)
-    bot.send_message(message.chat.id, "IP Information for *{}*: \n\n🌍 Country: *{}* \n🏫 City: *{}* \n📡 ISP: *{}* \n⏱ TimeZone: *{}*".format(country, cityn, isp, timezone), parse_mode="Markdown")
+    bot.send_message(message.chat.id, "IP Information for *{}*: \n\n🌍 Country: *{}* \n🏫 City: *{}* \n📡 ISP: *{}* \n⏱ TimeZone: *{}*".format(ip, country, cityn, isp, timezone), parse_mode="Markdown")
   else:
     bot.reply_to(message, "Error: \n\n`{}`".format(ipresult['message']), parse_mode="Markdown")
     return
