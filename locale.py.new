@@ -42,4 +42,4 @@ KICKED_MESSENGER_MSG = "You got auto-kicked from the messenger because you spamm
 ALREADY_IN_MESSENGER_MSG = "You are already chatting with support! to exit, type '/leave'"
 NOT_IN_MESSENGER_MSG = "You are not chatting with support! to start, type '/support'"
 LEFT_MESSENGER_MSG = "⚡️ We hope you enjoyed ;) Leaving the messenger."
-MEME_NEA_MSG = "To use this command, you need to follow this format: \n`/meme <type>||<top>||<bottom>` \nFor example: `/meme Gangnam Style||Oppa||Gangnam style!`\n_Remember: No spaces within words and ||s!_"
+MEME_NEA_MSG = "To use this command, you need to follow this format: \n`/meme <type>||<top>||<bottom>` \nFor example: `/meme Gangnam Style||Oppa||Gangnam style!`\n_Remember: No spaces within words and ||s!_ \n\nRemember, this bot supports more than a thousand of memes! Some examples: \n\n💢 Good Guy Greg\n💢 First World Problems\n💢 Scumbag Steve\n💢 Hipster Barista\n💢 Bad Luck Brian\n💢 Success Kid\n💢 Ridiculously Photogenic Guy\n💢 Sudden Clarity Clarence\n💢 College Freshman\n💢 Skeptical Baby\n💢 Gangnam Style\n💢 Talk To Spongebob\n💢 Suspicious Cat"
