@@ -7,7 +7,7 @@ def ex_message(message):
   if banlist:
     return
   if len(message.text.split()) < 2:
-    bot.reply_to(message, "Enter a base currency! \n\nExample: `/rate USD`", parse_mode="Markdown")
+    bot.reply_to(message, "Enter a base currency! \n\nExample: `/rate USD` \n\nAvailable base currencies: `USD, EUR, RUB, AUD, CAD, GBP`", parse_mode="Markdown")
     return
   currency = message.text.upper().split()[1]
 #  rlex = re.compile(r'^\b\w{3}\b')
@@ -24,17 +24,34 @@ def ex_message(message):
     return
   except:
     pass
+  ac = ["USD", "EUR", "RUB", "AUD", "CAD", "GBP"]
+  for crr in ac:
+    if crr == currency:
+      continue
+    if crr == "CAD":
+      if currency != crr:
+        bot.reply_to(message, "Error: \n\n`Base currency not found!`", parse_mode="Markdown")
+        return
   base = str(exresult['base'])
   datet = str(exresult['date'])
-  aud = "🇦🇮 `AUD`: *" + str(exresult['rates']['AUD']) + "*"
+# Dirty coding.
+  aud = ""
+  eur = ""
+  rub = ""
+  cad = ""
+  gbp = ""
+  if currency != "AUD":
+    aud = "🇦🇮 `AUD`: *" + str(exresult['rates']['AUD']) + "*"
   bgn = "🇧🇬 `BGN`: *" + str(exresult['rates']['BGN']) + "*"
   brl = "🇧🇷 `BRL`: *" + str(exresult['rates']['BRL']) + "*"
-  cad = "🇨🇦 `CAD`: *" + str(exresult['rates']['CAD']) + "*"
+  if currency != "CAD":
+    cad = "🇨🇦 `CAD`: *" + str(exresult['rates']['CAD']) + "*"
   chf = "🇨🇭 `CHF`: *" + str(exresult['rates']['CHF']) + "*"
   cny = "🇨🇳 `CNY`: *" + str(exresult['rates']['CNY']) + "*"
   czk = "🇨🇿 `CZK`: *" + str(exresult['rates']['CZK']) + "*"
   dkk = "🇩🇰 `DKK`: *" + str(exresult['rates']['DKK']) + "*"
-  gbp = "🇬🇧 `GBP`: *" + str(exresult['rates']['GBP']) + "*"
+  if currency != "GBP":
+    gbp = "🇬🇧 `GBP`: *" + str(exresult['rates']['GBP']) + "*"
   hdk = "🇭🇰 `HKD`: *" + str(exresult['rates']['HKD']) + "*"
 #  hrk = exresult['HRK'] FLAG NOT FOUND
 #  huf = exresult['HUF'] SAME AS ABOVE
@@ -44,7 +61,8 @@ def ex_message(message):
   jpy = "🇯🇵 `JPY`: *" + str(exresult['rates']['JPY']) + "*"
 #  kry = exresult['KRY'] KOREA? NOT FOUND.
   mxn = "🇮🇹 `MXN`: *" + str(exresult['rates']['MXN']) + "*"
-  myr = "🇲🇾 `MYR`: *" + str(exresult['rates']['MYR']) + "*"
+  if currency != "MYR":
+    myr = "🇲🇾 `MYR`: *" + str(exresult['rates']['MYR']) + "*"
   nok = "🇳🇴 `NOK`: *" + str(exresult['rates']['NOK']) + "*"
   nzd = "🇬🇸 `NZD`: *" + str(exresult['rates']['NZD']) + "*"
   php = "🇵🇭 `PHP`: *" + str(exresult['rates']['PHP']) + "*"
@@ -56,5 +74,6 @@ def ex_message(message):
   thb = "🇹🇭 `THB`: *" + str(exresult['rates']['THB']) + "*"
 #  tryy = exresult['TRY'] not found.
 #  zar = exresult['ZAR'] NOT SURE WHICH FLAG
-  eur = "🇪🇺 `EUR`: *" + str(exresult['rates']['EUR']) + "*"
+  if currency != "EUR":
+    eur = "🇪🇺 `EUR`: *" + str(exresult['rates']['EUR']) + "*"
   bot.send_message(message.chat.id, "Exchange date rata as `{}`: \nBase currency: `{}`\n\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n".format(datet, base, aud, bgn, brl, cad, chf, cny, czk, dkk, gbp, hdk, idr, inr, jpy, mxn, myr, nok, nzd, php, rub, sek, sgd, thb, eur), parse_mode="Markdown")
