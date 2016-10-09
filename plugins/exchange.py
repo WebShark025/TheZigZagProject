@@ -27,7 +27,7 @@ def ex_message(message):
   ac = ["USD", "EUR", "RUB", "AUD", "CAD", "GBP"]
   for crr in ac:
     if crr == currency:
-      continue
+      break
     if crr == "CAD":
       if currency != crr:
         bot.reply_to(message, "Error: \n\n`Base currency not found!`", parse_mode="Markdown")
