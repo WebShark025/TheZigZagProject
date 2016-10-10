@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+
+@bot.message_handler(commands=['weather'])
+def weather_image(message):
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
+  city = message.text.replace("/weather ","").replace(" ", "%20")
+  bot.send_chat_action(message.chat.id, "upload_photo")
+  print(city)
+#  time.sleep(1)
+  ss = Screenshot()
+  ss.capture("http://api.openweathermap.org/data/2.5/weather?q={}&APPID=d2def4a0a0455314526b0f455f98ec0f&mode=html".format(city), 'latestweather.jpg')
+#  urllib.urlretrieve("http://api.openweathermap.org/data/2.5/weather?q={}&APPID=d2def4a0a0455314526b0f455f98ec0f&mode=html".format(city), 'latestweather.jpg')
+#  weatherf = open("latestweather.jpg","wb")
+#  weatherf.write(rs.read())
+#  weatherf.close()
+  bot.send_photo(message.chat.id, open('latestweather.jpg'), caption=" Weather by @TheZigZagBot")

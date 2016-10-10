@@ -9,15 +9,15 @@ def mp3tag(message):
   if banlist:
     return
   if len(message.text.split("||")) < 2:
-    bot.send_message(message.chat.id, "Please use correct syntax: \n`/mp3tag Artist||Title`\nAnd then, send the audio file.", parse_mode="Markdown")
+    bot.send_message(message.chat.id, MP3TAG_NEA_MSG, parse_mode="Markdown")
     return
   if awaiting_audio.has_key(str(userid)):
-    bot.send_message(message.chat.id, "Please send the audio now!")
+    bot.send_message(message.chat.id, MP3TAG_SENDAUDIO_MSG)
     return
   args = message.text.replace("/mp3tag","")
   dictargs = {str(userid): args}
   awaiting_audio.update(dictargs)
-  bot.send_message(message.chat.id, "Please send the audio now!")
+  bot.send_message(message.chat.id, MP3TAG_SENDAUDIO_MSG)
 @bot.message_handler(content_types=['audio'])
 def handle_docs_audio(message):
   if awaiting_audio.has_key(str(message.from_user.id)):

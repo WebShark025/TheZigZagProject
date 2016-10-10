@@ -39,14 +39,14 @@ def newTrigger(trigger, response):
 @bot.message_handler(commands=['addreply'])
 def add_reply_t(message):
     if len(message.text.split()) < 2:
-        bot.reply_to(message, "Hey! 😱 \n \nI think you don't know how to work with this. \n \nYou can actually learn me how to respond to some messages 😏 \n \nSimply do: /addreply <Text>||<Response> \n \nFor example, if you want to enter 'hi' and then you want me to say 'hello', you need to execute this: \n /addreply Hi||Hello \n \nIts simple 😌 And also fun 😍", parse_mode="Markdown")
+        bot.reply_to(message, CHATTER_NEA_MSG, parse_mode="Markdown")
         return
     cid = message.chat.id
     text = message.text.replace("/addreply ","",1)
     try:
         i = text.rindex(separator)
     except:
-        bot.send_message(cid, "String recieved in an incorrect format..")
+        bot.send_message(cid, CHATTER_INCORRECT_MSG)
         return
     tr = text.split(separator)[0]
     if len(tr) < 3:
@@ -54,7 +54,7 @@ def add_reply_t(message):
         return
     re = text.split(separator)[1]
     if triggers.has_key(tr):
-        bot.reply_to(message, "Im sorry, this message had already been defined!")
+        bot.reply_to(message, CHATTER_ALREADYDEFINED_MSG)
         return
     newTrigger(tr,re)
-    bot.send_message(cid, "Ooo yeah! Now I know if you say `"+tr+"`, I Should Answer `"+re+"` :) \nCan you teach me *more*? 😁😁", parse_mode="Markdown")
+    bot.send_message(cid, CHATTER_DONE_MSG.format(tr, re), parse_mode="Markdown")

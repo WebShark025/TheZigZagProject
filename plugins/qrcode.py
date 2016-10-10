@@ -7,7 +7,7 @@ def qr_image(message):
   if banlist:
     return
   if len(message.text.split()) < 2:
-    bot.reply_to(message, "Please, enter a text so I can convert it to QR code. \n\nFor example: `/qrcode http://sadeco.ir`", parse_mode="Markdown")
+    bot.reply_to(message, QRCODE_NEA_MSG, parse_mode="Markdown")
     return
   argus = message.text.replace("/qrcode ","").replace(" ", "%20")
   bot.reply_to(message, "Processing..")

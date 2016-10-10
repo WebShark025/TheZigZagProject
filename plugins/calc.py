@@ -5,7 +5,7 @@ def clac(m):
   if banlist:
     return
   if len(m.text.split()) < 2:
-    bot.reply_to(m, "How can i calculate null? \nYour command should be like this: \n`/calc 5+5*2`", parse_mode="Markdown")
+    bot.reply_to(m, CALC_NEA_MSG, parse_mode="Markdown")
     return
   text = m.text.replace("/calc ","")
   res = urllib.urlopen("http://api.mathjs.org/v1/?expr={}".format(text).replace("+","%2B")).read()

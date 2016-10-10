@@ -7,7 +7,7 @@ def weather_image(message):
   if banlist:
     return
   if len(message.text.split()) < 2:
-    bot.reply_to(message, "Enter a city so I can tell its weather! :P \n\nExample: `/weather Tehran`", parse_mode="Markdown")
+    bot.reply_to(message, WWEATHER_NEA_MSG, parse_mode="Markdown")
     return
   city = message.text.replace("/weather ","").replace(" ", "%20")
   try:

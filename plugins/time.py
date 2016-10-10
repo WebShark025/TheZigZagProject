@@ -7,7 +7,7 @@ def time_message(message):
   if banlist:
     return
   if len(message.text.split()) < 2:
-    bot.reply_to(message, "Enter a time zone/city/region/etc. please! \n\nExample: `/time Tehran`", parse_mode="Markdown")
+    bot.reply_to(message, TIME_NEA_MSG, parse_mode="Markdown")
     return
   city = message.text.split()[1]
   try:

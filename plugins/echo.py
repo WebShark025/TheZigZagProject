@@ -15,5 +15,5 @@ def echo_message(message):
     echo_msg = message.text.replace("/echo","",1)
     bot.reply_to(message, echo_msg, parse_mode="HTML")
   except:
-    bot.send_message(messsage.chat.id, ERROR_MSG.encode("utf-8"))
+    bot.send_message(message.chat.id, ERROR_MSG.encode("utf-8"))
 
