@@ -6,6 +6,7 @@ reload(sys)
 sys.setdefaultencoding("UTF8")
 # LANGUAGE FILE
 
+
 START_MSG = str("Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/time <city>_ - Gets current time in any timezone! \n💢 _/calc_ - Lets do some maths \n💢 _/support_ - Chat with us! \n💢 _/sendcontact_ - Forward contact to admin \n💢 _Send feedback_ - Send feedback! \n💢 _/echo <msg>_ - Echoes the message \n💢 _/short <link>_ - Shorts the link! \n💢 _/weather <city>_ - Gets weather! \n💢 _/mp3tag <artist>||<title>_ - Edits audios tags! \n💢 _/tocontact <phone>||<name>_ - Turns string to Telegram contact! \n💢 _/qrcode <text>_ - QR Code creator!! \n💢 _/addreply <syntax>_ - Learn the bot how to respond! \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! ").encode("utf-8")
 START_BUTTONS = ("Id", "Time", "Memes", "Send feedback", "/weather", "Support", "Link shortner", "Calculate", "Mp3Tag") # SPLITS 3 PER LINE
 SHOWED_BUTTONS_MSG = "Here you are ;)"
@@ -58,3 +59,4 @@ SHORTNER_NEA_MSG = "Please enter a link so I can short it. \nLike: `/short http:
 TIME_NEA_MSG = "Enter a time zone/city/region/etc. please! \n\nExample: `/time Tehran`"
 WWEATHER_NEA_MSG = "Enter a city so I can tell its weather! :P \n\nExample: `/weather Tehran`"
 INLINE_HELP_MSG = "*Inline mode help!:* \n \nTo use inline mode, first mention the bots ID (@TheZigZagBot) in your message, then use one of theese syntaxes: \n \n💢echo <message> (_Echoes the message using HTML markup_) \n💢cal <ex> (_Calculator.. Easy as a pie_) \n💢time <city> (_Get time for anywhere! even nowhere!_) \n💢weather <city> (_Current weather in <city>!_) \n💢hideit <message> (_Hides the message you enter! :D So its un-forwardable._) \n \nExample: `@TheZigZagBot time tehran` \n\nMore options comming *soon*!"
+ADDCOUNTER_NEA_MSG = "Do you want to know how many people saw your message? Yeah! Now its possible! \nJust type `/addcounter add` and then forward/send your message!"
