@@ -1,5 +1,6 @@
 addcntr = []
 
+
 @bot.message_handler(commands=['addcounter', 'Addcounter'])
 def addc_message(message):
   userid = message.from_user.id
