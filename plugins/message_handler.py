@@ -73,6 +73,7 @@ def message_replier(messages):
       fw = bot.forward_message("@ZigZagPrivZZZZZ", from_chat_id=messgchatid, message_id=messgid)
       bot.forward_message(message.chat.id, from_chat_id=fw.chat.id, message_id=fw.message_id)
       addcntr.remove(userid)
+      return
     if message.from_user.id in ADMINS_IDS:
       if message.chat.id == -SUPPORT_GP:
         try:
