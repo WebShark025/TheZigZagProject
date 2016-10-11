@@ -60,3 +60,4 @@ TIME_NEA_MSG = "Enter a time zone/city/region/etc. please! \n\nExample: `/time T
 WWEATHER_NEA_MSG = "Enter a city so I can tell its weather! :P \n\nExample: `/weather Tehran`"
 INLINE_HELP_MSG = "*Inline mode help!:* \n \nTo use inline mode, first mention the bots ID (@TheZigZagBot) in your message, then use one of theese syntaxes: \n \n💢echo <message> (_Echoes the message using HTML markup_) \n💢cal <ex> (_Calculator.. Easy as a pie_) \n💢time <city> (_Get time for anywhere! even nowhere!_) \n💢weather <city> (_Current weather in <city>!_) \n💢hideit <message> (_Hides the message you enter! :D So its un-forwardable._) \n \nExample: `@TheZigZagBot time tehran` \n\nMore options comming *soon*!"
 ADDCOUNTER_NEA_MSG = "Do you want to know how many people saw your message? Yeah! Now its possible! \nJust type `/addcounter add` and then forward/send your message!"
+LMGTFY_NEA_MSG = "Let me *Google* that for you! \n\nJust do `/lmgtfy <search>`"
