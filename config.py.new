@@ -40,6 +40,8 @@ enabled_plugins = [
 "chatter",
 "qrcode",
 "weather",
+"lmgtfy",
+"addcounter",
 "ip",
 "callback_data",
 "messenger",
