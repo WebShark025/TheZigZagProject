@@ -31,14 +31,14 @@ def callback_inline(call):
       markup.add(markupif)
       bot.edit_message_text(inline_message_id=msgid, chat_id=call.message.chat.id, message_id=call.message.message_id, text="Please choose a language. \nلطفا یک زبان انتخاب کنید. \n〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰", parse_mode="Markdown", reply_markup=markup)
     if call.data == "settingslangen":
-      redisserver.set("settings:user:language:" + str(call.message.from_user.id), "en")
+      redisserver.set("settings:user:language:" + str(call.from_user.id), "en")
       msgid = call.inline_message_id
       markup = types.InlineKeyboardMarkup()
       markupif = types.InlineKeyboardButton("Back to main", callback_data='settingsmain')
       markup.add(markupif)
       bot.edit_message_text(inline_message_id=msgid, chat_id=call.message.chat.id, message_id=call.message.message_id, text=SETTINGS_LANGUAGE_CHANGED_MSG, parse_mode="Markdown", reply_markup=markup)
     if call.data == "settingslangfa":
-      redisserver.set("settings:user:language:" + str(call.message.from_user.id), "fa")
+      redisserver.set("settings:user:language:" + str(call.from_user.id), "fa")
       msgid = call.inline_message_id
       markup = types.InlineKeyboardMarkup()
       markupif = types.InlineKeyboardButton("بازگشت به منو اصلی", callback_data='settingsmain')
