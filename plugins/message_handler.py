@@ -5,6 +5,7 @@ from difflib import SequenceMatcher
 def similar(a, b):
   return SequenceMatcher(None, a, b).ratio()
 
+in_submit_feedback = {}
 
 def message_replier(messages):
   for message in messages:
@@ -13,11 +14,27 @@ def message_replier(messages):
     if banlist:
       return
     if userid in messanger_list:
-      bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
+      markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
+      itembtn = ["Yes, Send it.", "No! dont send it!"]
+      markup.row(*itembtn)
+      bot.reply_to(message, MESSANGER_LEAVE_MSG, reply_markup=markup, parse_mode="Markdown")
       messanger_list.remove(userid)
-      bot.send_message("-" + str(SUPPORT_GP), "New feedback!:")
-      bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
+      in_submit_feedback.update({userid: message.message_id})
       return
+    if in_submit_feedback.haskey(userid):
+      if message.text == "Yes, Send it.":
+        bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
+        bot.send_message("-" + str(SUPPORT_GP), "New feedback!:")
+        bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, in_submit_feedback[userid])
+        del in_submit_feedback[userid];
+        return
+      elif message.text == "No! dont send it!":
+        del in_submit_feedback[userid];
+        bot.reply_to(message, MESSANGER_CANCEL_MSG, parse_mode="Markdown")
+        return
+      else:
+        bot.reply_to(message, "Unrecognized!")
+        return
 #    if REPLIER:
 #      if message.text in reply_message_list:
 #        bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
