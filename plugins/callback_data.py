@@ -6,6 +6,14 @@ def callback_inline(call):
     if call.data == "help":
       bot.send_message(call.message.chat.id, START_MSG, parse_mode="Markdown")
       bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Here you are!")
+    if call.data == "settingsmain":
+      markup = types.InlineKeyboardMarkup()
+      markupib = types.InlineKeyboardButton("Language - زبان", callback_data='settingslang')
+      markupic = types.InlineKeyboardButton("More coming soon!", callback_data='soon')
+      markup.add(markupib,markupic)
+      msgid = call.inline_message_id
+      bot.edit_message_text(inline_message_id=msgid, chat_id=call.message.chat.id, message_id=call.message.message_id, text=SETTINGS_WLC_MSG, parse_mode="Markdown", reply_markup=markup)
+      bot.answer_callback_query(callback_query_id=call.id, show_alert=False)
     if call.data == "settings":
       markup = types.InlineKeyboardMarkup()
       markupib = types.InlineKeyboardButton("Language - زبان", callback_data='settingslang')
@@ -19,7 +27,9 @@ def callback_inline(call):
       markupib = types.InlineKeyboardButton("🇱🇷 English", callback_data='settingslangen')
       markupic = types.InlineKeyboardButton("🇮🇷 Persian", callback_data='settingslangfa')
       markup.add(markupib,markupic)
-      bot.edit_message_text(inline_message_id=msgid, text="Please choose a language. \nلطفا یک زبان انتخاب کنید.", parse_mode="Markdown", reply_markup=markup)
+      markupif = types.InlineKeyboardButton("Back بازگشت", callback_data='settingsmain')
+      markup.add(markupif)
+      bot.edit_message_text(inline_message_id=msgid, chat_id=call.message.chat.id, message_id=call.message.message_id, text="Please choose a language. \nلطفا یک زبان انتخاب کنید. \n〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰", parse_mode="Markdown", reply_markup=markup)
     if call.data == "inlinehelp":
       bot.send_message(call.message.chat.id, INLINE_HELP_MSG, parse_mode="Markdown")
       bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Here you are!")
