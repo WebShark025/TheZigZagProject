@@ -4,8 +4,22 @@
 def callback_inline(call):
   if call.message:
     if call.data == "help":
-      bot.send_message(call.message.chat.id, START_MSG.encode("utf-8"), parse_mode="Markdown")
+      bot.send_message(call.message.chat.id, START_MSG, parse_mode="Markdown")
       bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Here you are!")
+    if call.data == "settings":
+      markup = types.InlineKeyboardMarkup()
+      markupib = types.InlineKeyboardButton("Language - زبان", callback_data='settingslang')
+      markupic = types.InlineKeyboardButton("More coming soon!", callback_data='soon')
+      markup.add(markupib,markupic)
+      bot.send_message(call.message.chat.id, SETTINGS_WLC_MSG, parse_mode="Markdown", reply_markup=markup)
+      bot.answer_callback_query(callback_query_id=call.id, show_alert=False)
+    if call.data == "settingslang":
+      msgid = call.inline_message_id
+      markup = types.InlineKeyboardMarkup()
+      markupib = types.InlineKeyboardButton("🇱🇷 English", callback_data='settingslangen')
+      markupic = types.InlineKeyboardButton("🇮🇷 Persian", callback_data='settingslangfa')
+      markup.add(markupib,markupic)
+      bot.edit_message_text(inline_message_id=msgid, text="Please choose a language. \nلطفا یک زبان انتخاب کنید.", parse_mode="Markdown", reply_markup=markup)
     if call.data == "inlinehelp":
       bot.send_message(call.message.chat.id, INLINE_HELP_MSG, parse_mode="Markdown")
       bot.answer_callback_query(callback_query_id=call.id, show_alert=False, text="Here you are!")
