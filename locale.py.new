@@ -8,7 +8,7 @@ sys.setdefaultencoding("UTF8")
 
 
 START_MSG = str("Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/time <city>_ - Gets current time in any timezone! \n💢 _/calc_ - Lets do some maths \n💢 _/support_ - Chat with us! \n💢 _/sendcontact_ - Forward contact to admin \n💢 _Send feedback_ - Send feedback! \n💢 _/echo <msg>_ - Echoes the message \n💢 _/short <link>_ - Shorts the link! \n💢 _/weather <city>_ - Gets weather! \n💢 _/mp3tag <artist>||<title>_ - Edits audios tags! \n💢 _/tocontact <phone>||<name>_ - Turns string to Telegram contact! \n💢 _/qrcode <text>_ - QR Code creator!! \n💢 _/ip <IP/Hostname>_ - Get IP location & more! \n💢 _/rate <currency>_ - Get latest exchange rates! \n💢 _/addcounter add_ - Add seen counter to your message! \n💢 _/lmgtfy <text>_ - Let me google that for you! \n💢 _/download <link>_ - Download a file and send it using telegram! \n💢 _/addreply <syntax>_ - Learn the bot how to respond! \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! ").encode("utf-8")
-START_BUTTONS = ("Id", "Time", "Memes", "Send feedback", "/weather", "Support", "Link shortner", "Calculate", "Mp3Tag") # SPLITS 3 PER LINE
+START_BUTTONS = ("❓ Id", "⏱ Time", "🙈 Memes", "🎭 Send feedback", "🌤 Weather", "👥 Support", "🔗 Link shortner", "✒️ Calculate", "🎧 Mp3Tag", "📡 IP Geolocation", "◻️ QR Code", "💵 Exchange rate") # SPLITS 3 PER LINE
 SHOWED_BUTTONS_MSG = "Here you are ;)"
 TEST_MSG = "This is a test message."
 SHARE_CONTACT_MSG = "Please share your contact to the bot (in a private message)."
