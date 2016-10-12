@@ -11,9 +11,10 @@ def support(message):
     if userid not in waiting_support_approval:
       bot.reply_to(message, WAITING_APPROVAL_MESSENGER_MSG, parse_mode="HTML")
       waiting_support_approval.append(message.from_user.id)
-      bot.send_message("-" + str(SUPPORT_GP), "User " + str(message.from_user.id) + " - " + str(message.from_user.first_name) + str(message.from_user.first_name) + " joined the support chat!") 
+      bot.send_message("-" + str(SUPPORT_GP), "User " + str(message.from_user.id) + " - " + str(message.from_user.first_name) + str(message.from_user.first_name) + " is waiting for your approval to join the support chat!") 
     else:
-      bot.reply_to(message, "Please wait. Your chat request hasnt been still manually accepted!")
+      bot.reply_to(message, "Please wait. Your chat request hasnt been still manually accepted! \nIf you want to leave, type /leave")
+      return
   else:
     bot.reply_to(message, ALREADY_IN_MESSENGER_MSG, parse_mode="HTML")
 @bot.message_handler(commands=['leave'])
@@ -26,6 +27,10 @@ def leave_support(message):
     bot.reply_to(message, LEFT_MESSENGER_MSG, parse_mode="HTML")
     in_chat_with_support.remove(message.from_user.id)
     bot.send_message("-" + str(SUPPORT_GP), "User " + str(message.from_user.id) + " - " + str(message.from_user.first_name) + str(message.from_user.first_name) + " left the support chat.") 
+  elif userid in waiting_support_approval:
+    waiting_support_approval.remove(userid)
+    bot.reply_to(message, LEFT_MESSENGER_MSG, parse_mode="HTML")
+    bot.send_message("-" + str(SUPPORT_GP), "User " + str(message.from_user.id) + " - " + str(message.from_user.first_name) + str(message.from_user.first_name) + " left the support chat while waiting for approval")
   else:
     bot.reply_to(message, NOT_IN_MESSENGER_MSG, parse_mode="HTML")
 @bot.message_handler(commands=['force_user_leave'])
