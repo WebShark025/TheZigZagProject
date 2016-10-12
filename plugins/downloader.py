@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 inl = []
 
 @bot.message_handler(commands=['Download', 'download'])
@@ -21,14 +23,15 @@ def dler(m):
     max_msgs = 4 # msgs in
     max_time = 60 # seconds
     if msgs > max_msgs:
-      bot.send_message(m.chat.id, "Please wait until the limit lifts up.")
+      bot.send_message(m.chat.id, "You have exceeded the limit of 3 files per minute. \n\nPlease wait until the limit lifts up.")
 #      bot.send_message(SUDO_ID, "یوزر " + str(m.from_user.id) + " بدلیل کرم کون داشتن بن شد.")
 #      redisserver.sadd('banlist', int(userid))
+      inl.remove(userid)
       return
   redisserver.setex(_hash, max_time, int(msgs)+1)
   try:
 #  if True:
-    text = m.text.replace("/dl ","")
+    text = m.text.replace("/download ","").replace("/Download ", "")
     filename = os.path.basename(text)
     bot.send_message(m.chat.id, DOWNLOADER_DL_MSG, parse_mode="Markdown")
     fl = urllib.urlopen(text)
