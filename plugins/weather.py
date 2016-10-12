@@ -6,7 +6,7 @@ def weather_image(message):
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
-  if len(message.text.split()) < 2:
+  if len(message.text.replace("🌤 Weather", "", 1).split()) < 2:
     bot.reply_to(message, WWEATHER_NEA_MSG, parse_mode="Markdown")
     return
   city = message.text.replace("/weather ","").replace(" ", "%20")
