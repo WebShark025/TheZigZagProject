@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
+
 @bot.message_handler(commands=['calc', 'Calc'])
 def clac(m):
   userid = m.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
-  if len(m.text.split()) < 2:
+  if len(m.text.replace("✒️ Calculate", "", 1).split()) < 2:
     bot.reply_to(m, CALC_NEA_MSG, parse_mode="Markdown")
     return
   text = m.text.replace("/calc ","")

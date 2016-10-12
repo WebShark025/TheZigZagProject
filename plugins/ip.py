@@ -6,7 +6,7 @@ def ip_message(message):
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
-  if len(message.text.split()) < 2:
+  if len(message.text.replace("📡 IP Geolocation", "", 1).split()) < 2:
     bot.reply_to(message, IP_NEA_MSG, parse_mode="Markdown")
     return
   ip = message.text.split()[1]

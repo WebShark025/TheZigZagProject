@@ -6,7 +6,7 @@ def ex_message(message):
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
-  if len(message.text.split()) < 2:
+  if len(message.text.replace("💵 Exchange rate", "", 1).split()) < 2:
     bot.reply_to(message, "Enter a base currency! \n\nExample: `/rate USD` \n\nAvailable base currencies: `USD, EUR, RUB, AUD, CAD, GBP`", parse_mode="Markdown")
     return
   currency = message.text.upper().split()[1]

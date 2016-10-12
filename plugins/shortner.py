@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 @bot.message_handler(commands=['short', 'Short'])
 def shortit(m):
   userid = m.from_user.id

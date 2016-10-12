@@ -6,7 +6,7 @@ def qr_image(message):
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
-  if len(message.text.split()) < 2:
+  if len(message.text.replace("◻️ QR Code", "", 1).split()) < 2:
     bot.reply_to(message, QRCODE_NEA_MSG, parse_mode="Markdown")
     return
   argus = message.text.replace("/qrcode ","").replace(" ", "%20")
