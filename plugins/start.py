@@ -15,7 +15,7 @@ def send_welcome(message):
   markupib = types.InlineKeyboardButton("Help",callback_data='help')
   markupic = types.InlineKeyboardButton("Channel", url=CHANNEL_LINK)
   markup.add(markupib,markupic)
-  markupie = types.InlineKeyboardButton("Settings", callback_data='settings')
+  markupif = types.InlineKeyboardButton("Settings (Beta)", callback_data='settings')
   markup.add(markupif)
   markupid = types.InlineKeyboardButton("Show all commands below keyboard", callback_data='showit')
   markup.add(markupid)
