@@ -39,31 +39,43 @@ def message_replier(messages):
 #      if message.text in reply_message_list:
 #        bot.reply_to(message, reply_message_list.get(message.text), parse_mode="Markdown")
     if message.chat.type == "private":
-      if message.text == "Send feedback":
+      if message.text == "🎭 Send feedback":
         send_feedbackz(message)
         return
-      if message.text == "Time":
+      if message.text == "⏱ Time":
         time_message(message)
         return
-      if message.text == "Link shortner":
+      if message.text == "🔗 Link shortner":
         shortit(message)
         return
 #      if message.text == "Send contact":
 #        send_contactt(message)
-      if message.text == "Memes":
+      if message.text == "🙈 Memes":
         meme_image(message)
         return
-      if message.text == "Id":
+      if message.text == "❓ Id":
         send_id(message)
         return
-      if message.text == "Calculate":
+      if message.text == "✒️ Calculate":
         clac(message)
         return
-      if message.text == "Support":
+      if message.text == "👥 Support":
         support(message)
         return
-      if message.text == "Mp3Tag":
+      if message.text == "🎧 Mp3Tag":
         mp3tag(message)
+        return
+      if message.text == "🌤 Weather":
+        weather_image(message)
+        return
+      if message.text == "📡 IP Geolocation":
+        ip_message(message)
+        return
+      if message.text == "◻️ QR Code":
+        qr_image(message)
+        return
+      if message.text == "💵 Exchange rate":
+        ex_message(message)
         return
     if userid in waiting_support_approval:
       bot.send_message(message.chat.id, "Please wait. Your chat request hasnt been still manually accepted!")
