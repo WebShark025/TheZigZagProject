@@ -31,6 +31,8 @@ def replymarkup(message, mtext):
 
 def message_replier(messages):
   for message in messages:
+    if redisserver.get("settings:user:language:" + str(message.from_user.id)) == None:
+      redisserver.set("settings:user:language:" + str(message.from_user.id), "en")
     userid = message.from_user.id
     banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
     if banlist:
