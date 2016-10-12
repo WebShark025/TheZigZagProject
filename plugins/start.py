@@ -13,14 +13,14 @@ def send_welcome(message):
       bot.send_message(message.chat.id, language[userlang]["INLINE_HELP_MSG"], parse_mode="Markdown")
       return
   markup = types.InlineKeyboardMarkup()
-  markupib = types.InlineKeyboardButton("Help",callback_data='help')
-  markupic = types.InlineKeyboardButton("Channel", url=CHANNEL_LINK)
+  markupib = types.InlineKeyboardButton(language[userlang]["HELP"],callback_data='help')
+  markupic = types.InlineKeyboardButton(language[userlang]["CHANNEL"], url=CHANNEL_LINK)
   markup.add(markupib,markupic)
-  markupif = types.InlineKeyboardButton("Settings (Beta)", callback_data='settings')
+  markupif = types.InlineKeyboardButton(language[userlang]["SETTINGS"], callback_data='settings')
   markup.add(markupif)
-  markupid = types.InlineKeyboardButton("Show all commands below keyboard", callback_data='showit')
+  markupid = types.InlineKeyboardButton(language[userlang]["SHOW_ALL"], callback_data='showit')
   markup.add(markupid)
-  markupie = types.InlineKeyboardButton("Inline mode help", callback_data='inlinehelp')
+  markupie = types.InlineKeyboardButton(language[userlang]["INLINE_HELP"], callback_data='inlinehelp')
   markup.add(markupie)
   
   if message.chat.type == "private":
