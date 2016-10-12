@@ -65,6 +65,8 @@ def message_replier(messages):
       if message.text == "Mp3Tag":
         mp3tag(message)
         return
+    if userid in waiting_support_approval:
+      bot.send_message(message.chat.id, "Please wait. Your chat request hasnt been still manually accepted!")
     if userid in in_chat_with_support:
       _hash = "anti_flood:user:" + str(userid)
       max_time = 10
