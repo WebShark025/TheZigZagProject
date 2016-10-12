@@ -38,15 +38,16 @@ def newTrigger(trigger, response):
 
 @bot.message_handler(commands=['addreply'])
 def add_reply_t(message):
+    userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
     if len(message.text.split()) < 2:
-        bot.reply_to(message, CHATTER_NEA_MSG, parse_mode="Markdown")
+        bot.reply_to(message, language[userlang]["CHATTER_NEA_MSG"], parse_mode="Markdown")
         return
     cid = message.chat.id
     text = message.text.replace("/addreply ","",1)
     try:
         i = text.rindex(separator)
     except:
-        bot.send_message(cid, CHATTER_INCORRECT_MSG)
+        bot.send_message(cid, language[userlang]["CHATTER_INCORRECT_MSG"])
         return
     tr = text.split(separator)[0]
     if len(tr) < 3:
@@ -54,7 +55,7 @@ def add_reply_t(message):
         return
     re = text.split(separator)[1]
     if triggers.has_key(tr):
-        bot.reply_to(message, CHATTER_ALREADYDEFINED_MSG)
+        bot.reply_to(message, language[userlang]["CHATTER_ALREADYDEFINED_MSG"])
         return
     newTrigger(tr,re)
-    bot.send_message(cid, CHATTER_DONE_MSG.format(tr, re), parse_mode="Markdown")
+    bot.send_message(cid, language[userlang]["CHATTER_DONE_MSG"].format(tr, re), parse_mode="Markdown")

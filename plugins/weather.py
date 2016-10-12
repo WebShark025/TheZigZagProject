@@ -2,12 +2,13 @@
 
 @bot.message_handler(commands=['weather', 'Weather'])
 def weather_image(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
   if len(message.text.replace("🌤 Weather", "", 1).split()) < 2:
-    bot.reply_to(message, WWEATHER_NEA_MSG, parse_mode="Markdown")
+    bot.reply_to(message, language[userlang]["WWEATHER_NEA_MSG"], parse_mode="Markdown")
     return
   city = message.text.replace("/weather ","").replace(" ", "%20")
   try:

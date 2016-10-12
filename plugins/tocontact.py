@@ -1,5 +1,6 @@
 @bot.message_handler(commands=['tocontact'])
 def n_to_contact(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:

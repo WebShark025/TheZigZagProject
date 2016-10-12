@@ -2,12 +2,13 @@
 
 @bot.message_handler(commands=['qrcode', 'Qrcode'])
 def qr_image(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
   if len(message.text.replace("◻️ QR Code", "", 1).split()) < 2:
-    bot.reply_to(message, QRCODE_NEA_MSG, parse_mode="Markdown")
+    bot.reply_to(message, language[userlang]["QRCODE_NEA_MSG"], parse_mode="Markdown")
     return
   argus = message.text.replace("/qrcode ","").replace(" ", "%20")
   bot.reply_to(message, "Processing..")

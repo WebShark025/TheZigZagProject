@@ -2,12 +2,13 @@
 
 @bot.message_handler(commands=['rate'])
 def ex_message(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
   if len(message.text.replace("💵 Exchange rate", "", 1).split()) < 2:
-    bot.reply_to(message, "Enter a base currency! \n\nExample: `/rate USD` \n\nAvailable base currencies: `USD, EUR, RUB, AUD, CAD, GBP`", parse_mode="Markdown")
+    bot.reply_to(message, language[userlang]["EXCHANGE_NEA_MSG"], parse_mode="Markdown")
     return
   currency = message.text.upper().split()[1]
 #  rlex = re.compile(r'^\b\w{3}\b')

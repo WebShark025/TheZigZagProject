@@ -63,6 +63,9 @@ language = { "en" : {
 "DOWNLOADER_ERROR_MSG" : "Im sorry, but an unknown error occured. \nPlease check the *file name* & *file size*, then try again.",
 "SETTINGS_WLC_MSG" : "TheZigZag *Settings*! \nPlease, choose a _value_ to edit. \n〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰",
 "SETTINGS_LANGUAGE_CHANGED_MSG" : "Success! Language has been updated. \n〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰",
+"ADDCOUNTER_SENDNOW_MSG" : "Send your message now!",
+"EXCHANGE_NEA_MSG" : "Enter a base currency! \n\nExample: `/rate USD` \n\nAvailable base currencies: `USD, EUR, RUB, AUD, CAD, GBP`",
+"CHATBOT_IDK_MSG" : "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄",
 }, "fa" : {
 "START_MSG" : "سلام! 😊 \n \nبه بات *زیگ زاگ* خوش آمدید 😱🚀 \nساخته شده توسط @WebShark25! \n \nکامند های بات: \n💢 _/help_ - دریافت راهنما \n💢 _/time <city>_ - دریافت زمان به وقت هرجایی! \n💢 _/calc_ - ماشین حساب! \n💢 _/support_ - با ما صحبت کنید! \n💢 _/sendcontact_ - فوروارد کردن کانتکت به ادمین \n💢 _Send feedback_ - ارسال نظر! \n💢 _/echo <msg>_ - بازگرداندن پیام \n💢 _/short <link>_ - کوتاه کردن لینک! \n💢 _/weather <city>_ - دریافت آب و هوا! \n💢 _/mp3tag <artist>||<title>_ - ادیت کردن تگ های یک آهنگ \n💢 _/tocontact <phone>||<name>_ - تبدیل نوشته به کانتکت تلگرام \n💢 _/qrcode <text>_ - ساخت کد کیو آر!! \n💢 _/ip <IP/Hostname>_ - دریافت موقعیت مکانی یک آیپی! \n💢 _/rate <currency>_ - دریافت آخرین نرخ ارز دنیا! \n💢 _/addcounter add_ - افزودن تعداد مشاهده به پیام شما! \n💢 _/lmgtfy <text>_ - به من اجازه بده آن را برای تو گوگل کنم! \n💢 _/download <link>_ - لینک دهید, فایل در تلگرام تحویل بگیرید! \n💢 _/addreply <syntax>_ - به بات آموزش چت کردن دهید! \n💢 _/id_ - دریافت آیدی \n \n_هرروز با آپدیت های بیشتر در خدمت شما هستیم!_ \n \nامیدواریم که لذت ببرید! ",
 "START_BUTTONS" : ("❓ Id", "⏱ Time", "🙈 Memes", "🎭 Send feedback", "🌤 Weather", "👥 Support", "🔗 Link shortner", "✒️ Calculate", "🎧 Mp3Tag", "📡 IP Geolocation", "◻️ QR Code", "💵 Exchange rate"),
@@ -126,5 +129,8 @@ language = { "en" : {
 "DOWNLOADER_ERROR_MSG" : "متاسفم, اما یه مشکل ناشناخته پیش اومد! \nشاید سایز فایل زیادی بزرگه, شایدم مشکل های دیگه.",
 "SETTINGS_WLC_MSG" : "تنظیمات زیگ زاگ! لطفا یک گزینه را انتخاب کنید \n〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰",
 "SETTINGS_LANGUAGE_CHANGED_MSG" : "عملیات موفقیت آمیز بود! زبان به روز شد \n〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰",
+"ADDCOUNTER_SENDNOW_MSG" : "لطفا پیام خود را ارسال کنید!",
+"EXCHANGE_NEA_MSG" : "لطفا یک ارز را وارد کنید! \n\nبرای مثال: `/rate USD` \n\nارز های موجود: `USD, EUR, RUB, AUD, CAD, GBP`",
+"CHATBOT_IDK_MSG" : "من بلد نیستم چجوری به این جواب بدم 🙁 ولی میتونی بهم یاد بدی!: /addreply 😶😄",
 }
 }

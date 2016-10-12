@@ -6,6 +6,7 @@ import sys
 import urllib
 import re
 import redis
+import time as tm
 from shutil import copyfile
 from telebot import types
 
@@ -23,6 +24,7 @@ sys.setdefaultencoding("utf-8")
 
 execfile("locale.py")
 execfile("config.py")
+execfile("locale.new.py")
 
 ############################################################################
 # START OF CODES. DO NOT EDIT ANYTHING IF YOU DONT KNOW WHAT ARE YOU DOING!#
@@ -38,6 +40,7 @@ for plugin in enabled_plugins:
     print("Enabled plugin " + plugin)
   except:
     print("Error enabling " + plugin)
+#    print Exception
 logfile.write("Bot Started: " + str(time) + ". Enabled plugins:" + str(enabled_plugins) + ". ")
 print("Bot started: " + str(time))
 messanger_list = []

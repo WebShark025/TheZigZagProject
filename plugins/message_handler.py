@@ -31,6 +31,7 @@ def replymarkup(message, mtext):
 
 def message_replier(messages):
   for message in messages:
+    userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
     if redisserver.get("settings:user:language:" + str(message.from_user.id)) == None:
       redisserver.set("settings:user:language:" + str(message.from_user.id), "en")
     userid = message.from_user.id
@@ -41,13 +42,13 @@ def message_replier(messages):
       markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
       itembtn = ["Yes, Send it.", "No! dont send it!"]
       markup.row(*itembtn)
-      bot.reply_to(message, MESSANGER_SUBMIT_MSG, reply_markup=markup, parse_mode="Markdown")
+      bot.reply_to(message, language[userlang]["MESSANGER_SUBMIT_MSG"], reply_markup=markup, parse_mode="Markdown")
       messanger_list.remove(userid)
       in_submit_feedback.update({userid: message.message_id})
       return
     if in_submit_feedback.has_key(userid):
       if message.text == "Yes, Send it.":
-        replymarkup(message, MESSANGER_LEAVE_MSG)
+        replymarkup(message, language[userlang]["MESSANGER_LEAVE_MSG"])
 #        bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
         bot.send_message("-" + str(SUPPORT_GP), "New feedback!:")
         bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, in_submit_feedback[userid])
@@ -55,7 +56,7 @@ def message_replier(messages):
         return
       elif message.text == "No! dont send it!":
         del in_submit_feedback[userid];
-        replymarkup(message, MESSANGER_CANCEL_MSG)
+        replymarkup(message, language[userlang]["MESSANGER_CANCEL_MSG"])
 #        bot.reply_to(message, MESSANGER_CANCEL_MSG, parse_mode="Markdown")
         return
       else:
@@ -116,13 +117,13 @@ def message_replier(messages):
         if msgs > max_msgs:
           in_chat_with_support.remove(userid)
           bot.send_message("-" + str(SUPPORT_GP), "User " + str(userid) + " Auto-kicked for spam.")
-          bot.reply_to(message, KICKED_MESSENGER_MSG)
+          bot.reply_to(message, language[userlang]["KICKED_MESSENGER_MSG"])
           return
       redisserver.setex(_hash, max_time, int(msgs)+1)
       if message.text == "/leave":
         return
       bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, message.message_id)
-      bot.reply_to(message, MESSAGE_SENT_MESSENGER_MSG)
+      bot.reply_to(message, language[userlang]["MESSAGE_SENT_MESSENGER_MSG"])
       return
     if userid in addcntr:
       messgid = message.message_id
@@ -158,6 +159,6 @@ def message_replier(messages):
             return
 #          else:
 #            print(similar(xxt, message.text.lower()))
-        bot.reply_to(message, "I don't know how to reply to this 🙁 Teach me by executing /addreply 😶😄", parse_mode="Markdown")
+        bot.reply_to(message, language[userlang]["CHATBOT_IDK_MSG"], parse_mode="Markdown")
       except:
         pass

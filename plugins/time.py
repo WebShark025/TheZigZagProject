@@ -2,12 +2,13 @@
 
 @bot.message_handler(commands=['date', 'time', 'Date', 'Time'])
 def time_message(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
   if len(message.text.split()) < 2:
-    bot.reply_to(message, TIME_NEA_MSG, parse_mode="Markdown")
+    bot.reply_to(message, language[userlang]["TIME_NEA_MSG"], parse_mode="Markdown")
     return
   city = message.text.split()[1]
   try:
