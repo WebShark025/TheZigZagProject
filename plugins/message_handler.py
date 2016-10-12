@@ -17,11 +17,11 @@ def message_replier(messages):
       markup = types.ReplyKeyboardMarkup(one_time_keyboard=True)
       itembtn = ["Yes, Send it.", "No! dont send it!"]
       markup.row(*itembtn)
-      bot.reply_to(message, MESSANGER_LEAVE_MSG, reply_markup=markup, parse_mode="Markdown")
+      bot.reply_to(message, MESSANGER_SUBMIT_MSG, reply_markup=markup, parse_mode="Markdown")
       messanger_list.remove(userid)
       in_submit_feedback.update({userid: message.message_id})
       return
-    if in_submit_feedback.haskey(userid):
+    if in_submit_feedback.has_key(userid):
       if message.text == "Yes, Send it.":
         bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
         bot.send_message("-" + str(SUPPORT_GP), "New feedback!:")
