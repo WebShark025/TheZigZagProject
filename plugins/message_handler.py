@@ -7,6 +7,28 @@ def similar(a, b):
 
 in_submit_feedback = {}
 
+def replymarkup(message, mtext):
+  markup = types.ReplyKeyboardMarkup()
+  numbers = list(range(3, 3000, 3))
+  numbers = [0] + numbers
+  cline = 0
+  linelength = len(START_BUTTONS)
+  try:
+    while (cline < linelength):
+      itembtn = []
+      cfrom = numbers[cline]
+      cto = numbers[cline + 1]
+      cline = cline + 1
+      while (cfrom < cto):
+        itembtn.append(START_BUTTONS[cfrom])
+        cfrom = cfrom + 1
+        if len(itembtn) == 3:
+          markup.row(*itembtn)
+  except:
+    lolalola = 0
+  bot.reply_to(message, mtext, reply_markup=markup, parse_mode="Markdown")
+
+
 def message_replier(messages):
   for message in messages:
     userid = message.from_user.id
@@ -23,14 +45,16 @@ def message_replier(messages):
       return
     if in_submit_feedback.has_key(userid):
       if message.text == "Yes, Send it.":
-        bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
+        replymarkup(message, MESSANGER_LEAVE_MSG)
+#        bot.reply_to(message, MESSANGER_LEAVE_MSG, parse_mode="Markdown")
         bot.send_message("-" + str(SUPPORT_GP), "New feedback!:")
         bot.forward_message("-" + str(SUPPORT_GP), message.chat.id, in_submit_feedback[userid])
         del in_submit_feedback[userid];
         return
       elif message.text == "No! dont send it!":
         del in_submit_feedback[userid];
-        bot.reply_to(message, MESSANGER_CANCEL_MSG, parse_mode="Markdown")
+        replymarkup(message, MESSANGER_CANCEL_MSG)
+#        bot.reply_to(message, MESSANGER_CANCEL_MSG, parse_mode="Markdown")
         return
       else:
         bot.reply_to(message, "Unrecognized!")
