@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 @bot.message_handler(commands=['setlang' , 'Setlang'])
-def echo_message(message):
+def setlang_message(message):
   userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
   userid = message.from_user.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
@@ -16,3 +18,5 @@ def echo_message(message):
     elif langz == "fa":
       redisserver.set("settings:user:language:" + str(call.from_user.id), "fa")
       bot.send_message(message.chat.id, "انجام شد!")
+  except:
+    pass
