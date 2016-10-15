@@ -13,6 +13,10 @@ def send_id(message):
     reply_msg = reply_msg + language[userlang]["INGP_ID_MSG"]
   elif message.chat.type == "group":
     reply_msg = reply_msg + language[userlang]["INGP_ID_MSG"]
+  if message.forward_from:
+    reply_msg = reply_msg + language[userlang]["FORWARDED_ID_MSG"].format(message.forward_from.id)
+  if message.reply_to_message && message.reply_to_message.forward_from:
+    reply_msg = reply_msg + language[userlang]["FORWARDED_ID_MSG"].format(message.reply_to_message.forward_from.id)
   try:
     repliedid = message.reply_to_message.from_user.id
     reply_msg = reply_msg + language[userlang]["REPLIED_ID_MSG"]
