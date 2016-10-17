@@ -80,6 +80,8 @@ language = { "en" : {
 "INLINE_SENDWEATHER_MSG" : 'Send current weather of ',
 "INLINE_SENDTIME_MSG" : 'Please enter timezone/city/region/etc!',
 "INLINE_TIMETIME_MSG" : 'Send current time in ',
+"INLINE_LMGTFY_MSG": "Enter a text please!",
+"INLINE_LMGTFYSEND_MSG" : "Send it!",
 }, "fa" : {
 "START_MSG" : "سلام! 😊 \n \nبه بات *زیگ زاگ* خوش آمدید 😱🚀 \nساخته شده توسط @WebShark25! \n \nکامند های بات: \n💢 _/help_ - دریافت راهنما \n💢 _/time <city>_ - دریافت زمان به وقت هرجایی! \n💢 _/calc_ - ماشین حساب! \n💢 _/support_ - با ما صحبت کنید! \n💢 _/sendcontact_ - فوروارد کردن کانتکت به ادمین \n💢 _Send feedback_ - ارسال نظر! \n💢 _/echo <msg>_ - بازگرداندن پیام \n💢 _/short <link>_ - کوتاه کردن لینک! \n💢 _/weather <city>_ - دریافت آب و هوا! \n💢 _/mp3tag <artist>||<title>_ - ادیت کردن تگ های یک آهنگ \n💢 _/tocontact <phone>||<name>_ - تبدیل نوشته به کانتکت تلگرام \n💢 _/qrcode <text>_ - ساخت کد کیو آر!! \n💢 _/ip <IP/Hostname>_ - دریافت موقعیت مکانی یک آیپی! \n💢 _/rate <currency>_ - دریافت آخرین نرخ ارز دنیا! \n💢 _/addcounter add_ - افزودن تعداد مشاهده به پیام شما! \n💢 _/lmgtfy <text>_ - به من اجازه بده آن را برای تو گوگل کنم! \n💢 _/download <link>_ - لینک دهید, فایل در تلگرام تحویل بگیرید! \n💢 _/addreply <syntax>_ - به بات آموزش چت کردن دهید! \n💢 _/id_ - دریافت آیدی \n \n_هرروز با آپدیت های بیشتر در خدمت شما هستیم!_ \n \nامیدواریم که لذت ببرید! ",
 "START_BUTTONS" : ("❓ Id", "⏱ Time", "🙈 Memes", "🎭 Send feedback", "🌤 Weather", "👥 Support", "🔗 Link shortner", "✒️ Calculate", "🎧 Mp3Tag", "📡 IP Geolocation", "◻️ QR Code", "💵 Exchange rate"),
@@ -160,5 +162,7 @@ language = { "en" : {
 "INLINE_SENDWEATHER_MSG" : 'ارسال وضعیت آب و هوای ',
 "INLINE_SENDTIME_MSG" : 'لطفا یک شهر/موقعیت زمانی/محله وارد کنید!',
 "INLINE_TIMETIME_MSG" : 'ارسال تاریخ و ساعت ',
+"INLINE_LMGTFY_MSG": " لطفا یک چیزی وارد کن برام!",
+"INLINE_LMGTFYSEND_MSG" : "ارسال!",
 }
 }
