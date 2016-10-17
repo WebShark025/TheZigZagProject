@@ -140,7 +140,7 @@ def query_text(inline_query):
       query = inline_query.query.replace("lmgtfy ", "", 1)
       lmgtfyurl = urllib.urlopen("http://r1z.ir/api.php?long=http://lmgtfy.com/?q={}".format(query.replace(" ", "+"))).read()
       try:
-        r3 = types.InlineQueryResultArticle('3', language[userlang]["INLINE_LMGTFYSEND_MSG"], types.InputTextMessageContent("Direct link: `{}`\n\nOr click on [this :D]({})".format(lmgtfyurl, lmgtfyurl), parse_mode="Markdown"))
+        r3 = types.InlineQueryResultArticle('3', language[userlang]["INLINE_LMGTFYSEND_MSG"], types.InputTextMessageContent("Direct link: `{}`\n\nOr click on [this :D]({})".format(lmgtfyurl, lmgtfyurl), parse_mode="Markdown", disable_web_page_preview=True))
         bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
       except:
         r3 = types.InlineQueryResultArticle('3', 'Error occured.', types.InputTextMessageContent("Unexpected error occured."))
