@@ -128,3 +128,22 @@ def query_text(inline_query):
   except Exception as e:
     print(e)
 
+
+@bot.inline_handler(lambda query: query.query.split()[0] == 'lmgtfy')
+def query_text(inline_query):
+  userlang = redisserver.get("settings:user:language:" + str(inline_query.from_user.id))
+  try:
+    if inline_query.query == "lmgtfy":
+      r = types.InlineQueryResultArticle('1', language[userlang]["INLINE_LMGTFY_MSG"], types.InputTextMessageContent('http://google.com'))
+      bot.answer_inline_query(inline_query.id, [r])
+    if len(inline_query.query.split()) > 1:
+      query = inline_query.query.replace("lmgtfy ", "", 1)
+      lmgtfyurl = urllib.urlopen("http://r1z.ir/api.php?long=http://lmgtfy.com/?q={}".format(query.replace(" ", "+"))).read()
+      try:
+        r3 = types.InlineQueryResultArticle('3', language[userlang]["INLINE_LMGTFYSEND_MSG"], types.InputTextMessageContent("Direct link: `{}`\n\nOr click on [this :D]({})".format(lmgtfyurl, lmgtfyurl), parse_mode="Markdown"))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+      except:
+        r3 = types.InlineQueryResultArticle('3', 'Error occured.', types.InputTextMessageContent("Unexpected error occured."))
+        bot.answer_inline_query(inline_query.id, [r3], cache_time=1, is_personal=True)
+  except Exception as e:
+    print(e)
