@@ -37,3 +37,21 @@ def contact_forwarder(contact):
     bot.send_message("-" + str(SUPPORT_GP), language[userlang]["CONTACT_RECIEVED_MSG"])
     bot.forward_message("-" + str(SUPPORT_GP), contact.chat.id, contact.message_id)
     bot.reply_to(contact, language[userlang]["CONTACT_FORWARDED_MSG"])
+
+@bot.message_handler(commands=['stats', 'Status'])
+def send_gpstats(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
+  userid = message.from_user.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
+  if message.chat.type != "private" or message.chat.type != "channel":
+    gpmsgs = redisserver.get("stats:group:messages:" + str(groupid))
+    gpphotos = redisserver.get("stats:group:messages:photos:" + str(groupid))
+    gpaudios = redisserver.get("stats:group:messages:audios:" + str(groupid))
+    gpvideos = redisserver.get("stats:group:messages:videos:" + str(groupid))
+    gpdocs = redisserver.get("stats:group:messages:docs:" + str(groupid))
+    gpvoices = redisserver.get("stats:group:messages:voices:" + str(groupid))
+    bot.send_message(message.chat.id, language[userlang]["GP_STATS_MSG"].format(gpmsgs, gpvoices, gpaudios, gpvideos, gpdocs, gpvideos), parse_mode="Markdown")
+  else:
+    bot.reply_to(message, language[userlang]["GP_NOTINGP_MSG"])
