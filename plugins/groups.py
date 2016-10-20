@@ -42,6 +42,7 @@ def contact_forwarder(contact):
 def send_gpstats(message):
   userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
   userid = message.from_user.id
+  groupid = message.chat.id
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
@@ -52,6 +53,6 @@ def send_gpstats(message):
     gpvideos = redisserver.get("stats:group:messages:videos:" + str(groupid))
     gpdocs = redisserver.get("stats:group:messages:docs:" + str(groupid))
     gpvoices = redisserver.get("stats:group:messages:voices:" + str(groupid))
-    bot.send_message(message.chat.id, language[userlang]["GP_STATS_MSG"].format(gpmsgs, gpvoices, gpaudios, gpvideos, gpdocs, gpvideos), parse_mode="Markdown")
+    bot.send_message(message.chat.id, language[userlang]["GP_STATS_MSG"].format(gpmsgs, gpvoices, gpaudios, gpphotos, gpdocs, gpvideos), parse_mode="Markdown")
   else:
     bot.reply_to(message, language[userlang]["GP_NOTINGP_MSG"])
