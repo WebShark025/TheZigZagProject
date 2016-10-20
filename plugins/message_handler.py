@@ -139,6 +139,12 @@ def message_replier(messages):
           bot.reply_to(message, "REPLY SENT")
         except:
           bot.reply_to(message, "ERROR SENDING?")
+    # Group statistics!
+    if message.chat.type == "group" or message.chat.type == "supergroup":
+      groupid = message.chat.id
+      gpmsgs = redisserver.get("stats:group:messages:" + str(groupid))
+      redisserver.set("stats:group:messages:" + str(groupid), int(gpmsgs)+1)
+    # Group statistics end!
     if message.chat.type == "private":
       try:
         zz = message.text
