@@ -143,9 +143,13 @@ def message_replier(messages):
     if message.chat.type == "group" or message.chat.type == "supergroup":
       groupid = message.chat.id
       gpmsgs = redisserver.get("stats:group:messages:" + str(groupid))
+      gpphotos = redisserver.get("stats:group:messages:photos:" + str(groupid))
       if not gpmsgs:
         gpmsgs = 0
+        gpphotos = 0
       redisserver.set("stats:group:messages:" + str(groupid), int(gpmsgs)+1)
+      if message.content_type == "photo":
+        redisserver.set("stats:group:messages:photos:" + str(groupid), int(gpphotos)+1)
     # Group statistics end!
     if message.chat.type == "private":
       try:
