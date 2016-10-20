@@ -45,7 +45,7 @@ def send_gpstats(message):
   banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
   if banlist:
     return
-  if message.chat.type != "private" or message.chat.type != "channel":
+  if message.chat.type == "supergroup" or message.chat.type == "group":
     gpmsgs = redisserver.get("stats:group:messages:" + str(groupid))
     gpphotos = redisserver.get("stats:group:messages:photos:" + str(groupid))
     gpaudios = redisserver.get("stats:group:messages:audios:" + str(groupid))
