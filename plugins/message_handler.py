@@ -143,6 +143,8 @@ def message_replier(messages):
     if message.chat.type == "group" or message.chat.type == "supergroup":
       groupid = message.chat.id
       gpmsgs = redisserver.get("stats:group:messages:" + str(groupid))
+      if not gpmsgs:
+        gpmsgs = 0
       redisserver.set("stats:group:messages:" + str(groupid), int(gpmsgs)+1)
     # Group statistics end!
     if message.chat.type == "private":
