@@ -144,12 +144,33 @@ def message_replier(messages):
       groupid = message.chat.id
       gpmsgs = redisserver.get("stats:group:messages:" + str(groupid))
       gpphotos = redisserver.get("stats:group:messages:photos:" + str(groupid))
+      gpaudios = redisserver.get("stats:group:messages:audios:" + str(groupid))
+      gpvideos = redisserver.get("stats:group:messages:videos:" + str(groupid))
+      gpdocs = redisserver.get("stats:group:messages:docs:" + str(groupid))
+      gpvoices = redisserver.get("stats:group:messages:voices:" + str(groupid))
       if not gpmsgs:
         gpmsgs = 0
+      if not gpphotos:
         gpphotos = 0
+      if not gpaudios:
+        gpaudios = 0
+      if not gpvideos:
+        gpvideos = 0
+      if not gpdocs:
+        gpdocs = 0
+      if not gpvoices:
+        gpvoices = 0
       redisserver.set("stats:group:messages:" + str(groupid), int(gpmsgs)+1)
       if message.content_type == "photo":
         redisserver.set("stats:group:messages:photos:" + str(groupid), int(gpphotos)+1)
+      if message.content_type == "audio":
+        redisserver.set("stats:group:messages:audios:" + str(groupid), int(gpaudios)+1)
+      if message.content_type == "video":
+        redisserver.set("stats:group:messages:videos:" + str(groupid), int(gpvideos)+1)
+      if message.content_type == "document":
+        redisserver.set("stats:group:messages:docs:" + str(groupid), int(gpdocs)+1)
+      if message.content_type == "voice":
+        redisserver.set("stats:group:messages:voices:" + str(groupid), int(gpvoices)+1)
     # Group statistics end!
     if message.chat.type == "private":
       try:
