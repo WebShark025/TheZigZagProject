@@ -67,12 +67,12 @@ def send_gpstats(message):
     return
   if message.chat.type == "supergroup" or message.chat.type == "group":
     if len(message.text.split()) < 2:
-      bot.reply_to(message, "not enough args", parse_mode="Markdown")
+      bot.reply_to(message, language[userlang]["GP_RULES_NEA_MSG"], parse_mode="Markdown")
       return
     try:
-      rrules = message.text.replace("/echo","",1)
-      redisserver.set("settings:group:rules:" + str(groupid))
-      bot.reply_to(message, "set new rules", parse_mode="HTML")
+      rrules = message.text.replace("/setrules ","",1).replace("/Setrules ", "", 1)
+      redisserver.set("settings:group:rules:" + str(groupid), rrules)
+      bot.reply_to(message, language[userlang]["GP_RULESSET_MSG"], parse_mode="HTML")
     except:
       bot.send_message(message.chat.id, language[userlang]["ERROR_MSG"])
   else:
