@@ -56,3 +56,40 @@ def send_gpstats(message):
     bot.send_message(message.chat.id, language[userlang]["GP_STATS_MSG"].format(gpmsgs, gpvoices, gpaudios, gpphotos, gpdocs, gpvideos), parse_mode="Markdown")
   else:
     bot.reply_to(message, language[userlang]["GP_NOTINGP_MSG"])
+
+@bot.message_handler(commands=['setrules', 'Setrules'])
+def send_gpstats(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
+  userid = message.from_user.id
+  groupid = message.chat.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
+  if message.chat.type == "supergroup" or message.chat.type == "group":
+    if len(message.text.split()) < 2:
+      bot.reply_to(message, "not enough args", parse_mode="Markdown")
+      return
+    try:
+      rrules = message.text.replace("/echo","",1)
+      redisserver.set("settings:group:rules:" + str(groupid))
+      bot.reply_to(message, "set new rules", parse_mode="HTML")
+    except:
+      bot.send_message(message.chat.id, language[userlang]["ERROR_MSG"])
+  else:
+    bot.reply_to(message, language[userlang]["GP_NOTINGP_MSG"])
+
+@bot.message_handler(commands=['rules', 'Rules'])
+def send_gpstats(message):
+  userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
+  userid = message.from_user.id
+  groupid = message.chat.id
+  banlist = redisserver.sismember('zigzag_banlist', '{}'.format(userid))
+  if banlist:
+    return
+  if message.chat.type == "supergroup" or message.chat.type == "group":
+    rules = redisserver.get("settings:group:rules:" + str(groupid))
+    if not rules:
+      bot.send_message(message.chat.id, "No rules defined!")
+    bot.send_message(message.chat.id, rules, parse_mode="Markdown")
+  else:
+    bot.reply_to(message, language[userlang]["GP_NOTINGP_MSG"])
