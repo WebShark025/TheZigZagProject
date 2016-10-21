@@ -1,3 +1,4 @@
+
 @bot.message_handler(func=lambda message: True, content_types=['new_chat_member'])
 def user_greet(message):
   userlang = redisserver.get("settings:user:language:" + str(message.from_user.id))
