@@ -12,10 +12,11 @@ def user_greet(message):
   
   if message.new_chat_member.id == bot.get_me().id:
     inviter = message.from_user.id
-    if inviter not in ADMINS_IDS:
-      bot.send_message(message.chat.id, language[userlang]["NON_ADMIN_ADDED_BOT_MSG"])
-      bot.leave_chat(message.chat.id)
-    else:
+#    if inviter not in ADMINS_IDS:
+#      bot.send_message(message.chat.id, language[userlang]["NON_ADMIN_ADDED_BOT_MSG"])
+#      bot.leave_chat(message.chat.id)
+#    else:
+     if True:
       bot.send_message(message.chat.id, language[userlang]["BOT_JOINED_MSG"])
 #      groupargs = 0
 #      redisserver.sadd(message.chat.id, groupargs)
