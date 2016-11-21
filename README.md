@@ -1,6 +1,6 @@
 # The ZigZag project!
 
-WARNING: Project wont get Official updated till 1st January 2017! (I mean the v2 ZigZag bot.)
+WARNING: This project is nearly abandoned! :D
 
 Its actually because I think that my code isnt stable. And it needs time to get better ;) Anyways, its open and you can use it!
 
