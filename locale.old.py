@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+# WARNING: This is OLD locale, Its for when the bot wasnt multilanguage. (-v1.1.0)
+# It will be fully removed on next versions.
+
 import sys
 
 reload(sys)  
