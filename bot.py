@@ -14,7 +14,7 @@ from telebot import types
 if not os.path.exists("config.py"):
   copyfile("config.py.new", "config.py")
 if not os.path.exists("locale.py"):
-  copyfile("locale.py.new", "locale.py")
+  copyfile("locale.new.py", "locale.py")
   
 # REDIS SERVER. IF ITS DIFFRENT, CONFIG IT!
 redisserver = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -24,7 +24,7 @@ sys.setdefaultencoding("utf-8")
 
 execfile("locale.py")
 execfile("config.py")
-execfile("locale.new.py")
+# execfile("locale.new.py")
 
 ############################################################################
 # START OF CODES. DO NOT EDIT ANYTHING IF YOU DONT KNOW WHAT ARE YOU DOING!#
