@@ -18,4 +18,5 @@ def send_id(message):
     reply_msg = reply_msg + language[userlang]["REPLIED_ID_MSG"].format(repliedid)
     if message.reply_to_message.forward_from:
       reply_msg = reply_msg + language[userlang]["FORWARDED_ID_MSG"].format(message.reply_to_message.forward_from.id)
+      reply_msg = reply_msg + language[userland]["CHATID_ID_MSG"].format(message.reply_to_message.forward_from_chat.id)
   bot.reply_to(message, reply_msg.format(username, userid, gpid), parse_mode="Markdown")
