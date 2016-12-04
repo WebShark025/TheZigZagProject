@@ -10,7 +10,7 @@ def n_to_contact(message):
     return
   rlnumber = re.compile(r'^\+(?:\+?)?[0-9]\d{9,13}')
   args = message.text.replace("/tocontact ","").split("||")
-  if rlnumber.search(args[0]):
-    bot.send_contact(message.chat.id, args[0], args[1])
+  if rlnumber.search(args[0].replace(" ","")):
+    bot.send_contact(message.chat.id, args[0].replace(" ",""), args[1])
   else:
     bot.reply_to(message, "Error sending. Phone number recieved in wrong format")

@@ -9,9 +9,7 @@ def send_id(message):
   userid = message.from_user.id
   reply_msg = language[userlang]["ID_MSG"]
   gpid = message.chat.id
-  if message.chat.type == "supergroup":
-    reply_msg = reply_msg + language[userlang]["INGP_ID_MSG"]
-  elif message.chat.type == "group":
+  if message.chat.type == "supergroup" or message.chat.type == "group": 
     reply_msg = reply_msg + language[userlang]["INGP_ID_MSG"]
   if message.reply_to_message:
     repliedid = message.reply_to_message.from_user.id
