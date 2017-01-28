@@ -67,6 +67,14 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 
 More commands comming soon!
 
+# Use ZigZag's base for your bot!
+
+If you are interested in how ZigZag works and you want to write a Python bot using ZigZag's base, you can do this:
+
+Copy `install.sh`, `bot.py`, `locale.new.py`, `config.new.py`, `plugins/start.py`, `plugins/callback_handler.py`, `plugins/message_handler.py` and `launch.sh`, Clean those three plugins up, and use it for yourself :) 
+
+Note: v2 is comming soon, and it will be a FULL RECODE of the project, BUT, I'm writing it in the best way I can, so the only small thing you need to do to the plugins you wrote for ZigZag, is to change its patterns (I mean @bot.handlemessage...). Just wanted you guys to know :) Full instructions will be published when the new update arrives.
+
 # Contact me
 
 [![https://telegram.me/WebShark25](https://img.shields.io/badge/💬_Telegram-WebShark25-blue.svg)](https://telegram.me/WebShark25)
