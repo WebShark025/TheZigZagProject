@@ -2,7 +2,7 @@
 
 WARNING: This project is nearly abandoned! :D
 
-Its actually because I think that my code isnt stable. And it needs time to get better ;) Anyways, its open and you can use it!
+It's actually because I think that my code isnt stable. And it needs time to get better ;) Anyways, it's open and you can use it!
 
 -----------
 
@@ -10,7 +10,7 @@ The official ZigZag project!
 
 Actually I made this to learn python &amp; Telegram bot API
 
-But now its going furthur than learning python xD
+But now it's going furthur than learning python xD
 
 Special thanks to Iman Daneshi that gave me the idea to learn python.. lol..
 
@@ -18,7 +18,7 @@ This page will get updated after the first stable release.
 
 # Installation
 
-To install the bot, executes theese commands one by one:
+To install the bot, executes these commands one by one:
 
 ```
 git clone https://github.com/WebShark025/TheZigZagProject
