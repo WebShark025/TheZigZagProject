@@ -2,7 +2,7 @@
 
 WARNING: This project is nearly abandoned! :D
 
-Its actually because I think that my code isnt stable. And it needs time to get better ;) Anyways, its open and you can use it!
+It's actually because I think that my code isnt stable. And it needs time to get better ;) Anyways, it's open and you can use it!
 
 -----------
 
@@ -10,7 +10,7 @@ The official ZigZag project!
 
 Actually I made this to learn python &amp; Telegram bot API
 
-But now its going furthur than learning python xD
+But now it's going furthur than learning python xD
 
 Special thanks to Iman Daneshi that gave me the idea to learn python.. lol..
 
@@ -18,7 +18,7 @@ This page will get updated after the first stable release.
 
 # Installation
 
-To install the bot, executes theese commands one by one:
+To install the bot, executes these commands one by one:
 
 ```
 git clone https://github.com/WebShark025/TheZigZagProject
@@ -66,6 +66,14 @@ If you have problems, visit [Manual installation](https://github.com/WebShark025
 | /force_user_leave userid | Forces a user to leave support chat | Admins |
 
 More commands comming soon!
+
+# Use ZigZag's base for your bot!
+
+If you are interested in how ZigZag works and you want to write a Python bot using ZigZag's base, you can do this:
+
+Copy `install.sh`, `bot.py`, `locale.new.py`, `config.new.py`, `plugins/start.py`, `plugins/callback_handler.py`, `plugins/message_handler.py` and `launch.sh`, Clean those three plugins up, and use it for yourself :) 
+
+Note: v2 is comming soon, and it will be a FULL RECODE of the project, BUT, I'm writing it in the best way I can, so the only small thing you need to do to the plugins you wrote for ZigZag, is to change its patterns (I mean @bot.handlemessage...). Just wanted you guys to know :) Full instructions will be published when the new update arrives.
 
 # Contact me
 
