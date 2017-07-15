@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 
+START_BUTTONS = ("❓ Id", "⏱ Time", "🙈 Memes", "🎭 Send feedback", "🌤 Weather", "👥 Support", "🔗 Link shortner", "✒️ Calculate", "🎧 Mp3Tag", "📡 IP Geolocation", "◻️ QR Code", "💵 Exchange rate") # SPLITS 3 PER LINE
+
 language = { "en" : {
 "START_MSG" : "Hey! 😊 \n \nWelcome to the *ZigZagBot*! 😱🚀 \nDeveloped by @WebShark25! \n \nAll bot commands: \n💢 _/help_ - Get help message \n💢 _/time <city>_ - Gets current time in any timezone! \n💢 _/calc_ - Lets do some maths \n💢 _/support_ - Chat with us! \n💢 _/sendcontact_ - Forward contact to admin \n💢 _Send feedback_ - Send feedback! \n💢 _/echo <msg>_ - Echoes the message \n💢 _/short <link>_ - Shorts the link! \n💢 _/weather <city>_ - Gets weather! \n💢 _/mp3tag <artist>||<title>_ - Edits audios tags! \n💢 _/tocontact <phone>||<name>_ - Turns string to Telegram contact! \n💢 _/qrcode <text>_ - QR Code creator!! \n💢 _/ip <IP/Hostname>_ - Get IP location & more! \n💢 _/rate <currency>_ - Get latest exchange rates! \n💢 _/addcounter add_ - Add seen counter to your message! \n💢 _/lmgtfy <text>_ - Let me google that for you! \n💢 _/download <link>_ - Download a file and send it using telegram! \n💢 _/addreply <syntax>_ - Learn the bot how to respond! \n💢 _/id_ - Get your ID & Group's ID \n \n_More commands comming soon!_ \n \nI Hope you enjoy it! ",
 "START_BUTTONS" : ("❓ Id", "⏱ Time", "🙈 Memes", "🎭 Send feedback", "🌤 Weather", "👥 Support", "🔗 Link shortner", "✒️ Calculate", "🎧 Mp3Tag", "📡 IP Geolocation", "◻️ QR Code", "💵 Exchange rate"),
@@ -55,6 +57,8 @@ language = { "en" : {
 "IP_DONE_MSG" : "IP Information for *{}*: \n\n🌍 Country: *{}* \n🏫 City: *{}* \n📡 ISP: *{}* \n⏱ TimeZone: *{}*",
 "MP3TAG_NEA_MSG" : "Please use correct syntax: \n`/mp3tag Artist||Title`\nAnd then, send the audio file.",
 "MP3TAG_SENDAUDIO_MSG" : "Please send the audio now!",
+"MP3COVER_NEA_MSG" : "Please reply to a photo to set it as an audios cover!",
+"MP3COVER_REPLYTOPHOTO_MSG" : "Please reply to a photo, nothing else!",
 "QRCODE_NEA_MSG" : "Please, enter a text so I can convert it to QR code. \n\nFor example: `/qrcode http://sadeco.ir`",
 "SHORTNER_NEA_MSG" : "Please enter a link so I can short it. \nLike: `/short http://google.com`",
 "TIME_NEA_MSG" : "Enter a time zone/city/region/etc. please! \n\nExample: `/time Tehran`",
@@ -88,6 +92,8 @@ language = { "en" : {
 "GP_NOTINGP_MSG" : "This statistics only works in groups & supergroups.",
 "GP_RULES_NEA_MSG" : "Rules set to null! Please enter something :)",
 "GP_RULESSET_MSG" : "Success! Group rules updated.",
+"CAPTION_REPLYTOMSG_MSG" : "Please reply to a file!",
+"CAPTION_NOCAPTION_MSG" : "Please enter a caption! \n/caption lablablab",
 }, "fa" : {
 "START_MSG" : "سلام! 😊 \n \nبه بات *زیگ زاگ* خوش آمدید 😱🚀 \nساخته شده توسط @WebShark25! \n \nکامند های بات: \n💢 _/help_ - دریافت راهنما \n💢 _/time <city>_ - دریافت زمان به وقت هرجایی! \n💢 _/calc_ - ماشین حساب! \n💢 _/support_ - با ما صحبت کنید! \n💢 _/sendcontact_ - فوروارد کردن کانتکت به ادمین \n💢 _Send feedback_ - ارسال نظر! \n💢 _/echo <msg>_ - بازگرداندن پیام \n💢 _/short <link>_ - کوتاه کردن لینک! \n💢 _/weather <city>_ - دریافت آب و هوا! \n💢 _/mp3tag <artist>||<title>_ - ادیت کردن تگ های یک آهنگ \n💢 _/tocontact <phone>||<name>_ - تبدیل نوشته به کانتکت تلگرام \n💢 _/qrcode <text>_ - ساخت کد کیو آر!! \n💢 _/ip <IP/Hostname>_ - دریافت موقعیت مکانی یک آیپی! \n💢 _/rate <currency>_ - دریافت آخرین نرخ ارز دنیا! \n💢 _/addcounter add_ - افزودن تعداد مشاهده به پیام شما! \n💢 _/lmgtfy <text>_ - به من اجازه بده آن را برای تو گوگل کنم! \n💢 _/download <link>_ - لینک دهید, فایل در تلگرام تحویل بگیرید! \n💢 _/addreply <syntax>_ - به بات آموزش چت کردن دهید! \n💢 _/id_ - دریافت آیدی \n \n_هرروز با آپدیت های بیشتر در خدمت شما هستیم!_ \n \nامیدواریم که لذت ببرید! ",
 "START_BUTTONS" : ("❓ Id", "⏱ Time", "🙈 Memes", "🎭 Send feedback", "🌤 Weather", "👥 Support", "🔗 Link shortner", "✒️ Calculate", "🎧 Mp3Tag", "📡 IP Geolocation", "◻️ QR Code", "💵 Exchange rate"),
@@ -142,6 +148,8 @@ language = { "en" : {
 "IP_DONE_MSG" : "مشخصات آیپی *{}*: \n\n🌍 کشور: *{}* \n🏫 شهر: *{}* \n📡 سرویس دهنده: *{}* \n⏱ موقعیت زمانی: *{}*",
 "MP3TAG_NEA_MSG" : "لطفا مقدار را وارد کنید: \n`/mp3tag Artist||Title`\nو در پیام بعد, آهنگ را ارسال کنید",
 "MP3TAG_SENDAUDIO_MSG" : "خب, حالا آهنگ رو ارسال کن!",
+"MP3COVER_NEA_MSG" : "لطفا, این دستور رو در ریپلای به عکسی که میخواهید برروی ترک ست شود, ارسال کنید",
+"MP3COVER_REPLYTOPHOTO_MSG" : "لطفا به یک عکس ریپلای کنید.",
 "QRCODE_NEA_MSG" : "لطفا, یک لینک وارد کنید تا آن را تبدیل به کیو آر کد بکنم. \n\nمثال: `/qrcode http://sadeco.ir`",
 "SHORTNER_NEA_MSG" : "لطفا یک لینک وارد کنید تا آن را کوتاه کنم! \nمثلا: `/short http://google.com`",
 "TIME_NEA_MSG" : "لطفا یک موقعیت زمانی وارد کنید! \n\nمثل: `/time Tehran`",
@@ -175,5 +183,7 @@ language = { "en" : {
 "GP_NOTINGP_MSG" : "این آمار, فقط در گروه ها کار میکند.",
 "GP_RULES_NEA_MSG" : "لطفا, متن قوانین را وارد کنید!",
 "GP_RULESSET_MSG" : "عملیات موفقیت آمیز بود! قوانین گروه ست شد.",
+"CAPTION_REPLYTOMSG_MSG" : "لطفا این دستور را در ریپلای به یک فایل ارسال کنید!",
+"CAPTION_NOCAPTION_MSG" : "لطفا یک کپشن وارد کنید! \n/caption lablablab",
 }
 }
