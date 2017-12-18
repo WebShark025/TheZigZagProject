@@ -19,7 +19,15 @@ if not os.path.exists("locale.py"):
 # REDIS SERVER. IF ITS DIFFRENT, CONFIG IT!
 redisserver = redis.StrictRedis(host='localhost', port=6379, db=0)
 
-reload(sys)  
+try:
+    reload(sys) # Python 2.7
+except NameError:
+    try:
+        from importlib import reload  # Python 3.4+
+    except ImportError:
+        from imp import reload
+    reload(sys)
+
 sys.setdefaultencoding("utf-8")
 
 execfile("locale.py")
