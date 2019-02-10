@@ -1,24 +1,18 @@
 # The ZigZag project!
 
-WARNING: This project is nearly abandoned! :D
+WARNING: ZigZag v1 is completely abandoned and will receive no further updates!
 
-It's actually because I think that my code isnt stable. And it needs time to get better ;) Anyways, it's open and you can use it!
+If you wish to use the ZigZag project for easier and faster interaction with Telegram API, use https://github.com/WebShark025/ZigZag-v2-Base
 
 -----------
 
 The official ZigZag project!
 
-Actually I made this to learn python &amp; Telegram bot API
-
-But now it's going furthur than learning python xD
-
-Special thanks to Iman Daneshi that gave me the idea to learn python.. lol..
-
 This page will get updated after the first stable release.
 
 # Installation
 
-To install the bot, executes these commands one by one:
+To install the bot, execute these commands one by one:
 
 ```
 git clone https://github.com/WebShark025/TheZigZagProject
@@ -29,11 +23,11 @@ sudo ./install.sh
 
 Launch the bot once: `./launch.sh` then stop it (`Ctrl + C`)
 
-A Copy of `locale.py.new` & `config.py.new` will be maken => `locale.py` & `config.py`. 
+A Copy of `locale.py.new` & `config.py.new` will be made => `locale.py` & `config.py`. 
 
 Edit those as you need.
 
-Then launch the bot normaly. To do it, simply execute `./launch.sh` 
+Then launch the bot normaly. To do so, simply execute `./launch.sh` 
 
 If you have problems, visit [Manual installation](https://github.com/WebShark025/MySimpleFirstPythonBot/wiki/Manual-installation)
 
